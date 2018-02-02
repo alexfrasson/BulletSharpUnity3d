@@ -59,7 +59,7 @@ namespace DemoFramework {
 
         public static void CreateConeShape(ConeShape shape, Mesh mesh)
         {
-            ProceduralPrimitives.CreateMeshCone(mesh, shape.Height, shape.Radius, 0f, 10);
+            ProceduralPrimitives.CreateMeshCone(mesh, (float)shape.Height, (float)shape.Radius, 0f, 10);
         }
 
         public static void CreateBox2DShape(Box2DShape shape, Mesh mesh)
@@ -101,18 +101,18 @@ namespace DemoFramework {
             if (Math.Abs(n[2]) > (Math.Sqrt(2) / 2))
             {
                 // choose p in y-z plane
-                float a = n[1] * n[1] + n[2] * n[2];
-                float k = 1.0f / (float)Math.Sqrt(a);
-                p = new UnityEngine.Vector3(0, -n[2] * k, n[1] * k);
+                double a = n[1] * n[1] + n[2] * n[2];
+                double k = 1.0f / (double)Math.Sqrt(a);
+                p = new UnityEngine.Vector3(0, -n[2] * (float)k, n[1] * (float)k);
                 // set q = n x p
                 q = UnityEngine.Vector3.Cross(n, p);
             }
             else
             {
                 // choose p in x-y plane
-                float a = n[0] * n[0] + n[1] * n[1];
-                float k = 1.0f / (float)Math.Sqrt(a);
-                p = new UnityEngine.Vector3(-n[1] * k, n[0] * k, 0);
+                double a = n[0] * n[0] + n[1] * n[1];
+                double k = 1.0f / (double)Math.Sqrt(a);
+                p = new UnityEngine.Vector3(-n[1] * (float)k, n[0] * (float)k, 0);
                 // set q = n x p
                 q = UnityEngine.Vector3.Cross(n, p);
             }
@@ -120,19 +120,19 @@ namespace DemoFramework {
 
         public static void CreateStaticPlane(StaticPlaneShape shape, Mesh m)
         {
-            UnityEngine.Vector3 planeOrigin = shape.PlaneNormal.ToUnity() * shape.PlaneConstant;
+            UnityEngine.Vector3 planeOrigin = shape.PlaneNormal.ToUnity() * (float)shape.PlaneConstant;
             UnityEngine.Vector3 vec0, vec1;
             PlaneSpace1(shape.PlaneNormal.ToUnity(), out vec0, out vec1);
-            const float size = 1000f;
+            const double size = 1000f;
 
             int[] indices = new int[] { 0, 2, 1, 0, 1, 3 };
 
             UnityEngine.Vector3[] verts = new UnityEngine.Vector3[]
             {
-                planeOrigin + vec0*size,
-                planeOrigin - vec0*size,
-                planeOrigin + vec1*size,
-                planeOrigin - vec1*size,
+                planeOrigin + vec0*(float)size,
+                planeOrigin - vec0*(float)size,
+                planeOrigin + vec1*(float)size,
+                planeOrigin - vec1*(float)size,
             };
             m.Clear();
             m.vertices = verts;
@@ -171,22 +171,22 @@ namespace DemoFramework {
                 {
                     uint i = indexReader.ReadUInt32();
                     vertexStream.Position = vertexStride * i;
-                    float f1 = vertexReader.ReadSingle();
-                    float f2 = vertexReader.ReadSingle();
-                    float f3 = vertexReader.ReadSingle();
-                    UnityEngine.Vector3 v0 = new UnityEngine.Vector3(f1, f2, f3);
+                    double f1 = vertexReader.ReadDouble();
+                    double f2 = vertexReader.ReadDouble();
+                    double f3 = vertexReader.ReadDouble();
+                    UnityEngine.Vector3 v0 = new UnityEngine.Vector3((float)f1, (float)f2, (float)f3);
                     i = indexReader.ReadUInt32();
                     vertexStream.Position = vertexStride * i;
-                    f1 = vertexReader.ReadSingle();
-                    f2 = vertexReader.ReadSingle();
-                    f3 = vertexReader.ReadSingle();
-                    UnityEngine.Vector3 v1 = new UnityEngine.Vector3(f1, f2, f3);
+                    f1 = vertexReader.ReadDouble();
+                    f2 = vertexReader.ReadDouble();
+                    f3 = vertexReader.ReadDouble();
+                    UnityEngine.Vector3 v1 = new UnityEngine.Vector3((float)f1, (float)f2, (float)f3);
                     i = indexReader.ReadUInt32();
                     vertexStream.Position = vertexStride * i;
-                    f1 = vertexReader.ReadSingle();
-                    f2 = vertexReader.ReadSingle();
-                    f3 = vertexReader.ReadSingle();
-                    UnityEngine.Vector3 v2 = new UnityEngine.Vector3(f1, f2, f3);
+                    f1 = vertexReader.ReadDouble();
+                    f2 = vertexReader.ReadDouble();
+                    f3 = vertexReader.ReadDouble();
+                    UnityEngine.Vector3 v2 = new UnityEngine.Vector3((float)f1, (float)f2, (float)f3);
 
                     UnityEngine.Vector3 v01 = v0 - v1;
                     UnityEngine.Vector3 v02 = v0 - v2;
@@ -211,28 +211,28 @@ namespace DemoFramework {
             m.triangles = triangles.ToArray();
             m.RecalculateBounds();
             m.RecalculateNormals();
-        }
+		}
 
         public static void CreateCylinder(CylinderShape cs, Mesh mesh) {
             mesh.Clear();
-            //float r = cs.Radius;
+            //double r = cs.Radius;
             //todo this is a cube
             mesh.Clear();
             BulletSharp.Math.Vector3 ext = cs.HalfExtentsWithMargin;
-            float length = ext.X * 2f;
-            float width = ext.Y * 2f;
-            float height = ext.Z * 2f;
+            double length = ext.X * 2f;
+            double width = ext.Y * 2f;
+            double height = ext.Z * 2f;
 
 
-            UnityEngine.Vector3 p0 = new UnityEngine.Vector3(-length * .5f, -width * .5f, height * .5f);
-            UnityEngine.Vector3 p1 = new UnityEngine.Vector3(length * .5f, -width * .5f, height * .5f);
-            UnityEngine.Vector3 p2 = new UnityEngine.Vector3(length * .5f, -width * .5f, -height * .5f);
-            UnityEngine.Vector3 p3 = new UnityEngine.Vector3(-length * .5f, -width * .5f, -height * .5f);
+            UnityEngine.Vector3 p0 = new UnityEngine.Vector3(-(float)length * .5f, -(float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p1 = new UnityEngine.Vector3((float)length * .5f, -(float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p2 = new UnityEngine.Vector3((float)length * .5f, -(float)width * .5f, -(float)height * .5f);
+            UnityEngine.Vector3 p3 = new UnityEngine.Vector3(-(float)length * .5f, -(float)width * .5f, -(float)height * .5f);
 
-            UnityEngine.Vector3 p4 = new UnityEngine.Vector3(-length * .5f, width * .5f, height * .5f);
-            UnityEngine.Vector3 p5 = new UnityEngine.Vector3(length * .5f, width * .5f, height * .5f);
-            UnityEngine.Vector3 p6 = new UnityEngine.Vector3(length * .5f, width * .5f, -height * .5f);
-            UnityEngine.Vector3 p7 = new UnityEngine.Vector3(-length * .5f, width * .5f, -height * .5f);
+            UnityEngine.Vector3 p4 = new UnityEngine.Vector3(-(float)length * .5f, (float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p5 = new UnityEngine.Vector3((float)length * .5f, (float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p6 = new UnityEngine.Vector3((float)length * .5f, (float)width * .5f, -(float)height * .5f);
+            UnityEngine.Vector3 p7 = new UnityEngine.Vector3(-(float)length * .5f, (float)width * .5f, -(float)height * .5f);
 
             UnityEngine.Vector3[] vertices = new UnityEngine.Vector3[]
             {
@@ -348,26 +348,26 @@ namespace DemoFramework {
             mesh.triangles = triangles;
 
             mesh.RecalculateBounds();
-            mesh.Optimize();
+            ;
         }
 
         public static void CreateCube(CollisionShape cs, Mesh mesh) {
 
             BulletSharp.Math.Vector3 ext = ((BoxShape)cs).HalfExtentsWithMargin;
-            float length = ext.X * 2f;
-            float width = ext.Y * 2f;
-            float height = ext.Z * 2f;
+            double length = ext.X * 2f;
+            double width = ext.Y * 2f;
+            double height = ext.Z * 2f;
 
 
-            UnityEngine.Vector3 p0 = new UnityEngine.Vector3(-length * .5f, -width * .5f, height * .5f);
-            UnityEngine.Vector3 p1 = new UnityEngine.Vector3(length * .5f, -width * .5f, height * .5f);
-            UnityEngine.Vector3 p2 = new UnityEngine.Vector3(length * .5f, -width * .5f, -height * .5f);
-            UnityEngine.Vector3 p3 = new UnityEngine.Vector3(-length * .5f, -width * .5f, -height * .5f);
+            UnityEngine.Vector3 p0 = new UnityEngine.Vector3(-(float)length * .5f, -(float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p1 = new UnityEngine.Vector3((float)length * .5f, -(float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p2 = new UnityEngine.Vector3((float)length * .5f, -(float)width * .5f, -(float)height * .5f);
+            UnityEngine.Vector3 p3 = new UnityEngine.Vector3(-(float)length * .5f, -(float)width * .5f, -(float)height * .5f);
 
-            UnityEngine.Vector3 p4 = new UnityEngine.Vector3(-length * .5f, width * .5f, height * .5f);
-            UnityEngine.Vector3 p5 = new UnityEngine.Vector3(length * .5f, width * .5f, height * .5f);
-            UnityEngine.Vector3 p6 = new UnityEngine.Vector3(length * .5f, width * .5f, -height * .5f);
-            UnityEngine.Vector3 p7 = new UnityEngine.Vector3(-length * .5f, width * .5f, -height * .5f);
+            UnityEngine.Vector3 p4 = new UnityEngine.Vector3(-(float)length * .5f, (float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p5 = new UnityEngine.Vector3((float)length * .5f, (float)width * .5f, (float)height * .5f);
+            UnityEngine.Vector3 p6 = new UnityEngine.Vector3((float)length * .5f, (float)width * .5f, -(float)height * .5f);
+            UnityEngine.Vector3 p7 = new UnityEngine.Vector3(-(float)length * .5f, (float)width * .5f, -(float)height * .5f);
 
             MakeUnityCubeMesh(p0, p1, p2, p3, p4, p5, p6, p7, mesh);
         }
@@ -491,13 +491,13 @@ namespace DemoFramework {
             mesh.triangles = triangles;
 
             mesh.RecalculateBounds();
-            mesh.Optimize();
+            ;
         }
 
         public static void CreateSphere(SphereShape shape, Mesh mesh) {
             mesh.Clear();
 
-            float radius = shape.Radius;
+            double radius = shape.Radius;
             // Longitude |||
             int nbLong = 24;
             // Latitude ---
@@ -505,24 +505,24 @@ namespace DemoFramework {
 
             #region Vertices
             UnityEngine.Vector3[] vertices = new UnityEngine.Vector3[(nbLong + 1) * nbLat + 2];
-            float _pi = Mathf.PI;
-            float _2pi = _pi * 2f;
+            double _pi = Mathf.PI;
+            double _2pi = _pi * 2f;
 
-            vertices[0] = UnityEngine.Vector3.up * radius;
+            vertices[0] = UnityEngine.Vector3.up * (float)radius;
             for (int lat = 0; lat < nbLat; lat++) {
-                float a1 = _pi * (float)(lat + 1) / (nbLat + 1);
-                float sin1 = Mathf.Sin(a1);
-                float cos1 = Mathf.Cos(a1);
+                double a1 = _pi * (double)(lat + 1) / (nbLat + 1);
+                double sin1 = Math.Sin(a1);
+                double cos1 = Math.Cos(a1);
 
                 for (int lon = 0; lon <= nbLong; lon++) {
-                    float a2 = _2pi * (float)(lon == nbLong ? 0 : lon) / nbLong;
-                    float sin2 = Mathf.Sin(a2);
-                    float cos2 = Mathf.Cos(a2);
+                    double a2 = _2pi * (double)(lon == nbLong ? 0 : lon) / nbLong;
+                    double sin2 = Math.Sin(a2);
+                    double cos2 = Math.Cos(a2);
 
-                    vertices[lon + lat * (nbLong + 1) + 1] = new UnityEngine.Vector3(sin1 * cos2, cos1, sin1 * sin2) * radius;
+                    vertices[lon + lat * (nbLong + 1) + 1] = new UnityEngine.Vector3((float)(sin1 * cos2), (float)cos1, (float)(sin1 * sin2)) * (float)radius;
                 }
             }
-            vertices[vertices.Length - 1] = UnityEngine.Vector3.up * -radius;
+            vertices[vertices.Length - 1] = UnityEngine.Vector3.up * -(float)radius;
             #endregion
 
             #region Normales		
@@ -584,7 +584,7 @@ namespace DemoFramework {
             mesh.triangles = triangles;
 
             mesh.RecalculateBounds();
-            mesh.Optimize();
+            ;
         }
     }
 }

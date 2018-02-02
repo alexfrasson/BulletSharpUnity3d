@@ -13,9 +13,9 @@ namespace MotorDemo
         Vector3 target = new Vector3(0, 0, 0);
 
         List<TestRig> rigs = new List<TestRig>();
-        float m_Time;
-        float fCyclePeriod;
-        float fMuscleStrength;
+        double m_Time;
+        double fCyclePeriod;
+        double fMuscleStrength;
 
         const int NumLegs = 6;
         const int BodyPartCount = 2 * NumLegs + 1;
@@ -28,7 +28,7 @@ namespace MotorDemo
 	        RigidBody[] bodies = new RigidBody[BodyPartCount];
 	        TypedConstraint[] joints = new TypedConstraint[JointCount];
 
-	        public RigidBody LocalCreateRigidBody(float mass, Matrix startTransform, CollisionShape shape)
+	        public RigidBody LocalCreateRigidBody(double mass, Matrix startTransform, CollisionShape shape)
             {
                 //rigidbody is dynamic if and only if mass is non zero, otherwise static
                 bool isDynamic = (mass != 0.0f);
@@ -58,12 +58,12 @@ namespace MotorDemo
                 //
                 // Setup geometry
                 //
-                const float fBodySize = 0.25f;
-                const float fLegLength = 0.45f;
-                const float fForeLegLength = 0.75f;
-                const float PI_2 = (float)(0.5f * Math.PI);
-                const float PI_4 = (float)(0.25f * Math.PI);
-                const float PI_8 = (float)(0.125f * Math.PI);
+                const double fBodySize = 0.25f;
+                const double fLegLength = 0.45f;
+                const double fForeLegLength = 0.75f;
+                const double PI_2 = (double)(0.5f * Math.PI);
+                const double PI_4 = (double)(0.25f * Math.PI);
+                const double PI_8 = (double)(0.125f * Math.PI);
                 shapes[0] = new CapsuleShape(fBodySize, 0.10f);
                 int i;
                 for (i = 0; i < NumLegs; i++)
@@ -75,7 +75,7 @@ namespace MotorDemo
                 //
                 // Setup rigid bodies
                 //
-                const float fHeight = 0.5f;
+                const double fHeight = 0.5f;
                 Matrix offset = Matrix.Translation(positionOffset);
 
                 // root
@@ -92,9 +92,9 @@ namespace MotorDemo
                 // legs
                 for (i = 0; i < NumLegs; i++)
                 {
-                    float fAngle = (float)(2 * Math.PI * i / NumLegs);
-                    float fSin = (float)Math.Sin(fAngle);
-                    float fCos = (float)Math.Cos(fAngle);
+                    double fAngle = (double)(2 * Math.PI * i / NumLegs);
+                    double fSin = (double)Math.Sin(fAngle);
+                    double fCos = (double)Math.Cos(fAngle);
 
                     Vector3 vBoneOrigin = new Vector3(fCos * (fBodySize + 0.5f * fLegLength), fHeight, fSin * (fBodySize + 0.5f * fLegLength));
 
@@ -129,9 +129,9 @@ namespace MotorDemo
 
                 for (i = 0; i < NumLegs; i++)
                 {
-                    float fAngle = (float)(2 * Math.PI * i / NumLegs);
-                    float fSin = (float)Math.Sin(fAngle);
-                    float fCos = (float)Math.Cos(fAngle);
+                    double fAngle = (double)(2 * Math.PI * i / NumLegs);
+                    double fSin = (double)Math.Sin(fAngle);
+                    double fCos = (double)Math.Cos(fAngle);
 
                     // hip joints
                     localA = Matrix.RotationYawPitchRoll(-fAngle, 0, 0) * Matrix.Translation(fCos * fBodySize, 0, fSin * fBodySize); // OK
@@ -184,7 +184,7 @@ namespace MotorDemo
             }
         };
 
-        void MotorPreTickCallback(DynamicsWorld world, float timeStep)
+        void MotorPreTickCallback(DynamicsWorld world, double timeStep)
         {
             SetMotorTargets(timeStep);
         }
@@ -239,10 +239,10 @@ namespace MotorDemo
         }
 
 
-        void SetMotorTargets(float deltaTime)
+        void SetMotorTargets(double deltaTime)
         {
-            float ms = deltaTime * 1000000.0f;
-            float minFPS = 1000000.0f / 60.0f;
+            double ms = deltaTime * 1000000.0f;
+            double minFPS = 1000000.0f / 60.0f;
             if (ms > minFPS)
                 ms = minFPS;
 
@@ -256,13 +256,13 @@ namespace MotorDemo
                 for (int i = 0; i < 2 * NumLegs; i++)
                 {
                     HingeConstraint hingeC = rig.GetJoints()[i] as HingeConstraint;
-                    float fCurAngle = hingeC.HingeAngle;
+                    double fCurAngle = hingeC.HingeAngle;
 
-                    float fTargetPercent = ((int)(m_Time / 1000.0f) % (int)fCyclePeriod) / fCyclePeriod;
-                    float fTargetAngle = (float)(0.5 * (1 + Math.Sin(2.0f * Math.PI * fTargetPercent)));
-                    float fTargetLimitAngle = hingeC.LowerLimit + fTargetAngle * (hingeC.UpperLimit - hingeC.LowerLimit);
-                    float fAngleError = fTargetLimitAngle - fCurAngle;
-                    float fDesiredAngularVel = 1000000.0f * fAngleError / ms;
+                    double fTargetPercent = ((int)(m_Time / 1000.0f) % (int)fCyclePeriod) / fCyclePeriod;
+                    double fTargetAngle = (double)(0.5 * (1 + Math.Sin(2.0f * Math.PI * fTargetPercent)));
+                    double fTargetLimitAngle = hingeC.LowerLimit + fTargetAngle * (hingeC.UpperLimit - hingeC.LowerLimit);
+                    double fAngleError = fTargetLimitAngle - fCurAngle;
+                    double fDesiredAngularVel = 1000000.0f * fAngleError / ms;
                     hingeC.EnableAngularMotor(true, fDesiredAngularVel, fMuscleStrength);
                 }
             }

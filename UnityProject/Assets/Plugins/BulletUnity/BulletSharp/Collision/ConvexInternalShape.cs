@@ -12,12 +12,12 @@ namespace BulletSharp
 		{
 		}
 
-		public void SetSafeMargin(float minDimension)
+		public void SetSafeMargin(double minDimension)
 		{
 			btConvexInternalShape_setSafeMargin(_native, minDimension);
 		}
 
-		public void SetSafeMargin(float minDimension, float defaultMarginMultiplier)
+		public void SetSafeMargin(double minDimension, double defaultMarginMultiplier)
 		{
 			btConvexInternalShape_setSafeMargin2(_native, minDimension, defaultMarginMultiplier);
 		}
@@ -32,12 +32,12 @@ namespace BulletSharp
 			btConvexInternalShape_setSafeMargin3(_native, ref halfExtents);
 		}
 
-        public void SetSafeMarginRef(ref Vector3 halfExtents, float defaultMarginMultiplier)
+        public void SetSafeMarginRef(ref Vector3 halfExtents, double defaultMarginMultiplier)
         {
             btConvexInternalShape_setSafeMargin4(_native, ref halfExtents, defaultMarginMultiplier);
         }
 
-		public void SetSafeMargin(Vector3 halfExtents, float defaultMarginMultiplier)
+		public void SetSafeMargin(Vector3 halfExtents, double defaultMarginMultiplier)
 		{
 			btConvexInternalShape_setSafeMargin4(_native, ref halfExtents, defaultMarginMultiplier);
 		}
@@ -63,7 +63,7 @@ namespace BulletSharp
 			}
 		}
 
-		public float MarginNV
+		public double MarginNV
 		{
 			get { return btConvexInternalShape_getMarginNV(_native); }
 		}
@@ -73,17 +73,17 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexInternalShape_getLocalScalingNV(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConvexInternalShape_getMarginNV(IntPtr obj);
+		static extern double btConvexInternalShape_getMarginNV(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexInternalShape_setImplicitShapeDimensions(IntPtr obj, [In] ref Vector3 dimensions);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConvexInternalShape_setSafeMargin(IntPtr obj, float minDimension);
+		static extern void btConvexInternalShape_setSafeMargin(IntPtr obj, double minDimension);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConvexInternalShape_setSafeMargin2(IntPtr obj, float minDimension, float defaultMarginMultiplier);
+		static extern void btConvexInternalShape_setSafeMargin2(IntPtr obj, double minDimension, double defaultMarginMultiplier);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexInternalShape_setSafeMargin3(IntPtr obj, [In] ref Vector3 halfExtents);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConvexInternalShape_setSafeMargin4(IntPtr obj, [In] ref Vector3 halfExtents, float defaultMarginMultiplier);
+		static extern void btConvexInternalShape_setSafeMargin4(IntPtr obj, [In] ref Vector3 halfExtents, double defaultMarginMultiplier);
 	}
 
 	public abstract class ConvexInternalAabbCachingShape : ConvexInternalShape
@@ -108,7 +108,7 @@ namespace BulletSharp
         public CollisionShapeFloatData CollisionShapeData;
         public Vector3FloatData LocalScaling;
         public Vector3FloatData ImplicitShapeDimensions;
-        public float CollisionMargin;
+        public double CollisionMargin;
         public int Padding;
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(ConvexInternalShapeFloatData), fieldName).ToInt32(); }

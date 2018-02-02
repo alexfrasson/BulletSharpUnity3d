@@ -19,7 +19,7 @@ namespace BulletUnity
             [Tooltip("Rope end position in world position")]
             public Vector3 endPoint;
 
-            public float width = .25f;
+            public double width = .25f;
             public Color startColor = Color.white;
             public Color endColor = Color.white;
 
@@ -74,7 +74,7 @@ namespace BulletUnity
             foreach (RopeAnchor anchor in ropeAnchors)
             {
                 //anchorNode point 0 to 1, rounds to node # 
-                int node = (int)Mathf.Floor(Mathf.Lerp(0, m_BSoftBody.Nodes.Count - 1, anchor.anchorNodePoint));
+                int node = (int)Mathf.Floor(Mathf.Lerp(0, m_BSoftBody.Nodes.Count - 1, (float)anchor.anchorNodePoint));
 
                 if (anchor.body != null)
                     m_BSoftBody.AppendAnchor(node, (BulletSharp.RigidBody) anchor.body.GetCollisionObject());
@@ -91,7 +91,7 @@ namespace BulletUnity
             lr.useWorldSpace = false;
 
             lr.SetVertexCount(verts.Length);
-            lr.SetWidth(meshSettings.width, meshSettings.width);
+            lr.SetWidth((float)meshSettings.width, (float)meshSettings.width);
             lr.SetColors(meshSettings.startColor, meshSettings.endColor);
 
             //Set SB position to GO position
@@ -147,7 +147,7 @@ namespace BulletUnity
             {
                 lrVertexCount = verts.Length;
                 lr.SetVertexCount(lrVertexCount);
-                lr.SetWidth(meshSettings.width, meshSettings.width);
+                lr.SetWidth((float)meshSettings.width, (float)meshSettings.width);
                 lr.SetColors(meshSettings.startColor, meshSettings.endColor);
             }
             for (int i = 0; i < verts.Length; i++)
@@ -171,7 +171,7 @@ namespace BulletUnity
         //public bool anchorSameAsNode = true;
         [Range(0, 1)]
         [Tooltip("Anchor point location calulated from total rope lenghth.  Anchor point inserted at ((startPoint - endPoint) * anchorNodePoint; (0 to 1) (0 to 100%)")]
-        public float anchorNodePoint;
+        public double anchorNodePoint;
 
     }
 

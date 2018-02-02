@@ -5,7 +5,7 @@ namespace BspDemo
 {
     public abstract class BspConverter
     {
-        public void ConvertBsp(BspLoader bspLoader, float scaling)
+        public void ConvertBsp(BspLoader bspLoader, double scaling)
         {
             Vector3 playerStart = new Vector3(0, 0, 100);
             if (bspLoader.FindVectorByName("info_player_start", ref playerStart) == false)

@@ -18,7 +18,7 @@ namespace BulletSharp
             _shape = shape;
 		}
 
-		public bool BuildHull(float margin)
+		public bool BuildHull(double margin)
 		{
 			return btShapeHull_buildHull(_native, margin);
 		}
@@ -96,7 +96,7 @@ namespace BulletSharp
 		static extern IntPtr btShapeHull_new(IntPtr shape);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
-		static extern bool btShapeHull_buildHull(IntPtr obj, float margin);
+		static extern bool btShapeHull_buildHull(IntPtr obj, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btShapeHull_getIndexPointer(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

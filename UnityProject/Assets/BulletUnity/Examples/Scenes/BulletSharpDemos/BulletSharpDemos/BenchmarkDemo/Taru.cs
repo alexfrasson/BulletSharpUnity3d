@@ -2,7 +2,7 @@ namespace BenchmarkDemo
 {
     public class Taru
     {
-        public static float[] Vtx =
+        public static double[] Vtx =
         {
 1.08664f,-1.99237f,0.0f,
 0.768369f,-1.99237f,-0.768369f,

@@ -4,9 +4,9 @@ using BulletSharp;
 
 namespace BulletUnity {
     public class BUtility {
-        public const float Two_PI = 6.283185307179586232f;
-        public const float RADS_PER_DEG = Two_PI / 360.0f;
-        public const float SQRT12 = 0.7071067811865475244008443621048490f;
+        public const double Two_PI = 6.283185307179586232f;
+        public const double RADS_PER_DEG = Two_PI / 360.0f;
+        public const double SQRT12 = 0.7071067811865475244008443621048490f;
 
         public static void DebugDrawRope(Vector3 position, Quaternion rotation, Vector3 scale, Vector3 begin, Vector3 end, int res, Color color) {
             Gizmos.color = color;
@@ -19,11 +19,11 @@ namespace BulletUnity {
             Vector3 deltaZ = new Vector3(0, 0.05f, 0.05f);
             for (int i = 0; i < r; i++) {
                 Gizmos.color = color;
-                float t = i * 1.0f / (r - 1);
-                float tNext = (i + 1) * 1.0f / (r - 1);
+                double t = i * 1.0f / (r - 1);
+                double tNext = (i + 1) * 1.0f / (r - 1);
 
-                Vector3 p = Vector3.Lerp(p1, p2, t);
-                Vector3 pNext = Vector3.Lerp(p1, p2, tNext);
+                Vector3 p = Vector3.Lerp(p1, p2, (float)t);
+                Vector3 pNext = Vector3.Lerp(p1, p2, (float)tNext);
 
                 if (i != r - 1) {
                     Gizmos.DrawLine(p, pNext); // line
@@ -48,7 +48,7 @@ namespace BulletUnity {
             yoffs = rotation * yoffs;
             zoffs = rotation * zoffs;
 
-            float step = 5 * RADS_PER_DEG;
+            double step = 5 * RADS_PER_DEG;
             int nSteps = (int)(360.0f / step);
 
             Vector3 vx = new Vector3(scale.x, 0, 0);
@@ -58,24 +58,24 @@ namespace BulletUnity {
             Vector3 prev = start - xoffs;
 
             for (int i = 1; i <= nSteps; i++) {
-                float angle = 360.0f * i / nSteps;
-                Vector3 next = start + rotation * (radius.x * vx * Mathf.Cos(angle) + radius.y * vy * Mathf.Sin(angle));
+                double angle = 360.0f * i / nSteps;
+                Vector3 next = start + rotation * (radius.x * vx * Mathf.Cos((float)angle) + radius.y * vy * Mathf.Sin((float)angle));
                 Gizmos.DrawLine(prev, next);
                 prev = next;
             }
 
             prev = start - xoffs;
             for (int i = 1; i <= nSteps; i++) {
-                float angle = 360.0f * i / nSteps;
-                Vector3 next = start + rotation * (radius.x * vx * Mathf.Cos(angle) + radius.z * vz * Mathf.Sin(angle));
+                double angle = 360.0f * i / nSteps;
+                Vector3 next = start + rotation * (radius.x * vx * Mathf.Cos((float)angle) + radius.z * vz * Mathf.Sin((float)angle));
                 Gizmos.DrawLine(prev, next);
                 prev = next;
             }
 
             prev = start - yoffs;
             for (int i = 1; i <= nSteps; i++) {
-                float angle = 360.0f * i / nSteps;
-                Vector3 next = start + rotation * (radius.y * vy * Mathf.Cos(angle) + radius.z * vz * Mathf.Sin(angle));
+                double angle = 360.0f * i / nSteps;
+                Vector3 next = start + rotation * (radius.y * vy * Mathf.Cos((float)angle) + radius.z * vz * Mathf.Sin((float)angle));
                 Gizmos.DrawLine(prev, next);
                 prev = next;
             }
@@ -105,25 +105,25 @@ namespace BulletUnity {
                     Vector3 py1_00 = Vector3.Lerp(p10, p11, ty_00);
                     Vector3 pxy_00 = Vector3.Lerp(py0_00, py1_00, tx_00);
 
-                    // point 01
-                    float tx_01 = (ix + 1) * 1.0f / (resX - 1);
-                    float ty_01 = iy * 1.0f / (resY - 1);
+					// point 01
+					float tx_01 = (ix + 1) * 1.0f / (resX - 1);
+					float ty_01 = iy * 1.0f / (resY - 1);
 
                     Vector3 py0_01 = Vector3.Lerp(p00, p01, ty_01);
                     Vector3 py1_01 = Vector3.Lerp(p10, p11, ty_01);
                     Vector3 pxy_01 = Vector3.Lerp(py0_01, py1_01, tx_01);
 
-                    //point 10
-                    float tx_10 = ix * 1.0f / (resX - 1);
-                    float ty_10 = (iy + 1) * 1.0f / (resY - 1);
+					//point 10
+					float tx_10 = ix * 1.0f / (resX - 1);
+					float ty_10 = (iy + 1) * 1.0f / (resY - 1);
 
                     Vector3 py0_10 = Vector3.Lerp(p00, p01, ty_10);
                     Vector3 py1_10 = Vector3.Lerp(p10, p11, ty_10);
                     Vector3 pxy_10 = Vector3.Lerp(py0_10, py1_10, tx_10);
 
-                    //point 11
-                    float tx_11 = (ix + 1) * 1.0f / (resX - 1);
-                    float ty_11 = (iy + 1) * 1.0f / (resY - 1);
+					//point 11
+					float tx_11 = (ix + 1) * 1.0f / (resX - 1);
+					float ty_11 = (iy + 1) * 1.0f / (resY - 1);
 
                     Vector3 py0_11 = Vector3.Lerp(p00, p01, ty_11);
                     Vector3 py1_11 = Vector3.Lerp(p10, p11, ty_11);
@@ -178,7 +178,7 @@ namespace BulletUnity {
                             lastV = curVert;
                         }
                     }
-                    float s = 1.0f/numVerts;
+                    double s = 1.0f/numVerts;
                     centroid.x *= s;
                     centroid.y *= s;
                     centroid.z *= s;
@@ -282,9 +282,9 @@ namespace BulletUnity {
             Vector3 xaxis = new Vector3(0, 0, 0);
             xaxis[(upAxis + 1) % 3] = 1.0f;
 
-            float r = offsetRadius.magnitude;
-            DebugDrawArc(start - rotation * (offsetHeight), rotation * yaxis, rotation * xaxis, r, r, 0, Two_PI, color, false, 10.0f);
-            DebugDrawArc(start + rotation * (offsetHeight), rotation * yaxis, rotation * xaxis, r, r, 0, Two_PI, color, false, 10.0f);
+            double r = offsetRadius.magnitude;
+            DebugDrawArc(start - rotation * (offsetHeight), rotation * yaxis, rotation * xaxis, (float)r, (float)r, 0, (float)Two_PI, color, false, 10.0f);
+            DebugDrawArc(start + rotation * (offsetHeight), rotation * yaxis, rotation * xaxis, (float)r, (float)r, 0, (float)Two_PI, color, false, 10.0f);
         }
 
         public static void DebugDrawCone(Vector3 position, Quaternion rotation, Vector3 scale, float radius, float height, int upAxis, Color color) {
@@ -313,7 +313,7 @@ namespace BulletUnity {
             yaxis[upAxis] = 1.0f;
             Vector3 xaxis = new Vector3(0, 0, 0);
             xaxis[(upAxis + 1) % 3] = 1.0f;
-            DebugDrawArc(start - rotation * (offsetHeight), rotation * yaxis, rotation * xaxis, offsetRadius.magnitude, offset2Radius.magnitude, 0, Two_PI, color, false, 10.0f);
+            DebugDrawArc(start - rotation * (offsetHeight), rotation * yaxis, rotation * xaxis, offsetRadius.magnitude, offset2Radius.magnitude, 0, (float)Two_PI, color, false, 10.0f);
         }
 
         public static void DebugDrawPlane(Vector3 position, Quaternion rotation, Vector3 scale, Vector3 planeNormal, float planeConst, Color color) {
@@ -326,7 +326,7 @@ namespace BulletUnity {
             Vector3 vec0 = new Vector3(0, 0, 0);
             Vector3 vec1 = new Vector3(0, 0, 0);
             GetPlaneSpaceVector(planeNormal, ref vec0, ref vec1);
-            float vecLen = 100.0f;
+			float vecLen = 100.0f;
             Vector3 pt0 = planeOrigin + vec0 * vecLen;
             Vector3 pt1 = planeOrigin - vec0 * vecLen;
             Vector3 pt2 = planeOrigin + vec1 * vecLen;
@@ -338,9 +338,9 @@ namespace BulletUnity {
 
         public static void GetPlaneSpaceVector(Vector3 planeNormal, ref Vector3 vec1, ref Vector3 vec2) {
             if (Mathf.Abs(planeNormal[2]) > SQRT12) {
-                // choose p in y-z plane
-                float a = planeNormal[1] * planeNormal[1] + planeNormal[2] * planeNormal[2];
-                float k = 1.0f / Mathf.Sqrt(a);
+				// choose p in y-z plane
+				float a = planeNormal[1] * planeNormal[1] + planeNormal[2] * planeNormal[2];
+				float k = 1.0f / Mathf.Sqrt(a);
                 vec1[0] = 0;
                 vec1[1] = -planeNormal[2] * k;
                 vec1[2] = planeNormal[1] * k;
@@ -349,9 +349,9 @@ namespace BulletUnity {
                 vec2[1] = -planeNormal[0] * vec1[2];
                 vec2[2] = planeNormal[0] * vec1[1];
             } else {
-                // choose p in x-y plane
-                float a = planeNormal[0] * planeNormal[0] + planeNormal[1] * planeNormal[1];
-                float k = 1.0f / Mathf.Sqrt(a);
+				// choose p in x-y plane
+				float a = planeNormal[0] * planeNormal[0] + planeNormal[1] * planeNormal[1];
+				float k = 1.0f / Mathf.Sqrt(a);
                 vec1[0] = -planeNormal[1] * k;
                 vec1[1] = planeNormal[0] * k;
                 vec1[2] = 0;
@@ -368,7 +368,7 @@ namespace BulletUnity {
 
             Vector3 vx = axis;
             Vector3 vy = Vector3.Cross(normal, axis);
-            float step = stepDegrees * RADS_PER_DEG;
+			float step = stepDegrees * (float)RADS_PER_DEG;
             int nSteps = (int)((maxAngle - minAngle) / step);
             if (nSteps == 0)
                 nSteps = 1;
@@ -377,7 +377,7 @@ namespace BulletUnity {
                 Gizmos.DrawLine(center, prev);
             }
             for (int i = 1; i <= nSteps; i++) {
-                float angle = minAngle + (maxAngle - minAngle) * i * 1.0f / (nSteps * 1.0f);
+				float angle = minAngle + (maxAngle - minAngle) * i * 1.0f / (nSteps * 1.0f);
                 Vector3 next = center + radiusA * vx * Mathf.Cos(angle) + radiusB * vy * Mathf.Sin(angle);
                 Gizmos.DrawLine(prev, next);
                 prev = next;

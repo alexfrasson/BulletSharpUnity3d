@@ -38,7 +38,7 @@ namespace BulletSharp.SoftBody
 			btSoftBodySolver_optimize2(_native, softBodies._native, forceUpdate);
 		}
         */
-		public void PredictMotion(float solverdt)
+		public void PredictMotion(double solverdt)
 		{
 			btSoftBodySolver_predictMotion(_native, solverdt);
 		}
@@ -53,7 +53,7 @@ namespace BulletSharp.SoftBody
 			btSoftBodySolver_processCollision2(_native, __unnamed0._native, __unnamed1._native);
 		}
         */
-		public void SolveConstraints(float solverdt)
+		public void SolveConstraints(double solverdt)
 		{
 			btSoftBodySolver_solveConstraints(_native, solverdt);
 		}
@@ -80,7 +80,7 @@ namespace BulletSharp.SoftBody
 			get { return btSoftBodySolver_getSolverType(_native); }
 		}
         */
-		public float TimeScale
+		public double TimeScale
 		{
 			get { return btSoftBodySolver_getTimeScale(_native); }
 		}
@@ -119,13 +119,13 @@ namespace BulletSharp.SoftBody
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern SolverTypes btSoftBodySolver_getSolverType(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSoftBodySolver_getTimeScale(IntPtr obj);
+		static extern double btSoftBodySolver_getTimeScale(IntPtr obj);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern void btSoftBodySolver_optimize(IntPtr obj, IntPtr softBodies);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern void btSoftBodySolver_optimize2(IntPtr obj, IntPtr softBodies, bool forceUpdate);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSoftBodySolver_predictMotion(IntPtr obj, float solverdt);
+		static extern void btSoftBodySolver_predictMotion(IntPtr obj, double solverdt);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern void btSoftBodySolver_processCollision(IntPtr obj, IntPtr __unnamed0, IntPtr __unnamed1);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -135,7 +135,7 @@ namespace BulletSharp.SoftBody
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSoftBodySolver_setNumberOfVelocityIterations(IntPtr obj, int iterations);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSoftBodySolver_solveConstraints(IntPtr obj, float solverdt);
+		static extern void btSoftBodySolver_solveConstraints(IntPtr obj, double solverdt);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSoftBodySolver_updateSoftBodies(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

@@ -427,7 +427,7 @@ namespace BulletSharp
 
         private void SetFloatValue(BulletWriter writer, XmlNode valueNode, int offset)
         {
-            writer.Write(float.Parse(valueNode.InnerText, CultureInfo.InvariantCulture), offset);
+            writer.Write(double.Parse(valueNode.InnerText, CultureInfo.InvariantCulture), offset);
         }
 
         private void SetIntValue(BulletWriter writer, XmlNode valueNode, int offset)
@@ -463,7 +463,7 @@ namespace BulletSharp
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    writer.Write(float.Parse(value, CultureInfo.InvariantCulture), offset + i * sizeof(float));
+                    writer.Write(double.Parse(value, CultureInfo.InvariantCulture), offset + i * sizeof(double));
                     i++;
                     if (i == 4)
                     {

@@ -13,16 +13,16 @@ namespace ConvexDecompositionDemo
         //Vector2 ToVector2(string f0, string f1)
         //{
         //    return new Vector2(
-        //        float.Parse(f0, CultureInfo.InvariantCulture),
-        //        float.Parse(f1, CultureInfo.InvariantCulture));
+        //        double.Parse(f0, CultureInfo.InvariantCulture),
+        //        double.Parse(f1, CultureInfo.InvariantCulture));
         //}
 
         Vector3 ToVector3(string f0, string f1, string f2)
         {
             return new Vector3(
-                float.Parse(f0, CultureInfo.InvariantCulture),
-                float.Parse(f1, CultureInfo.InvariantCulture),
-                float.Parse(f2, CultureInfo.InvariantCulture));
+                double.Parse(f0, CultureInfo.InvariantCulture),
+                double.Parse(f1, CultureInfo.InvariantCulture),
+                double.Parse(f2, CultureInfo.InvariantCulture));
         }
 
         int GetVertex(string[] faceVertex)
@@ -71,7 +71,7 @@ namespace ConvexDecompositionDemo
                 case "vt":
                     //texels.Add(ToVector2(parts[1], parts[2]));
                     break;
-                case "f":
+                case "":
                     int[] face = new int[parts.Length - 1];
 
                     face[0] = GetVertex(parts[1].Split(faceSplitSchars, System.StringSplitOptions.RemoveEmptyEntries));

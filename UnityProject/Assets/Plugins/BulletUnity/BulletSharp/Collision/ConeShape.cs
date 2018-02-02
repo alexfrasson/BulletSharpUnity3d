@@ -11,7 +11,7 @@ namespace BulletSharp
 		{
 		}
 
-		public ConeShape(float radius, float height)
+		public ConeShape(double radius, double height)
 			: base(btConeShape_new(radius, height))
 		{
 		}
@@ -22,47 +22,47 @@ namespace BulletSharp
 			set { btConeShape_setConeUpIndex(_native, value); }
 		}
 
-		public float Height
+		public double Height
 		{
 			get { return btConeShape_getHeight(_native); }
 		}
 
-		public float Radius
+		public double Radius
 		{
 			get { return btConeShape_getRadius(_native); }
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btConeShape_new(float radius, float height);
+		static extern IntPtr btConeShape_new(double radius, double height);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btConeShape_getConeUpIndex(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConeShape_getHeight(IntPtr obj);
+		static extern double btConeShape_getHeight(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConeShape_getRadius(IntPtr obj);
+		static extern double btConeShape_getRadius(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConeShape_setConeUpIndex(IntPtr obj, int upIndex);
 	}
 
 	public class ConeShapeX : ConeShape
 	{
-		public ConeShapeX(float radius, float height)
+		public ConeShapeX(double radius, double height)
 			: base(btConeShapeX_new(radius, height))
 		{
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btConeShapeX_new(float radius, float height);
+		static extern IntPtr btConeShapeX_new(double radius, double height);
 	}
 
 	public class ConeShapeZ : ConeShape
 	{
-		public ConeShapeZ(float radius, float height)
+		public ConeShapeZ(double radius, double height)
 			: base(btConeShapeZ_new(radius, height))
 		{
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btConeShapeZ_new(float radius, float height);
+		static extern IntPtr btConeShapeZ_new(double radius, double height);
 	}
 }

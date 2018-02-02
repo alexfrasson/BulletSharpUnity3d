@@ -7,12 +7,12 @@ namespace BulletSharp
 {
 	public class StaticPlaneShape : ConcaveShape
 	{
-		public StaticPlaneShape(Vector3 planeNormal, float planeConstant)
+		public StaticPlaneShape(Vector3 planeNormal, double planeConstant)
 			: base(btStaticPlaneShape_new(ref planeNormal, planeConstant))
 		{
 		}
 
-		public float PlaneConstant
+		public double PlaneConstant
 		{
 			get { return btStaticPlaneShape_getPlaneConstant(_native); }
 		}
@@ -28,9 +28,9 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btStaticPlaneShape_new([In] ref Vector3 planeNormal, float planeConstant);
+		static extern IntPtr btStaticPlaneShape_new([In] ref Vector3 planeNormal, double planeConstant);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btStaticPlaneShape_getPlaneConstant(IntPtr obj);
+		static extern double btStaticPlaneShape_getPlaneConstant(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btStaticPlaneShape_getPlaneNormal(IntPtr obj, [Out] out Vector3 value);
 	}
@@ -41,7 +41,7 @@ namespace BulletSharp
         public CollisionShapeFloatData CollisionShapeData;
         public Vector3FloatData LocalScaling;
         public Vector3FloatData PlaneNormal;
-        public float PlaneConstant;
+        public double PlaneConstant;
         public int Padding;
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(StaticPlaneShapeFloatData), fieldName).ToInt32(); }

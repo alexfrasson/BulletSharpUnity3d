@@ -16,12 +16,12 @@ public class BConeTwistConstraintEditor : Editor {
 
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("Limits", EditorStyles.boldLabel);
-        hc.swingSpan1Radians = EditorGUILayout.FloatField("Swing Span 1 (Deg.)", hc.swingSpan1Radians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
-        hc.swingSpan2Radians = EditorGUILayout.FloatField("Swing Span 2 (Deg.)", hc.swingSpan2Radians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
-        hc.twistSpanRadians = EditorGUILayout.FloatField("Twist Span (Deg.)", hc.twistSpanRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
-        hc.softness = EditorGUILayout.FloatField("Softness", hc.softness);
-        hc.biasFactor = EditorGUILayout.FloatField("Bias Factor", hc.biasFactor);
-        hc.relaxationFactor = EditorGUILayout.FloatField("Relaxation Factor", hc.relaxationFactor);
+        hc.swingSpan1Radians = EditorGUILayout.FloatField("Swing Span 1 (Deg.)", (float)hc.swingSpan1Radians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.swingSpan2Radians = EditorGUILayout.FloatField("Swing Span 2 (Deg.)", (float)hc.swingSpan2Radians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.twistSpanRadians = EditorGUILayout.FloatField("Twist Span (Deg.)", (float)hc.twistSpanRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.softness = EditorGUILayout.FloatField("Softness", (float)hc.softness);
+        hc.biasFactor = EditorGUILayout.FloatField("Bias Factor", (float)hc.biasFactor);
+        hc.relaxationFactor = EditorGUILayout.FloatField("Relaxation Factor", (float)hc.relaxationFactor);
         if (GUI.changed)
         {
             serializedObject.ApplyModifiedProperties();

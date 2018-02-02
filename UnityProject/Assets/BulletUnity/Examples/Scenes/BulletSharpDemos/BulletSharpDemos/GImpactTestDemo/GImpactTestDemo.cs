@@ -26,7 +26,7 @@ namespace GImpactTestDemo
         //Quaternion kinTorusRot;
         RigidBody kinematicTorus;
 
-        const float ShootBoxInitialSpeed = 40.0f;
+        const double ShootBoxInitialSpeed = 40.0f;
 
         protected override void OnInitialize()
         {
@@ -61,7 +61,7 @@ namespace GImpactTestDemo
             InitGImpactCollision();
 
             // Create Scene
-            float mass = 0.0f;
+            double mass = 0.0f;
 
             CollisionShape staticboxShape1 = new BoxShape(200, 1, 200);//floor
             CollisionShapes.Add(staticboxShape1);
@@ -103,12 +103,12 @@ namespace GImpactTestDemo
 
 
             // Create Static Torus
-            float height = 28;
-            const float step = 2.5f;
-            const float massT = 1.0f;
+            double height = 28;
+            const double step = 2.5f;
+            const double massT = 1.0f;
 
             Matrix startTransform =
-                Matrix.RotationQuaternion(Quaternion.RotationYawPitchRoll((float)Math.PI * 0.5f, 0, (float)Math.PI * 0.5f)) *
+                Matrix.RotationQuaternion(Quaternion.RotationYawPitchRoll((double)Math.PI * 0.5f, 0, (double)Math.PI * 0.5f)) *
                 Matrix.Translation(0, height, -5);
 
 #if BULLET_GIMPACT
@@ -125,7 +125,7 @@ namespace GImpactTestDemo
 
             // Kinematic
             //kinTorusTran = new Vector3(-0.1f, 0, 0);
-            //kinTorusRot = Quaternion.RotationYawPitchRoll(0, (float)Math.PI * 0.01f, 0);
+            //kinTorusRot = Quaternion.RotationYawPitchRoll(0, (double)Math.PI * 0.01f, 0);
 
 
 #if TEST_GIMPACT_TORUS
@@ -136,13 +136,13 @@ namespace GImpactTestDemo
             {
                 height -= step;
                 startTransform =
-                    Matrix.RotationQuaternion(Quaternion.RotationYawPitchRoll(0, 0, (float)Math.PI * 0.5f)) *
+                    Matrix.RotationQuaternion(Quaternion.RotationYawPitchRoll(0, 0, (double)Math.PI * 0.5f)) *
                     Matrix.Translation(0, height, -5);
                 /*RigidBody bodyA =*/ LocalCreateRigidBody(massT, startTransform, trimeshShape);
 
                 height -= step;
                 startTransform =
-                    Matrix.RotationQuaternion(Quaternion.RotationYawPitchRoll((float)Math.PI * 0.5f, 0, (float)Math.PI * 0.5f)) *
+                    Matrix.RotationQuaternion(Quaternion.RotationYawPitchRoll((double)Math.PI * 0.5f, 0, (double)Math.PI * 0.5f)) *
                     Matrix.Translation(0, height, -5);
                 /*RigidBody bodyB =*/ LocalCreateRigidBody(massT, startTransform, trimeshShape);
             }
@@ -242,7 +242,7 @@ namespace GImpactTestDemo
         {
             if (World != null)
             {
-                const float mass = 4.0f;
+                const double mass = 4.0f;
                 Matrix startTransform = Matrix.Translation(camPos);
 #if BULLET_GIMPACT
                 RigidBody body = LocalCreateRigidBody(mass, startTransform, trimeshShape2);

@@ -20,13 +20,13 @@ namespace BulletSharp
 			_native = native;
 		}
 
-		public float AllowedCcdPenetration
+		public double AllowedCcdPenetration
 		{
 			get { return btDispatcherInfo_getAllowedCcdPenetration(_native); }
 			set { btDispatcherInfo_setAllowedCcdPenetration(_native, value); }
 		}
 
-		public float ConvexConservativeDistanceThreshold
+		public double ConvexConservativeDistanceThreshold
 		{
 			get { return btDispatcherInfo_getConvexConservativeDistanceThreshold(_native); }
 			set { btDispatcherInfo_setConvexConservativeDistanceThreshold(_native, value); }
@@ -62,13 +62,13 @@ namespace BulletSharp
 			set { btDispatcherInfo_setStepCount(_native, value); }
 		}
 
-		public float TimeOfImpact
+		public double TimeOfImpact
 		{
 			get { return btDispatcherInfo_getTimeOfImpact(_native); }
 			set { btDispatcherInfo_setTimeOfImpact(_native, value); }
 		}
 
-		public float TimeStep
+		public double TimeStep
 		{
 			get { return btDispatcherInfo_getTimeStep(_native); }
 			set { btDispatcherInfo_setTimeStep(_native, value); }
@@ -93,9 +93,9 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDispatcherInfo_getAllowedCcdPenetration(IntPtr obj);
+		static extern double btDispatcherInfo_getAllowedCcdPenetration(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDispatcherInfo_getConvexConservativeDistanceThreshold(IntPtr obj);
+		static extern double btDispatcherInfo_getConvexConservativeDistanceThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btDispatcherInfo_getDebugDraw(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -109,9 +109,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btDispatcherInfo_getStepCount(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDispatcherInfo_getTimeOfImpact(IntPtr obj);
+		static extern double btDispatcherInfo_getTimeOfImpact(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDispatcherInfo_getTimeStep(IntPtr obj);
+		static extern double btDispatcherInfo_getTimeStep(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btDispatcherInfo_getUseContinuous(IntPtr obj);
@@ -122,9 +122,9 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btDispatcherInfo_getUseEpa(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDispatcherInfo_setAllowedCcdPenetration(IntPtr obj, float value);
+		static extern void btDispatcherInfo_setAllowedCcdPenetration(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDispatcherInfo_setConvexConservativeDistanceThreshold(IntPtr obj, float value);
+		static extern void btDispatcherInfo_setConvexConservativeDistanceThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDispatcherInfo_setDebugDraw(IntPtr obj, IntPtr value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -136,9 +136,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDispatcherInfo_setStepCount(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDispatcherInfo_setTimeOfImpact(IntPtr obj, float value);
+		static extern void btDispatcherInfo_setTimeOfImpact(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDispatcherInfo_setTimeStep(IntPtr obj, float value);
+		static extern void btDispatcherInfo_setTimeStep(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDispatcherInfo_setUseContinuous(IntPtr obj, bool value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

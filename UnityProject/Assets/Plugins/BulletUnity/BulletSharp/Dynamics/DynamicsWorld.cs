@@ -20,10 +20,10 @@ namespace BulletSharp
 	{
         protected static Dictionary<IntPtr, CollisionWorld> _native2ManagedMap = new Dictionary<IntPtr, CollisionWorld>();
 
-        public delegate void InternalTickCallback(DynamicsWorld world, float timeStep);
+        public delegate void InternalTickCallback(DynamicsWorld world, double timeStep);
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl), SuppressUnmanagedCodeSecurity]
-        delegate void InternalTickCallbackUnmanaged(IntPtr world, float timeStep);
+        delegate void InternalTickCallbackUnmanaged(IntPtr world, double timeStep);
 
         InternalTickCallback _callback;
         InternalTickCallbackUnmanaged _callbackUnmanaged;
@@ -166,14 +166,14 @@ namespace BulletSharp
         }
 
         /*
-        private void InternalTickCallbackNative(IntPtr world, float timeStep)
+        private void InternalTickCallbackNative(IntPtr world, double timeStep)
         {
             _callback(this, timeStep);
         }
         */
 
         [MonoPInvokeCallback(typeof(InternalTickCallbackUnmanaged))]
-        static private void InternalTickCallbackNative(IntPtr world, float timeStep)
+        static private void InternalTickCallbackNative(IntPtr world, double timeStep)
         {
             CollisionWorld cw = _native2ManagedMap[world];
             ((DynamicsWorld) cw)._callback((DynamicsWorld)cw, timeStep);
@@ -213,17 +213,17 @@ namespace BulletSharp
             WorldUserInfo = worldUserInfo;
         }
 
-		public int StepSimulation(float timeStep)
+		public int StepSimulation(double timeStep)
 		{
 			return btDynamicsWorld_stepSimulation(_native, timeStep);
 		}
 
-		public int StepSimulation(float timeStep, int maxSubSteps)
+		public int StepSimulation(double timeStep, int maxSubSteps)
 		{
 			return btDynamicsWorld_stepSimulation2(_native, timeStep, maxSubSteps);
 		}
 
-		public int StepSimulation(float timeStep, int maxSubSteps, float fixedTimeStep)
+		public int StepSimulation(double timeStep, int maxSubSteps, double fixedTimeStep)
 		{
 			return btDynamicsWorld_stepSimulation3(_native, timeStep, maxSubSteps, fixedTimeStep);
 		}
@@ -339,11 +339,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDynamicsWorld_setInternalTickCallback3(IntPtr obj, IntPtr cb, IntPtr worldUserInfo, bool isPreTick);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern int btDynamicsWorld_stepSimulation(IntPtr obj, float timeStep);
+		static extern int btDynamicsWorld_stepSimulation(IntPtr obj, double timeStep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern int btDynamicsWorld_stepSimulation2(IntPtr obj, float timeStep, int maxSubSteps);
+		static extern int btDynamicsWorld_stepSimulation2(IntPtr obj, double timeStep, int maxSubSteps);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern int btDynamicsWorld_stepSimulation3(IntPtr obj, float timeStep, int maxSubSteps, float fixedTimeStep);
+		static extern int btDynamicsWorld_stepSimulation3(IntPtr obj, double timeStep, int maxSubSteps, double fixedTimeStep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDynamicsWorld_synchronizeMotionStates(IntPtr obj);
 	}

@@ -31,8 +31,8 @@ public class BCapsuleShapeEditor : Editor {
             EditorGUILayout.HelpBox("This shape doesn't support transform.scale.\nThe scale must be one. Use 'LocalScaling'", MessageType.Warning);
         }
         script.drawGizmo = EditorGUILayout.Toggle("Draw Shape", script.drawGizmo);
-        script.Radius = EditorGUILayout.FloatField("Radius",script.Radius);
-		script.Height = EditorGUILayout.FloatField("Height",script.Height);
+        script.Radius = EditorGUILayout.FloatField("Radius", (float)script.Radius);
+		script.Height = EditorGUILayout.FloatField("Height", (float)script.Height);
         script.UpAxis = (BCapsuleShape.CapsuleAxis) EditorGUILayout.EnumPopup("Up Axis", script.UpAxis);
         script.LocalScaling = EditorGUILayout.Vector3Field("Local Scaling", script.LocalScaling);
         if (GUI.changed)

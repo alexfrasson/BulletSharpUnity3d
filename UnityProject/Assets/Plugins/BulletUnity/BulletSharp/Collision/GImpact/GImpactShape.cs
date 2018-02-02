@@ -355,7 +355,7 @@ namespace BulletSharp
 			set { btGImpactMeshShapePart_TrimeshPrimitiveManager_setLock_count(_native, value); }
 		}
 
-		public float Margin
+		public double Margin
 		{
 			get { return btGImpactMeshShapePart_TrimeshPrimitiveManager_getMargin(_native); }
 			set { btGImpactMeshShapePart_TrimeshPrimitiveManager_setMargin(_native, value); }
@@ -446,7 +446,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btGImpactMeshShapePart_TrimeshPrimitiveManager_getLock_count(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btGImpactMeshShapePart_TrimeshPrimitiveManager_getMargin(IntPtr obj);
+		static extern double btGImpactMeshShapePart_TrimeshPrimitiveManager_getMargin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btGImpactMeshShapePart_TrimeshPrimitiveManager_getMeshInterface(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -474,7 +474,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btGImpactMeshShapePart_TrimeshPrimitiveManager_setLock_count(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btGImpactMeshShapePart_TrimeshPrimitiveManager_setMargin(IntPtr obj, float value);
+		static extern void btGImpactMeshShapePart_TrimeshPrimitiveManager_setMargin(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btGImpactMeshShapePart_TrimeshPrimitiveManager_setMeshInterface(IntPtr obj, IntPtr value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -630,7 +630,7 @@ namespace BulletSharp
         public CollisionShapeFloatData CollisionShapeData;
         public StridingMeshInterfaceData MeshInterface;
         public Vector3FloatData LocalScaling;
-        public float CollisionMargin;
+        public double CollisionMargin;
         public int GImpactSubType;
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(GImpactMeshShapeData), fieldName).ToInt32(); }

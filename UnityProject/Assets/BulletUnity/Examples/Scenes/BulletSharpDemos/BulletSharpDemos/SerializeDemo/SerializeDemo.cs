@@ -15,7 +15,7 @@ namespace SerializeDemo
         {
         }
 
-        public override RigidBody CreateRigidBody(bool isDynamic, float mass, ref Matrix startTransform, CollisionShape shape, string bodyName)
+        public override RigidBody CreateRigidBody(bool isDynamic, double mass, ref Matrix startTransform, CollisionShape shape, string bodyName)
         {
             RigidBody body = base.CreateRigidBody(isDynamic, mass, ref startTransform, shape, bodyName);
 
@@ -38,9 +38,9 @@ namespace SerializeDemo
         int ArraySizeX = 5, ArraySizeY = 5, ArraySizeZ = 5;
 
         ///scaling of the objects (0.1 = 20 centimeter boxes )
-        float StartPosX = -5;
-        float StartPosY = -5;
-        float StartPosZ = -3;
+        double StartPosX = -5;
+        double StartPosY = -5;
+        double StartPosZ = -3;
 
         protected override void OnInitialize()
         {
@@ -86,10 +86,10 @@ namespace SerializeDemo
                 ground.UserObject = "Ground";
 
                 // create a few dynamic rigidbodies
-                float mass = 1.0f;
+                double mass = 1.0f;
 
                 Vector3[] positions = new Vector3[2] { new Vector3(0.1f, 0.2f, 0.3f), new Vector3(0.4f, 0.5f, 0.6f) };
-                float[] radi = new float[2] { 0.3f, 0.4f };
+                double[] radi = new double[2] { 0.3f, 0.4f };
 
                 CollisionShape colShape = new MultiSphereShape(positions, radi);
 
@@ -101,9 +101,9 @@ namespace SerializeDemo
 
                 Vector3 localInertia = colShape.CalculateLocalInertia(mass);
 
-                float start_x = StartPosX - ArraySizeX / 2;
-                float start_y = StartPosY;
-                float start_z = StartPosZ - ArraySizeZ / 2;
+                double start_x = StartPosX - ArraySizeX / 2;
+                double start_y = StartPosY;
+                double start_z = StartPosZ - ArraySizeZ / 2;
 
                 int k, i, j;
                 for (k = 0; k < ArraySizeY; k++)

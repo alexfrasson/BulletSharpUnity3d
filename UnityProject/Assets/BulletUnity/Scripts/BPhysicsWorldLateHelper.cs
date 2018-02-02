@@ -26,8 +26,8 @@ namespace BulletUnity
         internal DiscreteDynamicsWorld m_ddWorld;
         internal CollisionWorld m_world;
         internal int m__frameCount = 0;
-        internal float m_lastSimulationStepTime = 0;
-        internal float m_fixedTimeStep = 1f / 60f;
+        internal double m_lastSimulationStepTime = 0;
+        internal double m_fixedTimeStep = 1f / 60f;
         internal int m_maxSubsteps = 3;
 
         void Awake()
@@ -40,7 +40,7 @@ namespace BulletUnity
             
             if (m_ddWorld != null)
             {
-                float deltaTime = UnityEngine.Time.time - m_lastSimulationStepTime;
+                double deltaTime = UnityEngine.Time.time - m_lastSimulationStepTime;
                 if (deltaTime > 0f)
                 {
                     ///stepSimulation proceeds the simulation over 'timeStep', units in preferably in seconds.
@@ -64,7 +64,7 @@ namespace BulletUnity
         //This is needed for rigidBody interpolation. The motion states will update the positions of the rigidbodies
         protected virtual void Update()
         {
-            float deltaTime = UnityEngine.Time.time - m_lastSimulationStepTime;
+            double deltaTime = UnityEngine.Time.time - m_lastSimulationStepTime;
             if (deltaTime > 0f)
             {
                 int numSteps = m_ddWorld.StepSimulation(deltaTime, m_maxSubsteps, m_fixedTimeStep);

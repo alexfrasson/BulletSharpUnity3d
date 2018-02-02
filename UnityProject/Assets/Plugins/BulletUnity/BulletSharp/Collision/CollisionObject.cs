@@ -26,15 +26,15 @@ namespace BulletSharp
 	[Flags]
 	public enum CollisionFlags
 	{
-        None = 0,
-        StaticObject = 1,
-        KinematicObject = 2,
-        NoContactResponse = 4,
-        CustomMaterialCallback = 8,
-        CharacterObject = 16,
-        DisableVisualizeObject = 32,
-        DisableSpuCollisionProcessing = 64
-    }
+		None = 0,
+		StaticObject = 1,
+		KinematicObject = 2,
+		NoContactResponse = 4,
+		CustomMaterialCallback = 8,
+		CharacterObject = 16,
+		DisableVisualizeObject = 32,
+		DisableSpuCollisionProcessing = 64
+	}
 
 	[Flags]
 	public enum CollisionObjectTypes
@@ -206,18 +206,18 @@ namespace BulletSharp
 			}
 		}
 
-		public float CcdMotionThreshold
+		public double CcdMotionThreshold
 		{
 			get { return btCollisionObject_getCcdMotionThreshold(_native); }
 			set { btCollisionObject_setCcdMotionThreshold(_native, value); }
 		}
 
-		public float CcdSquareMotionThreshold
+		public double CcdSquareMotionThreshold
 		{
 			get { return btCollisionObject_getCcdSquareMotionThreshold(_native); }
 		}
 
-		public float CcdSweptSphereRadius
+		public double CcdSweptSphereRadius
 		{
 			get { return btCollisionObject_getCcdSweptSphereRadius(_native); }
 			set { btCollisionObject_setCcdSweptSphereRadius(_native, value); }
@@ -245,19 +245,19 @@ namespace BulletSharp
 			set { btCollisionObject_setCompanionId(_native, value); }
 		}
 
-		public float ContactProcessingThreshold
+		public double ContactProcessingThreshold
 		{
 			get { return btCollisionObject_getContactProcessingThreshold(_native); }
 			set { btCollisionObject_setContactProcessingThreshold(_native, value); }
 		}
 
-		public float DeactivationTime
+		public double DeactivationTime
 		{
 			get { return btCollisionObject_getDeactivationTime(_native); }
 			set { btCollisionObject_setDeactivationTime(_native, value); }
 		}
 
-		public float Friction
+		public double Friction
 		{
 			get { return btCollisionObject_getFriction(_native); }
 			set { btCollisionObject_setFriction(_native, value); }
@@ -268,7 +268,7 @@ namespace BulletSharp
 			get { return btCollisionObject_hasContactResponse(_native); }
 		}
 
-		public float HitFraction
+		public double HitFraction
 		{
 			get { return btCollisionObject_getHitFraction(_native); }
 			set { btCollisionObject_setHitFraction(_native, value); }
@@ -338,13 +338,13 @@ namespace BulletSharp
 			get { return btCollisionObject_isStaticOrKinematicObject(_native); }
 		}
 
-		public float Restitution
+		public double Restitution
 		{
 			get { return btCollisionObject_getRestitution(_native); }
 			set { btCollisionObject_setRestitution(_native, value); }
 		}
 
-		public float RollingFriction
+		public double RollingFriction
 		{
 			get { return btCollisionObject_getRollingFriction(_native); }
 			set { btCollisionObject_setRollingFriction(_native, value); }
@@ -438,11 +438,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btCollisionObject_getBroadphaseHandle(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getCcdMotionThreshold(IntPtr obj);
+		static extern double btCollisionObject_getCcdMotionThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getCcdSquareMotionThreshold(IntPtr obj);
+		static extern double btCollisionObject_getCcdSquareMotionThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getCcdSweptSphereRadius(IntPtr obj);
+		static extern double btCollisionObject_getCcdSweptSphereRadius(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern CollisionFlags btCollisionObject_getCollisionFlags(IntPtr obj);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -450,13 +450,13 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btCollisionObject_getCompanionId(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getContactProcessingThreshold(IntPtr obj);
+		static extern double btCollisionObject_getContactProcessingThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getDeactivationTime(IntPtr obj);
+		static extern double btCollisionObject_getDeactivationTime(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getFriction(IntPtr obj);
+		static extern double btCollisionObject_getFriction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getHitFraction(IntPtr obj);
+		static extern double btCollisionObject_getHitFraction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern CollisionObjectTypes btCollisionObject_getInternalType(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -468,9 +468,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btCollisionObject_getIslandTag(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getRestitution(IntPtr obj);
+		static extern double btCollisionObject_getRestitution(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionObject_getRollingFriction(IntPtr obj);
+		static extern double btCollisionObject_getRollingFriction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btCollisionObject_getUserIndex(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -518,9 +518,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionObject_setBroadphaseHandle(IntPtr obj, IntPtr handle);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setCcdMotionThreshold(IntPtr obj, float ccdMotionThreshold);
+		static extern void btCollisionObject_setCcdMotionThreshold(IntPtr obj, double ccdMotionThreshold);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setCcdSweptSphereRadius(IntPtr obj, float radius);
+		static extern void btCollisionObject_setCcdSweptSphereRadius(IntPtr obj, double radius);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern void btCollisionObject_setCollisionFlags(IntPtr obj, CollisionFlags flags);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -528,13 +528,13 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionObject_setCompanionId(IntPtr obj, int id);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setContactProcessingThreshold(IntPtr obj, float contactProcessingThreshold);
+		static extern void btCollisionObject_setContactProcessingThreshold(IntPtr obj, double contactProcessingThreshold);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setDeactivationTime(IntPtr obj, float time);
+		static extern void btCollisionObject_setDeactivationTime(IntPtr obj, double time);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setFriction(IntPtr obj, float frict);
+		static extern void btCollisionObject_setFriction(IntPtr obj, double frict);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setHitFraction(IntPtr obj, float hitFraction);
+		static extern void btCollisionObject_setHitFraction(IntPtr obj, double hitFraction);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionObject_setIgnoreCollisionCheck(IntPtr obj, IntPtr co, bool ignoreCollisionCheck);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -546,9 +546,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionObject_setIslandTag(IntPtr obj, int tag);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setRestitution(IntPtr obj, float rest);
+		static extern void btCollisionObject_setRestitution(IntPtr obj, double rest);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionObject_setRollingFriction(IntPtr obj, float frict);
+		static extern void btCollisionObject_setRollingFriction(IntPtr obj, double frict);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionObject_setUserIndex(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -571,14 +571,14 @@ namespace BulletSharp
         public Vector3FloatData InterpolationLinearVelocity;
         public Vector3FloatData InterpolationAngularVelocity;
         public Vector3FloatData AnisotropicFriction;
-        public float ContactProcessingThreshold;	
-        public float DeactivationTime;
-        public float Friction;
-        public float RollingFriction;
-        public float Restitution;
-        public float HitFraction; 
-        public float CcdSweptSphereRadius;
-        public float CcdMotionThreshold;
+        public double ContactProcessingThreshold;	
+        public double DeactivationTime;
+        public double Friction;
+        public double RollingFriction;
+        public double Restitution;
+        public double HitFraction; 
+        public double CcdSweptSphereRadius;
+        public double CcdMotionThreshold;
         public int HasAnisotropicFriction;
         public int CollisionFlags;
         public int IslandTag1;

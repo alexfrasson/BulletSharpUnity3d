@@ -86,7 +86,7 @@ namespace BulletSharp
 			btConvexPolyhedron_initialize(_native);
 		}
 
-        public void Project(ref Matrix trans, ref Vector3 dir, out float minProj, out float maxProj, out Vector3 witnesPtMin, out Vector3 witnesPtMax)
+        public void Project(ref Matrix trans, ref Vector3 dir, out double minProj, out double maxProj, out Vector3 witnesPtMin, out Vector3 witnesPtMax)
 		{
             btConvexPolyhedron_project(_native, ref trans, ref dir, out minProj, out maxProj, out witnesPtMin, out witnesPtMax);
 		}
@@ -145,7 +145,7 @@ namespace BulletSharp
 			set { btConvexPolyhedron_setME(_native, ref value); }
 		}
 
-		public float Radius
+		public double Radius
 		{
 			get { return btConvexPolyhedron_getRadius(_native); }
 			set { btConvexPolyhedron_setRadius(_native, value); }
@@ -208,7 +208,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexPolyhedron_getME(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConvexPolyhedron_getRadius(IntPtr obj);
+		static extern double btConvexPolyhedron_getRadius(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btConvexPolyhedron_getUniqueEdges(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -216,7 +216,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexPolyhedron_initialize(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern void btConvexPolyhedron_project(IntPtr obj, [In] ref Matrix trans, [In] ref Vector3 dir, [Out] out float minProj, [Out] out float maxProj, [Out] out Vector3 witnesPtMin, [Out] out Vector3 witnesPtMax);
+        static extern void btConvexPolyhedron_project(IntPtr obj, [In] ref Matrix trans, [In] ref Vector3 dir, [Out] out double minProj, [Out] out double maxProj, [Out] out Vector3 witnesPtMin, [Out] out Vector3 witnesPtMax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexPolyhedron_setExtents(IntPtr obj, [In] ref Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -226,7 +226,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexPolyhedron_setME(IntPtr obj, [In] ref Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConvexPolyhedron_setRadius(IntPtr obj, float value);
+		static extern void btConvexPolyhedron_setRadius(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btConvexPolyhedron_testContainment(IntPtr obj);

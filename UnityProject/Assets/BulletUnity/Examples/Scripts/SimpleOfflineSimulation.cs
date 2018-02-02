@@ -24,7 +24,7 @@ public class SimpleOfflineSimulation : MonoBehaviour {
 
 
         // create a few dynamic rigidbodies
-        const float mass = 1.0f;
+        const double mass = 1.0f;
         //Add a single cube
         RigidBody fallRigidBody;
         BoxShape shape = new BoxShape(1f, 1f, 1f);

@@ -17,7 +17,7 @@ namespace BulletSharp
             _childShape = childShape;
 		}
 
-		public float ChildMargin
+		public double ChildMargin
 		{
 			get { return btCompoundShapeChild_getChildMargin(_native); }
 			set { btCompoundShapeChild_setChildMargin(_native, value); }
@@ -61,7 +61,7 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCompoundShapeChild_getChildMargin(IntPtr obj);
+		static extern double btCompoundShapeChild_getChildMargin(IntPtr obj);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern IntPtr btCompoundShapeChild_getChildShape(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -71,7 +71,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCompoundShapeChild_getTransform(IntPtr obj, [Out] out Matrix value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCompoundShapeChild_setChildMargin(IntPtr obj, float value);
+		static extern void btCompoundShapeChild_setChildMargin(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCompoundShapeChild_setChildShape(IntPtr obj, IntPtr value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -114,7 +114,7 @@ namespace BulletSharp
             _childList.AddChildShape(ref localTransform, shape);
 		}
 
-        public void CalculatePrincipalAxisTransform(float[] masses, ref Matrix principal, ref Vector3 inertia)
+        public void CalculatePrincipalAxisTransform(double[] masses, ref Matrix principal, ref Vector3 inertia)
 		{
             btCompoundShape_calculatePrincipalAxisTransform(_native, masses, ref principal, ref inertia);
 		}
@@ -193,7 +193,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btCompoundShape_new3(bool enableDynamicAabbTree, int initialChildCapacity);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCompoundShape_calculatePrincipalAxisTransform(IntPtr obj, float[] masses, [In] ref Matrix principal, [In] ref Vector3 inertia);
+		static extern void btCompoundShape_calculatePrincipalAxisTransform(IntPtr obj, double[] masses, [In] ref Matrix principal, [In] ref Vector3 inertia);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCompoundShape_createAabbTreeFromChildren(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -218,7 +218,7 @@ namespace BulletSharp
         public CollisionShapeFloatData CollisionShapeData;
         public IntPtr ChildShapePtr;
         public int NumChildShapes;
-        public float CollisionMargin;
+        public double CollisionMargin;
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(CompoundShapeFloatData), fieldName).ToInt32(); }
     }
@@ -229,7 +229,7 @@ namespace BulletSharp
         public TransformFloatData Transform;
         public IntPtr ChildShape;
         public int ChildShapeType;
-        public float ChildMargin;
+        public double ChildMargin;
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(CompoundShapeChildFloatData), fieldName).ToInt32(); }
     }

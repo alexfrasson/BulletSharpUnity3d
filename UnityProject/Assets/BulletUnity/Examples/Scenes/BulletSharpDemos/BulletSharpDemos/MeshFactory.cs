@@ -134,16 +134,16 @@ namespace DemoFramework
         public static UnityEngine.Vector3[] CreateCapsule(CapsuleShape shape, out int[] indices)
         {
             int up = shape.UpAxis;
-            float radius = shape.Radius;
-            float cylinderHalfHeight = shape.HalfHeight;
+            double radius = shape.Radius;
+            double cylinderHalfHeight = shape.HalfHeight;
 
             int slices = (int)(radius * 10.0f);
             int stacks = (int)(radius * 10.0f);
             slices = (slices > 16) ? 16 : (slices < 3) ? 3 : slices;
             stacks = (stacks > 16) ? 16 : (stacks < 3) ? 3 : stacks;
 
-            float hAngleStep = (float)Math.PI * 2 / slices;
-            float vAngleStep = (float)Math.PI / stacks;
+            double hAngleStep = (double)Math.PI * 2 / slices;
+            double vAngleStep = (double)Math.PI / stacks;
 
             int vertexCount = 2 + slices * (stacks - 1);
             int indexCount = 6 * slices * (stacks - 1);
@@ -163,13 +163,13 @@ namespace DemoFramework
 
             // Stacks
             int j, k;
-            float angle = 0;
-            float vAngle = -(float)Math.PI / 2;
+            double angle = 0;
+            double vAngle = -(double)Math.PI / 2;
             UnityEngine.Vector3 vTemp;
             UnityEngine.Vector3 cylinderOffset = GetVectorByAxis(0, -cylinderHalfHeight, 0, up);
             for (j = 0; j < stacks - 1; j++)
             {
-                float prevAngle = vAngle;
+                double prevAngle = vAngle;
                 vAngle += vAngleStep;
 
                 if (vAngle > 0 && prevAngle < 0)
@@ -181,10 +181,10 @@ namespace DemoFramework
                 {
                     angle += hAngleStep;
 
-                    vTemp = GetVectorByAxis((float)Math.Cos(vAngle) * (float)Math.Sin(angle),
-                        (float)Math.Sin(vAngle),
-                        (float)Math.Cos(vAngle) * (float)Math.Cos(angle), up);
-                    vertices[v++] = vTemp * radius + cylinderOffset;
+                    vTemp = GetVectorByAxis((double)Math.Cos(vAngle) * (double)Math.Sin(angle),
+                        (double)Math.Sin(vAngle),
+                        (double)Math.Cos(vAngle) * (double)Math.Cos(angle), up);
+                    vertices[v++] = vTemp * (float)radius + cylinderOffset;
                     vertices[v++] = UnityEngine.Vector3.Normalize(vTemp);
                 }
             }
@@ -249,27 +249,27 @@ namespace DemoFramework
             }
         }
 
-        public static UnityEngine.Vector3 GetVectorByAxis(float x, float y, float z, int axis)
+        public static UnityEngine.Vector3 GetVectorByAxis(double x, double y, double z, int axis)
         {
             switch (axis)
             {
                 case 0:
-                    return new UnityEngine.Vector3(y, z, x);
+                    return new UnityEngine.Vector3((float)y, (float)z, (float)x);
                 case 1:
-                    return new UnityEngine.Vector3(x, y, z);
+                    return new UnityEngine.Vector3((float)x, (float)y, (float)z);
                 default:
-                    return new UnityEngine.Vector3(z, x, y);
+                    return new UnityEngine.Vector3((float)z, (float)x, (float)y);
             }
         }
 
         public static UnityEngine.Vector3[] CreateCone(ConeShape shape, out int[] indices)
         {
             int up = shape.ConeUpIndex;
-            float radius = shape.Radius;
-            float halfHeight = shape.Height / 2 + shape.Margin;
+            double radius = shape.Radius;
+            double halfHeight = shape.Height / 2 + shape.Margin;
 
             const int numSteps = 10;
-            const float angleStep = (2 * (float)Math.PI) / numSteps;
+            const double angleStep = (2 * (double)Math.PI) / numSteps;
 
             const int vertexCount = 2 + 6 * numSteps;
             const int indexCount = (4 * numSteps + 2) * 3;
@@ -295,8 +295,8 @@ namespace DemoFramework
 
             for (int j = 1; j < numSteps; j++)
             {
-                float x = radius * (float)Math.Sin(j * angleStep);
-                float z = radius * (float)Math.Cos(j * angleStep);
+                double x = radius * (double)Math.Sin(j * angleStep);
+                double z = radius * (double)Math.Cos(j * angleStep);
 
                 vertices[v++] = GetVectorByAxis(x, -halfHeight, z, up);
                 vertices[v++] = normal;
@@ -323,8 +323,8 @@ namespace DemoFramework
 
             for (int j = 1; j < numSteps + 1; j++)
             {
-                float x = radius * (float)Math.Sin(j * angleStep);
-                float z = radius * (float)Math.Cos(j * angleStep);
+                double x = radius * (double)Math.Sin(j * angleStep);
+                double z = radius * (double)Math.Cos(j * angleStep);
 
                 normal = GetVectorByAxis(x, 0, z, up);
                 normal.Normalize();
@@ -356,11 +356,11 @@ namespace DemoFramework
         public static UnityEngine.Vector3[] CreateCylinder(CylinderShape shape, out int[] indices)
         {
             int up = shape.UpAxis;
-            float radius = shape.Radius;
-            float halfHeight = shape.HalfExtentsWithoutMargin[up] + shape.Margin;
+            double radius = shape.Radius;
+            double halfHeight = shape.HalfExtentsWithoutMargin[up] + shape.Margin;
 
             const int numSteps = 10;
-            const float angleStep = (2 * (float)Math.PI) / numSteps;
+            const double angleStep = (2 * (double)Math.PI) / numSteps;
 
             const int vertexCount = 2 + 6 * numSteps;
             const int indexCount = (4 * numSteps + 2) * 3;
@@ -388,8 +388,8 @@ namespace DemoFramework
 
                 for (int j = 1; j < numSteps; j++)
                 {
-                    float x = radius * (float)Math.Sin(j * angleStep);
-                    float z = radius * (float)Math.Cos(j * angleStep);
+                    double x = radius * (double)Math.Sin(j * angleStep);
+                    double z = radius * (double)Math.Cos(j * angleStep);
 
                     vertices[v++] = GetVectorByAxis(x, side * halfHeight, z, up);
                     vertices[v++] = normal;
@@ -434,8 +434,8 @@ namespace DemoFramework
 
             for (int j = 1; j < numSteps + 1; j++)
             {
-                float x = radius * (float)Math.Sin(j * angleStep);
-                float z = radius * (float)Math.Cos(j * angleStep);
+                double x = radius * (double)Math.Sin(j * angleStep);
+                double z = radius * (double)Math.Cos(j * angleStep);
 
                 normal = GetVectorByAxis(x, 0, z, up);
                 normal.Normalize();
@@ -592,15 +592,15 @@ namespace DemoFramework
             return CreateSphere(shape.Radius, out indices);
         }
 
-        static UnityEngine.Vector3[] CreateSphere(float radius, out int[] indices)
+        static UnityEngine.Vector3[] CreateSphere(double radius, out int[] indices)
         {
             int slices = (int)(radius * 10.0f);
             int stacks = (int)(radius * 10.0f);
             slices = (slices > 16) ? 16 : (slices < 3) ? 3 : slices;
             stacks = (stacks > 16) ? 16 : (stacks < 2) ? 2 : stacks;
 
-            float hAngleStep = (float)Math.PI * 2 / slices;
-            float vAngleStep = (float)Math.PI / stacks;
+            double hAngleStep = (double)Math.PI * 2 / slices;
+            double vAngleStep = (double)Math.PI / stacks;
 
             int vertexCount = 2 + slices * (stacks - 1);
             int indexCount = 6 * slices * (stacks - 1);
@@ -613,15 +613,15 @@ namespace DemoFramework
 
             // Vertices
             // Top and bottom
-            vertices[v++] = new UnityEngine.Vector3(0, -radius, 0);
+            vertices[v++] = new UnityEngine.Vector3(0, -(float)radius, 0);
             vertices[v++] = -UnityEngine.Vector3.up;
-            vertices[v++] = new UnityEngine.Vector3(0, radius, 0);
+            vertices[v++] = new UnityEngine.Vector3(0, (float)radius, 0);
             vertices[v++] = UnityEngine.Vector3.up;
 
             // Stacks
             int j, k;
-            float angle = 0;
-            float vAngle = -(float)Math.PI / 2;
+            double angle = 0;
+            double vAngle = -(double)Math.PI / 2;
             UnityEngine.Vector3 vTemp;
             for (j = 0; j < stacks - 1; j++)
             {
@@ -632,7 +632,7 @@ namespace DemoFramework
                     angle += hAngleStep;
 
                     vTemp = new UnityEngine.Vector3((float)Math.Cos(vAngle) * (float)Math.Sin(angle), (float)Math.Sin(vAngle), (float)Math.Cos(vAngle) * (float)Math.Cos(angle));
-                    vertices[v++] = vTemp * radius;
+                    vertices[v++] = vTemp * (float)radius;
                     vertices[v++] = UnityEngine.Vector3.Normalize(vTemp);
                 }
             }
@@ -690,8 +690,8 @@ namespace DemoFramework
             if (Math.Abs(n[2]) > (Math.Sqrt(2) / 2))
             {
                 // choose p in y-z plane
-                float a = n[1] * n[1] + n[2] * n[2];
-                float k = 1.0f / (float)Math.Sqrt(a);
+                double a = n[1] * n[1] + n[2] * n[2];
+                double k = 1.0f / (double)Math.Sqrt(a);
                 p = new Vector3(0, -n[2] * k, n[1] * k);
                 // set q = n x p
                 q = Vector3.Cross(n, p);
@@ -699,8 +699,8 @@ namespace DemoFramework
             else
             {
                 // choose p in x-y plane
-                float a = n[0] * n[0] + n[1] * n[1];
-                float k = 1.0f / (float)Math.Sqrt(a);
+                double a = n[0] * n[0] + n[1] * n[1];
+                double k = 1.0f / (double)Math.Sqrt(a);
                 p = new Vector3(-n[1] * k, n[0] * k, 0);
                 // set q = n x p
                 q = Vector3.Cross(n, p);
@@ -709,22 +709,22 @@ namespace DemoFramework
 
         public static UnityEngine.Vector3[] CreateStaticPlane(StaticPlaneShape shape, out int[] indices)
         {
-            UnityEngine.Vector3 planeOrigin = shape.PlaneNormal.ToUnity() * shape.PlaneConstant;
+            UnityEngine.Vector3 planeOrigin = shape.PlaneNormal.ToUnity() * (float)shape.PlaneConstant;
             Vector3 vec0, vec1;
             PlaneSpace1(shape.PlaneNormal, out vec0, out vec1);
-            const float size = 1000;
+            const double size = 1000;
 
             indices = new int[] { 0, 2, 1, 0, 1, 3 };
 
             return new UnityEngine.Vector3[]
             {
-                planeOrigin + vec0.ToUnity()*size,
+                planeOrigin + vec0.ToUnity()*(float)size,
                 shape.PlaneNormal.ToUnity(),
-                planeOrigin - vec0.ToUnity()*size,
+                planeOrigin - vec0.ToUnity()*(float)size,
                 shape.PlaneNormal.ToUnity(),
-                planeOrigin + vec1.ToUnity()*size,
+                planeOrigin + vec1.ToUnity()*(float)size,
                 shape.PlaneNormal.ToUnity(),
-                planeOrigin - vec1.ToUnity()*size,
+                planeOrigin - vec1.ToUnity()*(float)size,
                 shape.PlaneNormal.ToUnity()
             };
         }
@@ -758,22 +758,22 @@ namespace DemoFramework
                 {
                     uint i = indexReader.ReadUInt32();
                     vertexStream.Position = vertexStride * i;
-                    float f1 = vertexReader.ReadSingle();
-                    float f2 = vertexReader.ReadSingle();
-                    float f3 = vertexReader.ReadSingle();
-                    UnityEngine.Vector3 v0 = new UnityEngine.Vector3(f1, f2, f3);
+                    double f1 = vertexReader.ReadSingle();
+                    double f2 = vertexReader.ReadSingle();
+                    double f3 = vertexReader.ReadSingle();
+                    UnityEngine.Vector3 v0 = new UnityEngine.Vector3((float)f1, (float)f2, (float)f3);
                     i = indexReader.ReadUInt32();
                     vertexStream.Position = vertexStride * i;
                     f1 = vertexReader.ReadSingle();
                     f2 = vertexReader.ReadSingle();
                     f3 = vertexReader.ReadSingle();
-                    UnityEngine.Vector3 v1 = new UnityEngine.Vector3(f1, f2, f3);
+                    UnityEngine.Vector3 v1 = new UnityEngine.Vector3((float)f1, (float)f2, (float)f3);
                     i = indexReader.ReadUInt32();
                     vertexStream.Position = vertexStride * i;
                     f1 = vertexReader.ReadSingle();
                     f2 = vertexReader.ReadSingle();
                     f3 = vertexReader.ReadSingle();
-                    UnityEngine.Vector3 v2 = new UnityEngine.Vector3(f1, f2, f3);
+                    UnityEngine.Vector3 v2 = new UnityEngine.Vector3((float)f1, (float)f2, (float)f3);
 
                     UnityEngine.Vector3 v01 = v0 - v1;
                     UnityEngine.Vector3 v02 = v0 - v2;
@@ -946,8 +946,8 @@ namespace DemoFramework
                 mesh.UnlockIndexBuffer();
 
                 SlimDX.DataStream verts = mesh.LockVertexBuffer(LockFlags.Discard);
-                foreach (float f in vertexBuffer)
-                    verts.Write(f);
+                foreach (double  in vertexBuffer)
+                    verts.Write();
                 mesh.UnlockVertexBuffer();
 
                 mesh.ComputeNormals();

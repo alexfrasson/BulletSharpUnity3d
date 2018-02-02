@@ -14,12 +14,12 @@ namespace BulletSharp
 			_rigidBodyB = rigidBodyB;
 		}
 
-		public void SetLowerLimit(float ang1min)
+		public void SetLowerLimit(double ang1min)
 		{
 			btHinge2Constraint_setLowerLimit(_native, ang1min);
 		}
 
-		public void SetUpperLimit(float ang1max)
+		public void SetUpperLimit(double ang1max)
 		{
 			btHinge2Constraint_setUpperLimit(_native, ang1max);
 		}
@@ -44,12 +44,12 @@ namespace BulletSharp
 			}
 		}
 
-		public float Angle1
+		public double Angle1
 		{
 			get { return btHinge2Constraint_getAngle1(_native); }
 		}
 
-		public float Angle2
+		public double Angle2
 		{
 			get { return btHinge2Constraint_getAngle2(_native); }
 		}
@@ -81,16 +81,16 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btHinge2Constraint_getAnchor2(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btHinge2Constraint_getAngle1(IntPtr obj);
+		static extern double btHinge2Constraint_getAngle1(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btHinge2Constraint_getAngle2(IntPtr obj);
+		static extern double btHinge2Constraint_getAngle2(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btHinge2Constraint_getAxis1(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btHinge2Constraint_getAxis2(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btHinge2Constraint_setLowerLimit(IntPtr obj, float ang1min);
+		static extern void btHinge2Constraint_setLowerLimit(IntPtr obj, double ang1min);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btHinge2Constraint_setUpperLimit(IntPtr obj, float ang1max);
+		static extern void btHinge2Constraint_setUpperLimit(IntPtr obj, double ang1max);
 	}
 }

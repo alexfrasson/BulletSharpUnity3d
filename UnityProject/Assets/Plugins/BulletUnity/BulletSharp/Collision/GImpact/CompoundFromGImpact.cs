@@ -14,7 +14,7 @@ namespace BulletSharp
             _ignoreTriangleIndex = ignoreTriangleIndex;
 		}
 
-        public override float ReportHit(ref Vector3 hitNormalLocal, float hitFraction, int partId, int triangleIndex)
+        public override double ReportHit(ref Vector3 hitNormalLocal, double hitFraction, int partId, int triangleIndex)
         {
             if (partId != _ignorePart || triangleIndex != _ignoreTriangleIndex)
             {
@@ -29,10 +29,10 @@ namespace BulletSharp
     class MyInternalTriangleIndexCallback : InternalTriangleIndexCallback
     {
         private CompoundShape _colShape;
-        private float _depth;
+        private double _depth;
         private GImpactMeshShape _meshShape;
 
-        public MyInternalTriangleIndexCallback(CompoundShape colShape, GImpactMeshShape meshShape, float depth)
+        public MyInternalTriangleIndexCallback(CompoundShape colShape, GImpactMeshShape meshShape, double depth)
         {
             _colShape = colShape;
             _depth = depth;
@@ -73,7 +73,7 @@ namespace BulletSharp
 		{
 		}
 
-	    public static CompoundShape Create(GImpactMeshShape gImpactMesh, float depth)
+	    public static CompoundShape Create(GImpactMeshShape gImpactMesh, double depth)
 	    {
             CompoundShape colShape = new CompoundShape();
             using (MyInternalTriangleIndexCallback cb = new MyInternalTriangleIndexCallback(colShape, gImpactMesh, depth))

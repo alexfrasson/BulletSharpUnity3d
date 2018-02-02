@@ -54,7 +54,7 @@ namespace BulletSharp
 			btSliderConstraint_getInfo1NonVirtual(_native, info._native);
 		}
 
-		public void GetInfo2NonVirtual(ConstraintInfo2 info, Matrix transA, Matrix transB, Vector3 linVelA, Vector3 linVelB, float rbAinvMass, float rbBinvMass)
+		public void GetInfo2NonVirtual(ConstraintInfo2 info, Matrix transA, Matrix transB, Vector3 linVelA, Vector3 linVelB, double rbAinvMass, double rbBinvMass)
 		{
 			btSliderConstraint_getInfo2NonVirtual(_native, info._native, ref transA, ref transB, ref linVelA, ref linVelB, rbAinvMass, rbBinvMass);
 		}
@@ -99,12 +99,12 @@ namespace BulletSharp
 			}
 		}
 
-		public float AngularDepth
+		public double AngularDepth
 		{
 			get { return btSliderConstraint_getAngDepth(_native); }
 		}
 
-		public float AngularPosition
+		public double AngularPosition
 		{
 			get { return btSliderConstraint_getAngularPos(_native); }
 		}
@@ -129,37 +129,37 @@ namespace BulletSharp
 			}
 		}
 
-		public float DampingDirAngular
+		public double DampingDirAngular
 		{
 			get { return btSliderConstraint_getDampingDirAng(_native); }
 			set { btSliderConstraint_setDampingDirAng(_native, value); }
 		}
 
-		public float DampingDirLinear
+		public double DampingDirLinear
 		{
 			get { return btSliderConstraint_getDampingDirLin(_native); }
 			set { btSliderConstraint_setDampingDirLin(_native, value); }
 		}
 
-		public float DampingLimAngular
+		public double DampingLimAngular
 		{
 			get { return btSliderConstraint_getDampingLimAng(_native); }
 			set { btSliderConstraint_setDampingLimAng(_native, value); }
 		}
 
-		public float DampingLimLinear
+		public double DampingLimLinear
 		{
 			get { return btSliderConstraint_getDampingLimLin(_native); }
 			set { btSliderConstraint_setDampingLimLin(_native, value); }
 		}
 
-		public float DampingOrthoAngular
+		public double DampingOrthoAngular
 		{
 			get { return btSliderConstraint_getDampingOrthoAng(_native); }
 			set { btSliderConstraint_setDampingOrthoAng(_native, value); }
 		}
 
-		public float DampingOrthoLinear
+		public double DampingOrthoLinear
 		{
 			get { return btSliderConstraint_getDampingOrthoLin(_native); }
 			set { btSliderConstraint_setDampingOrthoLin(_native, value); }
@@ -190,35 +190,35 @@ namespace BulletSharp
 			}
 		}
 
-		public float LinearDepth
+		public double LinearDepth
 		{
 			get { return btSliderConstraint_getLinDepth(_native); }
 		}
 
-		public float LinearPos
+		public double LinearPos
 		{
 			get { return btSliderConstraint_getLinearPos(_native); }
 		}
 
-		public float LowerAngularLimit
+		public double LowerAngularLimit
 		{
 			get { return btSliderConstraint_getLowerAngLimit(_native); }
 			set { btSliderConstraint_setLowerAngLimit(_native, value); }
 		}
 
-		public float LowerLinearLimit
+		public double LowerLinearLimit
 		{
 			get { return btSliderConstraint_getLowerLinLimit(_native); }
 			set { btSliderConstraint_setLowerLinLimit(_native, value); }
 		}
 
-		public float MaxAngMotorForce
+		public double MaxAngMotorForce
 		{
 			get { return btSliderConstraint_getMaxAngMotorForce(_native); }
 			set { btSliderConstraint_setMaxAngMotorForce(_native, value); }
 		}
 
-		public float MaxLinearMotorForce
+		public double MaxLinearMotorForce
 		{
 			get { return btSliderConstraint_getMaxLinMotorForce(_native); }
 			set { btSliderConstraint_setMaxLinMotorForce(_native, value); }
@@ -236,73 +236,73 @@ namespace BulletSharp
 			set { btSliderConstraint_setPoweredLinMotor(_native, value); }
 		}
 
-		public float RestitutionDirAngular
+		public double RestitutionDirAngular
 		{
 			get { return btSliderConstraint_getRestitutionDirAng(_native); }
 			set { btSliderConstraint_setRestitutionDirAng(_native, value); }
 		}
 
-		public float RestitutionDirLinear
+		public double RestitutionDirLinear
 		{
 			get { return btSliderConstraint_getRestitutionDirLin(_native); }
 			set { btSliderConstraint_setRestitutionDirLin(_native, value); }
 		}
 
-		public float RestitutionLimAngular
+		public double RestitutionLimAngular
 		{
 			get { return btSliderConstraint_getRestitutionLimAng(_native); }
 			set { btSliderConstraint_setRestitutionLimAng(_native, value); }
 		}
 
-		public float RestitutionLimLinear
+		public double RestitutionLimLinear
 		{
 			get { return btSliderConstraint_getRestitutionLimLin(_native); }
 			set { btSliderConstraint_setRestitutionLimLin(_native, value); }
 		}
 
-		public float RestitutionOrthoAngular
+		public double RestitutionOrthoAngular
 		{
 			get { return btSliderConstraint_getRestitutionOrthoAng(_native); }
 			set { btSliderConstraint_setRestitutionOrthoAng(_native, value); }
 		}
 
-		public float RestitutionOrthoLinear
+		public double RestitutionOrthoLinear
 		{
 			get { return btSliderConstraint_getRestitutionOrthoLin(_native); }
 			set { btSliderConstraint_setRestitutionOrthoLin(_native, value); }
 		}
 
-		public float SoftnessDirAngular
+		public double SoftnessDirAngular
 		{
 			get { return btSliderConstraint_getSoftnessDirAng(_native); }
 			set { btSliderConstraint_setSoftnessDirAng(_native, value); }
 		}
 
-		public float SoftnessDirLinear
+		public double SoftnessDirLinear
 		{
 			get { return btSliderConstraint_getSoftnessDirLin(_native); }
 			set { btSliderConstraint_setSoftnessDirLin(_native, value); }
 		}
 
-		public float SoftnessLimAngular
+		public double SoftnessLimAngular
 		{
 			get { return btSliderConstraint_getSoftnessLimAng(_native); }
 			set { btSliderConstraint_setSoftnessLimAng(_native, value); }
 		}
 
-		public float SoftnessLimLinear
+		public double SoftnessLimLinear
 		{
 			get { return btSliderConstraint_getSoftnessLimLin(_native); }
 			set { btSliderConstraint_setSoftnessLimLin(_native, value); }
 		}
 
-		public float SoftnessOrthoAngular
+		public double SoftnessOrthoAngular
 		{
 			get { return btSliderConstraint_getSoftnessOrthoAng(_native); }
 			set { btSliderConstraint_setSoftnessOrthoAng(_native, value); }
 		}
 
-		public float SoftnessOrthoLinear
+		public double SoftnessOrthoLinear
 		{
 			get { return btSliderConstraint_getSoftnessOrthoLin(_native); }
 			set { btSliderConstraint_setSoftnessOrthoLin(_native, value); }
@@ -318,25 +318,25 @@ namespace BulletSharp
 			get { return btSliderConstraint_getSolveLinLimit(_native); }
 		}
 
-		public float TargetAngularMotorVelocity
+		public double TargetAngularMotorVelocity
 		{
 			get { return btSliderConstraint_getTargetAngMotorVelocity(_native); }
 			set { btSliderConstraint_setTargetAngMotorVelocity(_native, value); }
 		}
 
-		public float TargetLinearMotorVelocity
+		public double TargetLinearMotorVelocity
 		{
 			get { return btSliderConstraint_getTargetLinMotorVelocity(_native); }
 			set { btSliderConstraint_setTargetLinMotorVelocity(_native, value); }
 		}
 
-		public float UpperAngularLimit
+		public double UpperAngularLimit
 		{
 			get { return btSliderConstraint_getUpperAngLimit(_native); }
 			set { btSliderConstraint_setUpperAngLimit(_native, value); }
 		}
 
-		public float UpperLinearLimit
+		public double UpperLinearLimit
 		{
 			get { return btSliderConstraint_getUpperLinLimit(_native); }
 			set { btSliderConstraint_setUpperLinLimit(_native, value); }
@@ -364,25 +364,25 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_getAncorInB(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getAngDepth(IntPtr obj);
+		static extern double btSliderConstraint_getAngDepth(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getAngularPos(IntPtr obj);
+		static extern double btSliderConstraint_getAngularPos(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_getCalculatedTransformA(IntPtr obj, [Out] out Matrix value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_getCalculatedTransformB(IntPtr obj, [Out] out Matrix value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getDampingDirAng(IntPtr obj);
+		static extern double btSliderConstraint_getDampingDirAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getDampingDirLin(IntPtr obj);
+		static extern double btSliderConstraint_getDampingDirLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getDampingLimAng(IntPtr obj);
+		static extern double btSliderConstraint_getDampingLimAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getDampingLimLin(IntPtr obj);
+		static extern double btSliderConstraint_getDampingLimLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getDampingOrthoAng(IntPtr obj);
+		static extern double btSliderConstraint_getDampingOrthoAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getDampingOrthoLin(IntPtr obj);
+		static extern double btSliderConstraint_getDampingOrthoLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern SliderFlags btSliderConstraint_getFlags(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -392,19 +392,19 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_getInfo1NonVirtual(IntPtr obj, IntPtr info);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_getInfo2NonVirtual(IntPtr obj, IntPtr info, [In] ref Matrix transA, [In] ref Matrix transB, [In] ref Vector3 linVelA, [In] ref Vector3 linVelB, float rbAinvMass, float rbBinvMass);
+		static extern void btSliderConstraint_getInfo2NonVirtual(IntPtr obj, IntPtr info, [In] ref Matrix transA, [In] ref Matrix transB, [In] ref Vector3 linVelA, [In] ref Vector3 linVelB, double rbAinvMass, double rbBinvMass);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getLinDepth(IntPtr obj);
+		static extern double btSliderConstraint_getLinDepth(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getLinearPos(IntPtr obj);
+		static extern double btSliderConstraint_getLinearPos(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getLowerAngLimit(IntPtr obj);
+		static extern double btSliderConstraint_getLowerAngLimit(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getLowerLinLimit(IntPtr obj);
+		static extern double btSliderConstraint_getLowerLinLimit(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getMaxAngMotorForce(IntPtr obj);
+		static extern double btSliderConstraint_getMaxAngMotorForce(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getMaxLinMotorForce(IntPtr obj);
+		static extern double btSliderConstraint_getMaxLinMotorForce(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btSliderConstraint_getPoweredAngMotor(IntPtr obj);
@@ -412,29 +412,29 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btSliderConstraint_getPoweredLinMotor(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getRestitutionDirAng(IntPtr obj);
+		static extern double btSliderConstraint_getRestitutionDirAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getRestitutionDirLin(IntPtr obj);
+		static extern double btSliderConstraint_getRestitutionDirLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getRestitutionLimAng(IntPtr obj);
+		static extern double btSliderConstraint_getRestitutionLimAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getRestitutionLimLin(IntPtr obj);
+		static extern double btSliderConstraint_getRestitutionLimLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getRestitutionOrthoAng(IntPtr obj);
+		static extern double btSliderConstraint_getRestitutionOrthoAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getRestitutionOrthoLin(IntPtr obj);
+		static extern double btSliderConstraint_getRestitutionOrthoLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getSoftnessDirAng(IntPtr obj);
+		static extern double btSliderConstraint_getSoftnessDirAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getSoftnessDirLin(IntPtr obj);
+		static extern double btSliderConstraint_getSoftnessDirLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getSoftnessLimAng(IntPtr obj);
+		static extern double btSliderConstraint_getSoftnessLimAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getSoftnessLimLin(IntPtr obj);
+		static extern double btSliderConstraint_getSoftnessLimLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getSoftnessOrthoAng(IntPtr obj);
+		static extern double btSliderConstraint_getSoftnessOrthoAng(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getSoftnessOrthoLin(IntPtr obj);
+		static extern double btSliderConstraint_getSoftnessOrthoLin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btSliderConstraint_getSolveAngLimit(IntPtr obj);
@@ -442,13 +442,13 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btSliderConstraint_getSolveLinLimit(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getTargetAngMotorVelocity(IntPtr obj);
+		static extern double btSliderConstraint_getTargetAngMotorVelocity(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getTargetLinMotorVelocity(IntPtr obj);
+		static extern double btSliderConstraint_getTargetLinMotorVelocity(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getUpperAngLimit(IntPtr obj);
+		static extern double btSliderConstraint_getUpperAngLimit(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSliderConstraint_getUpperLinLimit(IntPtr obj);
+		static extern double btSliderConstraint_getUpperLinLimit(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btSliderConstraint_getUseFrameOffset(IntPtr obj);
@@ -456,63 +456,63 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btSliderConstraint_getUseLinearReferenceFrameA(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setDampingDirAng(IntPtr obj, float dampingDirAng);
+		static extern void btSliderConstraint_setDampingDirAng(IntPtr obj, double dampingDirAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setDampingDirLin(IntPtr obj, float dampingDirLin);
+		static extern void btSliderConstraint_setDampingDirLin(IntPtr obj, double dampingDirLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setDampingLimAng(IntPtr obj, float dampingLimAng);
+		static extern void btSliderConstraint_setDampingLimAng(IntPtr obj, double dampingLimAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setDampingLimLin(IntPtr obj, float dampingLimLin);
+		static extern void btSliderConstraint_setDampingLimLin(IntPtr obj, double dampingLimLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setDampingOrthoAng(IntPtr obj, float dampingOrthoAng);
+		static extern void btSliderConstraint_setDampingOrthoAng(IntPtr obj, double dampingOrthoAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setDampingOrthoLin(IntPtr obj, float dampingOrthoLin);
+		static extern void btSliderConstraint_setDampingOrthoLin(IntPtr obj, double dampingOrthoLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_setFrames(IntPtr obj, [In] ref Matrix frameA, [In] ref Matrix frameB);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setLowerAngLimit(IntPtr obj, float lowerLimit);
+		static extern void btSliderConstraint_setLowerAngLimit(IntPtr obj, double lowerLimit);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setLowerLinLimit(IntPtr obj, float lowerLimit);
+		static extern void btSliderConstraint_setLowerLinLimit(IntPtr obj, double lowerLimit);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setMaxAngMotorForce(IntPtr obj, float maxAngMotorForce);
+		static extern void btSliderConstraint_setMaxAngMotorForce(IntPtr obj, double maxAngMotorForce);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setMaxLinMotorForce(IntPtr obj, float maxLinMotorForce);
+		static extern void btSliderConstraint_setMaxLinMotorForce(IntPtr obj, double maxLinMotorForce);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_setPoweredAngMotor(IntPtr obj, bool onOff);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_setPoweredLinMotor(IntPtr obj, bool onOff);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setRestitutionDirAng(IntPtr obj, float restitutionDirAng);
+		static extern void btSliderConstraint_setRestitutionDirAng(IntPtr obj, double restitutionDirAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setRestitutionDirLin(IntPtr obj, float restitutionDirLin);
+		static extern void btSliderConstraint_setRestitutionDirLin(IntPtr obj, double restitutionDirLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setRestitutionLimAng(IntPtr obj, float restitutionLimAng);
+		static extern void btSliderConstraint_setRestitutionLimAng(IntPtr obj, double restitutionLimAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setRestitutionLimLin(IntPtr obj, float restitutionLimLin);
+		static extern void btSliderConstraint_setRestitutionLimLin(IntPtr obj, double restitutionLimLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setRestitutionOrthoAng(IntPtr obj, float restitutionOrthoAng);
+		static extern void btSliderConstraint_setRestitutionOrthoAng(IntPtr obj, double restitutionOrthoAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setRestitutionOrthoLin(IntPtr obj, float restitutionOrthoLin);
+		static extern void btSliderConstraint_setRestitutionOrthoLin(IntPtr obj, double restitutionOrthoLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setSoftnessDirAng(IntPtr obj, float softnessDirAng);
+		static extern void btSliderConstraint_setSoftnessDirAng(IntPtr obj, double softnessDirAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setSoftnessDirLin(IntPtr obj, float softnessDirLin);
+		static extern void btSliderConstraint_setSoftnessDirLin(IntPtr obj, double softnessDirLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setSoftnessLimAng(IntPtr obj, float softnessLimAng);
+		static extern void btSliderConstraint_setSoftnessLimAng(IntPtr obj, double softnessLimAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setSoftnessLimLin(IntPtr obj, float softnessLimLin);
+		static extern void btSliderConstraint_setSoftnessLimLin(IntPtr obj, double softnessLimLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setSoftnessOrthoAng(IntPtr obj, float softnessOrthoAng);
+		static extern void btSliderConstraint_setSoftnessOrthoAng(IntPtr obj, double softnessOrthoAng);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setSoftnessOrthoLin(IntPtr obj, float softnessOrthoLin);
+		static extern void btSliderConstraint_setSoftnessOrthoLin(IntPtr obj, double softnessOrthoLin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setTargetAngMotorVelocity(IntPtr obj, float targetAngMotorVelocity);
+		static extern void btSliderConstraint_setTargetAngMotorVelocity(IntPtr obj, double targetAngMotorVelocity);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setTargetLinMotorVelocity(IntPtr obj, float targetLinMotorVelocity);
+		static extern void btSliderConstraint_setTargetLinMotorVelocity(IntPtr obj, double targetLinMotorVelocity);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setUpperAngLimit(IntPtr obj, float upperLimit);
+		static extern void btSliderConstraint_setUpperAngLimit(IntPtr obj, double upperLimit);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSliderConstraint_setUpperLinLimit(IntPtr obj, float upperLimit);
+		static extern void btSliderConstraint_setUpperLinLimit(IntPtr obj, double upperLimit);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btSliderConstraint_setUseFrameOffset(IntPtr obj, bool frameOffsetOnOff);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -527,10 +527,10 @@ namespace BulletSharp
         public TypedConstraintFloatData TypedConstraintData;
         public TransformFloatData RigidBodyAFrame;
         public TransformFloatData RigidBodyBFrame;
-        public float LinearUpperLimit;
-        public float LinearLowerLimit;
-        public float AngularUpperLimit;
-        public float AngularLowerLimit;
+        public double LinearUpperLimit;
+        public double LinearLowerLimit;
+        public double AngularUpperLimit;
+        public double AngularLowerLimit;
         public int UseLinearReferenceFrameA;
         public int UseOffsetForConstraintFrame;
 

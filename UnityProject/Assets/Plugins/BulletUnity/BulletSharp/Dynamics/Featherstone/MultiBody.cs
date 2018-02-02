@@ -15,7 +15,7 @@ namespace BulletSharp
 			_native = native;
 		}
 
-		public MultiBody(int nLinks, float mass, Vector3 inertia, bool fixedBase, bool canSleep)
+		public MultiBody(int nLinks, double mass, Vector3 inertia, bool fixedBase, bool canSleep)
 		{
 			_native = btMultiBody_new(nLinks, mass, ref inertia, fixedBase, canSleep);
 		}
@@ -40,17 +40,17 @@ namespace BulletSharp
 			btMultiBody_addBaseTorque(_native, ref t);
 		}
 
-		public void AddJointTorque(int i, float q)
+		public void AddJointTorque(int i, double q)
 		{
 			btMultiBody_addJointTorque(_native, i, q);
 		}
 
-		public void AddJointTorqueMultiDof(int i, float[] q)
+		public void AddJointTorqueMultiDof(int i, double[] q)
 		{
 			btMultiBody_addJointTorqueMultiDof(_native, i, q);
 		}
 
-		public void AddJointTorqueMultiDof(int i, int dof, float q)
+		public void AddJointTorqueMultiDof(int i, int dof, double q)
 		{
 			btMultiBody_addJointTorqueMultiDof2(_native, i, dof, q);
 		}
@@ -76,17 +76,17 @@ namespace BulletSharp
 		}
         /*
 
-		public void ApplyDeltaVeeMultiDof(float deltaVee, float multiplier)
+		public void ApplyDeltaVeeMultiDof(double deltaVee, double multiplier)
 		{
 			btMultiBody_applyDeltaVeeMultiDof(_native, deltaVee._native, multiplier);
 		}
 
-		public void ApplyDeltaVeeMultiDof2(float deltaVee, float multiplier)
+		public void ApplyDeltaVeeMultiDof2(double deltaVee, double multiplier)
 		{
 			btMultiBody_applyDeltaVeeMultiDof2(_native, deltaVee._native, multiplier);
 		}
 
-		public void CalcAccelerationDeltasMultiDof(float force, float output, AlignedObjectArray scratchR, AlignedObjectArray scratchV)
+		public void CalcAccelerationDeltasMultiDof(double force, double output, AlignedObjectArray scratchR, AlignedObjectArray scratchV)
 		{
 			btMultiBody_calcAccelerationDeltasMultiDof(_native, force._native, output._native, scratchR._native, scratchV._native);
 		}
@@ -96,7 +96,7 @@ namespace BulletSharp
 			return btMultiBody_calculateSerializeBufferSize(_native);
 		}
 
-		public void CheckMotionAndSleepIfRequired(float timestep)
+		public void CheckMotionAndSleepIfRequired(double timestep)
 		{
 			btMultiBody_checkMotionAndSleepIfRequired(_native, timestep);
 		}
@@ -116,22 +116,22 @@ namespace BulletSharp
 			btMultiBody_clearVelocities(_native);
 		}
         /*
-		public void ComputeAccelerationsArticulatedBodyAlgorithmMultiDof(float deltaTime, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM)
+		public void ComputeAccelerationsArticulatedBodyAlgorithmMultiDof(double deltaTime, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM)
 		{
 			btMultiBody_computeAccelerationsArticulatedBodyAlgorithmMultiDof(_native, deltaTime, scratchR._native, scratchV._native, scratchM._native);
 		}
 
-		public void ComputeAccelerationsArticulatedBodyAlgorithmMultiDof(float deltaTime, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM, bool isConstraintPass)
+		public void ComputeAccelerationsArticulatedBodyAlgorithmMultiDof(double deltaTime, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM, bool isConstraintPass)
 		{
 			btMultiBody_computeAccelerationsArticulatedBodyAlgorithmMultiDof2(_native, deltaTime, scratchR._native, scratchV._native, scratchM._native, isConstraintPass);
 		}
 
-		public void FillConstraintJacobianMultiDof(int link, Vector3 contactPoint, Vector3 normalAng, Vector3 normalLin, float jac, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM)
+		public void FillConstraintJacobianMultiDof(int link, Vector3 contactPoint, Vector3 normalAng, Vector3 normalLin, double jac, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM)
 		{
 			btMultiBody_fillConstraintJacobianMultiDof(_native, link, ref contactPoint, ref normalAng, ref normalLin, jac._native, scratchR._native, scratchV._native, scratchM._native);
 		}
 
-		public void FillContactJacobianMultiDof(int link, Vector3 contactPoint, Vector3 normal, float jac, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM)
+		public void FillContactJacobianMultiDof(int link, Vector3 contactPoint, Vector3 normal, double jac, AlignedObjectArray scratchR, AlignedObjectArray scratchV, AlignedObjectArray scratchM)
 		{
 			btMultiBody_fillContactJacobianMultiDof(_native, link, ref contactPoint, ref normal, jac._native, scratchR._native, scratchV._native, scratchM._native);
 		}
@@ -146,32 +146,32 @@ namespace BulletSharp
 			btMultiBody_forwardKinematics(_native, scratchQ._native, scratchM._native);
 		}
         */
-		public float GetJointPos(int i)
+		public double GetJointPos(int i)
 		{
 			return btMultiBody_getJointPos(_native, i);
 		}
         /*
-		public float GetJointPosMultiDof(int i)
+		public double GetJointPosMultiDof(int i)
 		{
 			return btMultiBody_getJointPosMultiDof(_native, i);
 		}
         */
-		public float GetJointTorque(int i)
+		public double GetJointTorque(int i)
 		{
 			return btMultiBody_getJointTorque(_native, i);
 		}
         /*
-		public float GetJointTorqueMultiDof(int i)
+		public double GetJointTorqueMultiDof(int i)
 		{
 			return btMultiBody_getJointTorqueMultiDof(_native, i);
 		}
         */
-		public float GetJointVel(int i)
+		public double GetJointVel(int i)
 		{
 			return btMultiBody_getJointVel(_native, i);
 		}
         /*
-		public float GetJointVelMultiDof(int i)
+		public double GetJointVelMultiDof(int i)
 		{
 			return btMultiBody_getJointVelMultiDof(_native, i);
 		}
@@ -201,7 +201,7 @@ namespace BulletSharp
 			return value;
 		}
 
-		public float GetLinkMass(int i)
+		public double GetLinkMass(int i)
 		{
 			return btMultiBody_getLinkMass(_native, i);
 		}
@@ -266,22 +266,22 @@ namespace BulletSharp
 			return Marshal.PtrToStringAnsi(btMultiBody_serialize(_native, dataBuffer, serializer._native));
 		}
 
-		public void SetJointPos(int i, float q)
+		public void SetJointPos(int i, double q)
 		{
 			btMultiBody_setJointPos(_native, i, q);
 		}
 
-		public void SetJointPosMultiDof(int i, float[] q)
+		public void SetJointPosMultiDof(int i, double[] q)
 		{
 			btMultiBody_setJointPosMultiDof(_native, i, q);
 		}
 
-		public void SetJointVel(int i, float qdot)
+		public void SetJointVel(int i, double qdot)
 		{
 			btMultiBody_setJointVel(_native, i, qdot);
 		}
 
-		public void SetJointVelMultiDof(int i, float[] qdot)
+		public void SetJointVelMultiDof(int i, double[] qdot)
 		{
 			btMultiBody_setJointVelMultiDof(_native, i, qdot);
 		}
@@ -291,57 +291,57 @@ namespace BulletSharp
 			btMultiBody_setPosUpdated(_native, updated);
 		}
 
-		public void SetupFixed(int linkIndex, float mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset)
+		public void SetupFixed(int linkIndex, double mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset)
 		{
 			btMultiBody_setupFixed(_native, linkIndex, mass, ref inertia, parent, ref rotParentToThis, ref parentComToThisPivotOffset, ref thisPivotToThisComOffset);
 		}
 
-		public void SetupPlanar(int i, float mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 rotationAxis, Vector3 parentComToThisComOffset)
+		public void SetupPlanar(int i, double mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 rotationAxis, Vector3 parentComToThisComOffset)
 		{
 			btMultiBody_setupPlanar(_native, i, mass, ref inertia, parent, ref rotParentToThis, ref rotationAxis, ref parentComToThisComOffset);
 		}
 
-		public void SetupPlanar(int i, float mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 rotationAxis, Vector3 parentComToThisComOffset, bool disableParentCollision)
+		public void SetupPlanar(int i, double mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 rotationAxis, Vector3 parentComToThisComOffset, bool disableParentCollision)
 		{
 			btMultiBody_setupPlanar2(_native, i, mass, ref inertia, parent, ref rotParentToThis, ref rotationAxis, ref parentComToThisComOffset, disableParentCollision);
 		}
 
-		public void SetupPrismatic(int i, float mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 jointAxis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset, bool disableParentCollision)
+		public void SetupPrismatic(int i, double mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 jointAxis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset, bool disableParentCollision)
 		{
 			btMultiBody_setupPrismatic(_native, i, mass, ref inertia, parent, ref rotParentToThis, ref jointAxis, ref parentComToThisPivotOffset, ref thisPivotToThisComOffset, disableParentCollision);
 		}
 
-		public void SetupRevolute(int linkIndex, float mass, Vector3 inertia, int parentIndex, Quaternion rotParentToThis, Vector3 jointAxis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset)
+		public void SetupRevolute(int linkIndex, double mass, Vector3 inertia, int parentIndex, Quaternion rotParentToThis, Vector3 jointAxis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset)
 		{
 			btMultiBody_setupRevolute(_native, linkIndex, mass, ref inertia, parentIndex, ref rotParentToThis, ref jointAxis, ref parentComToThisPivotOffset, ref thisPivotToThisComOffset);
 		}
 
-		public void SetupRevolute(int linkIndex, float mass, Vector3 inertia, int parentIndex, Quaternion rotParentToThis, Vector3 jointAxis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset, bool disableParentCollision)
+		public void SetupRevolute(int linkIndex, double mass, Vector3 inertia, int parentIndex, Quaternion rotParentToThis, Vector3 jointAxis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset, bool disableParentCollision)
 		{
 			btMultiBody_setupRevolute2(_native, linkIndex, mass, ref inertia, parentIndex, ref rotParentToThis, ref jointAxis, ref parentComToThisPivotOffset, ref thisPivotToThisComOffset, disableParentCollision);
 		}
 
-		public void SetupSpherical(int linkIndex, float mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset)
+		public void SetupSpherical(int linkIndex, double mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset)
 		{
 			btMultiBody_setupSpherical(_native, linkIndex, mass, ref inertia, parent, ref rotParentToThis, ref parentComToThisPivotOffset, ref thisPivotToThisComOffset);
 		}
 
-		public void SetupSpherical(int linkIndex, float mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset, bool disableParentCollision)
+		public void SetupSpherical(int linkIndex, double mass, Vector3 inertia, int parent, Quaternion rotParentToThis, Vector3 parentComToThisPivotOffset, Vector3 thisPivotToThisComOffset, bool disableParentCollision)
 		{
 			btMultiBody_setupSpherical2(_native, linkIndex, mass, ref inertia, parent, ref rotParentToThis, ref parentComToThisPivotOffset, ref thisPivotToThisComOffset, disableParentCollision);
 		}
 
-		public void StepPositionsMultiDof(float deltaTime)
+		public void StepPositionsMultiDof(double deltaTime)
 		{
 			btMultiBody_stepPositionsMultiDof(_native, deltaTime);
 		}
 
-		public void StepPositionsMultiDof(float deltaTime, float[] pq)
+		public void StepPositionsMultiDof(double deltaTime, double[] pq)
 		{
 			btMultiBody_stepPositionsMultiDof2(_native, deltaTime, pq);
 		}
 
-		public void StepPositionsMultiDof(float deltaTime, float[] pq, float[] pqd)
+		public void StepPositionsMultiDof(double deltaTime, double[] pq, double[] pqd)
 		{
 			btMultiBody_stepPositionsMultiDof3(_native, deltaTime, pq, pqd);
 		}
@@ -370,7 +370,7 @@ namespace BulletSharp
 			return value;
 		}
 
-		public float AngularDamping
+		public double AngularDamping
 		{
 			get { return btMultiBody_getAngularDamping(_native); }
 			set { btMultiBody_setAngularDamping(_native, value); }
@@ -413,7 +413,7 @@ namespace BulletSharp
 			set { btMultiBody_setBaseInertia(_native, ref value); }
 		}
 
-		public float BaseMass
+		public double BaseMass
 		{
 			get { return btMultiBody_getBaseMass(_native); }
 			set { btMultiBody_setBaseMass(_native, value); }
@@ -524,24 +524,24 @@ namespace BulletSharp
             set { btMultiBody_useRK4Integration(_native, value); }
 		}
 
-		public float KineticEnergy
+		public double KineticEnergy
 		{
 			get { return btMultiBody_getKineticEnergy(_native); }
 		}
 
-		public float LinearDamping
+		public double LinearDamping
 		{
 			get { return btMultiBody_getLinearDamping(_native); }
 			set { btMultiBody_setLinearDamping(_native, value); }
 		}
 
-		public float MaxAppliedImpulse
+		public double MaxAppliedImpulse
 		{
 			get { return btMultiBody_getMaxAppliedImpulse(_native); }
 			set { btMultiBody_setMaxAppliedImpulse(_native, value); }
 		}
 
-		public float MaxCoordinateVelocity
+		public double MaxCoordinateVelocity
 		{
 			get { return btMultiBody_getMaxCoordinateVelocity(_native); }
 			set { btMultiBody_setMaxCoordinateVelocity(_native, value); }
@@ -576,7 +576,7 @@ namespace BulletSharp
 			set { btMultiBody_setUseGyroTerm(_native, value); }
 		}
         /*
-		public float VelocityVector
+		public double VelocityVector
 		{
 			get { return btMultiBody_getVelocityVector(_native); }
 		}
@@ -613,7 +613,7 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btMultiBody_new(int n_links, float mass, [In] ref Vector3 inertia, bool fixedBase, bool canSleep);
+		static extern IntPtr btMultiBody_new(int n_links, double mass, [In] ref Vector3 inertia, bool fixedBase, bool canSleep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_addBaseConstraintForce(IntPtr obj, [In] ref Vector3 f);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -623,11 +623,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_addBaseTorque(IntPtr obj, [In] ref Vector3 t);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_addJointTorque(IntPtr obj, int i, float Q);
+		static extern void btMultiBody_addJointTorque(IntPtr obj, int i, double Q);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_addJointTorqueMultiDof(IntPtr obj, int i, float[] Q);
+		static extern void btMultiBody_addJointTorqueMultiDof(IntPtr obj, int i, double[] Q);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_addJointTorqueMultiDof2(IntPtr obj, int i, int dof, float Q);
+		static extern void btMultiBody_addJointTorqueMultiDof2(IntPtr obj, int i, int dof, double Q);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_addLinkConstraintForce(IntPtr obj, int i, [In] ref Vector3 f);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -637,15 +637,15 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_addLinkTorque(IntPtr obj, int i, [In] ref Vector3 t);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_applyDeltaVeeMultiDof(IntPtr obj, float[] delta_vee, float multiplier);
+		static extern void btMultiBody_applyDeltaVeeMultiDof(IntPtr obj, double[] delta_vee, double multiplier);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_applyDeltaVeeMultiDof2(IntPtr obj, float[] delta_vee, float multiplier);
+		static extern void btMultiBody_applyDeltaVeeMultiDof2(IntPtr obj, double[] delta_vee, double multiplier);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_calcAccelerationDeltasMultiDof(IntPtr obj, float[] force, float[] output, IntPtr scratch_r, IntPtr scratch_v);
+		static extern void btMultiBody_calcAccelerationDeltasMultiDof(IntPtr obj, double[] force, double[] output, IntPtr scratch_r, IntPtr scratch_v);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btMultiBody_calculateSerializeBufferSize(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_checkMotionAndSleepIfRequired(IntPtr obj, float timestep);
+		static extern void btMultiBody_checkMotionAndSleepIfRequired(IntPtr obj, double timestep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_clearConstraintForces(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -653,19 +653,19 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_clearVelocities(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_computeAccelerationsArticulatedBodyAlgorithmMultiDof(IntPtr obj, float dt, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m);
+		static extern void btMultiBody_computeAccelerationsArticulatedBodyAlgorithmMultiDof(IntPtr obj, double dt, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_computeAccelerationsArticulatedBodyAlgorithmMultiDof2(IntPtr obj, float dt, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m, bool isConstraintPass);
+		static extern void btMultiBody_computeAccelerationsArticulatedBodyAlgorithmMultiDof2(IntPtr obj, double dt, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m, bool isConstraintPass);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_fillConstraintJacobianMultiDof(IntPtr obj, int link, [In] ref Vector3 contact_point, [In] ref Vector3 normal_ang, [In] ref Vector3 normal_lin, float[] jac, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m);
+		static extern void btMultiBody_fillConstraintJacobianMultiDof(IntPtr obj, int link, [In] ref Vector3 contact_point, [In] ref Vector3 normal_ang, [In] ref Vector3 normal_lin, double[] jac, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_fillContactJacobianMultiDof(IntPtr obj, int link, [In] ref Vector3 contact_point, [In] ref Vector3 normal, float[] jac, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m);
+		static extern void btMultiBody_fillContactJacobianMultiDof(IntPtr obj, int link, [In] ref Vector3 contact_point, [In] ref Vector3 normal, double[] jac, IntPtr scratch_r, IntPtr scratch_v, IntPtr scratch_m);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_finalizeMultiDof(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_forwardKinematics(IntPtr obj, IntPtr scratch_q, IntPtr scratch_m);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getAngularDamping(IntPtr obj);
+		static extern double btMultiBody_getAngularDamping(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_getAngularMomentum(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -675,7 +675,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_getBaseInertia(IntPtr obj, [Out] out Vector3 inertia);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getBaseMass(IntPtr obj);
+		static extern double btMultiBody_getBaseMass(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultiBody_getBaseName(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -694,21 +694,21 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btMultiBody_getCompanionId(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getJointPos(IntPtr obj, int i);
+		static extern double btMultiBody_getJointPos(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultiBody_getJointPosMultiDof(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getJointTorque(IntPtr obj, int i);
+		static extern double btMultiBody_getJointTorque(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultiBody_getJointTorqueMultiDof(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getJointVel(IntPtr obj, int i);
+		static extern double btMultiBody_getJointVel(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultiBody_getJointVelMultiDof(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getKineticEnergy(IntPtr obj);
+		static extern double btMultiBody_getKineticEnergy(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getLinearDamping(IntPtr obj);
+		static extern double btMultiBody_getLinearDamping(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultiBody_getLink(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -716,13 +716,13 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_getLinkInertia(IntPtr obj, int i, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getLinkMass(IntPtr obj, int i);
+		static extern double btMultiBody_getLinkMass(IntPtr obj, int i);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_getLinkTorque(IntPtr obj, int i, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getMaxAppliedImpulse(IntPtr obj);
+		static extern double btMultiBody_getMaxAppliedImpulse(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiBody_getMaxCoordinateVelocity(IntPtr obj);
+		static extern double btMultiBody_getMaxCoordinateVelocity(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btMultiBody_getNumDofs(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -774,13 +774,13 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultiBody_serialize(IntPtr obj, IntPtr dataBuffer, IntPtr serializer);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setAngularDamping(IntPtr obj, float damp);
+		static extern void btMultiBody_setAngularDamping(IntPtr obj, double damp);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setBaseCollider(IntPtr obj, IntPtr collider);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setBaseInertia(IntPtr obj, [In] ref Vector3 inertia);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setBaseMass(IntPtr obj, float mass);
+		static extern void btMultiBody_setBaseMass(IntPtr obj, double mass);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setBaseName(IntPtr obj, IntPtr name);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -798,49 +798,49 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setHasSelfCollision(IntPtr obj, bool hasSelfCollision);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setJointPos(IntPtr obj, int i, float q);
+		static extern void btMultiBody_setJointPos(IntPtr obj, int i, double q);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setJointPosMultiDof(IntPtr obj, int i, float[] q);
+		static extern void btMultiBody_setJointPosMultiDof(IntPtr obj, int i, double[] q);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setJointVel(IntPtr obj, int i, float qdot);
+		static extern void btMultiBody_setJointVel(IntPtr obj, int i, double qdot);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setJointVelMultiDof(IntPtr obj, int i, float[] qdot);
+		static extern void btMultiBody_setJointVelMultiDof(IntPtr obj, int i, double[] qdot);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setLinearDamping(IntPtr obj, float damp);
+		static extern void btMultiBody_setLinearDamping(IntPtr obj, double damp);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setMaxAppliedImpulse(IntPtr obj, float maxImp);
+		static extern void btMultiBody_setMaxAppliedImpulse(IntPtr obj, double maxImp);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setMaxCoordinateVelocity(IntPtr obj, float maxVel);
+		static extern void btMultiBody_setMaxCoordinateVelocity(IntPtr obj, double maxVel);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setNumLinks(IntPtr obj, int numLinks);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setPosUpdated(IntPtr obj, bool updated);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupFixed(IntPtr obj, int linkIndex, float mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset);
+		static extern void btMultiBody_setupFixed(IntPtr obj, int linkIndex, double mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupPlanar(IntPtr obj, int i, float mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 rotationAxis, [In] ref Vector3 parentComToThisComOffset);
+		static extern void btMultiBody_setupPlanar(IntPtr obj, int i, double mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 rotationAxis, [In] ref Vector3 parentComToThisComOffset);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupPlanar2(IntPtr obj, int i, float mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 rotationAxis, [In] ref Vector3 parentComToThisComOffset, bool disableParentCollision);
+		static extern void btMultiBody_setupPlanar2(IntPtr obj, int i, double mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 rotationAxis, [In] ref Vector3 parentComToThisComOffset, bool disableParentCollision);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupPrismatic(IntPtr obj, int i, float mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 jointAxis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset, bool disableParentCollision);
+		static extern void btMultiBody_setupPrismatic(IntPtr obj, int i, double mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 jointAxis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset, bool disableParentCollision);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupRevolute(IntPtr obj, int linkIndex, float mass, [In] ref Vector3 inertia, int parentIndex, [In] ref Quaternion rotParentToThis, [In] ref Vector3 jointAxis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset);
+		static extern void btMultiBody_setupRevolute(IntPtr obj, int linkIndex, double mass, [In] ref Vector3 inertia, int parentIndex, [In] ref Quaternion rotParentToThis, [In] ref Vector3 jointAxis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupRevolute2(IntPtr obj, int linkIndex, float mass, [In] ref Vector3 inertia, int parentIndex, [In] ref Quaternion rotParentToThis, [In] ref Vector3 jointAxis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset, bool disableParentCollision);
+		static extern void btMultiBody_setupRevolute2(IntPtr obj, int linkIndex, double mass, [In] ref Vector3 inertia, int parentIndex, [In] ref Quaternion rotParentToThis, [In] ref Vector3 jointAxis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset, bool disableParentCollision);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupSpherical(IntPtr obj, int linkIndex, float mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset);
+		static extern void btMultiBody_setupSpherical(IntPtr obj, int linkIndex, double mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_setupSpherical2(IntPtr obj, int linkIndex, float mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset, bool disableParentCollision);
+		static extern void btMultiBody_setupSpherical2(IntPtr obj, int linkIndex, double mass, [In] ref Vector3 inertia, int parent, [In] ref Quaternion rotParentToThis, [In] ref Vector3 parentComToThisPivotOffset, [In] ref Vector3 thisPivotToThisComOffset, bool disableParentCollision);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setUseGyroTerm(IntPtr obj, bool useGyro);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_setWorldToBaseRot(IntPtr obj, [In] ref Quaternion rot);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_stepPositionsMultiDof(IntPtr obj, float dt);
+		static extern void btMultiBody_stepPositionsMultiDof(IntPtr obj, double dt);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_stepPositionsMultiDof2(IntPtr obj, float dt, float[] pq);
+		static extern void btMultiBody_stepPositionsMultiDof2(IntPtr obj, double dt, double[] pq);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBody_stepPositionsMultiDof3(IntPtr obj, float dt, float[] pq, float[] pqd);
+		static extern void btMultiBody_stepPositionsMultiDof3(IntPtr obj, double dt, double[] pq, double[] pqd);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBody_updateCollisionObjectWorldTransforms(IntPtr obj, IntPtr scratch_q, IntPtr scratch_m);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

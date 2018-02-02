@@ -38,8 +38,8 @@ namespace BulletUnity
 
         [Tooltip("Allows flying cam to work even during slow motion mode")]
         public float timeDeltaTime = 0.01f;
-        //public float lastUpdateTime = 0f;
-        //public float currentDeltaTime;
+        //public double lastUpdateTime = 0f;
+        //public double currentDeltaTime;
 
         void Start()
         {
@@ -54,10 +54,10 @@ namespace BulletUnity
 
             rotationX += Input.GetAxis("Mouse X") * cameraSensitivity * timeDeltaTime;
             rotationY += Input.GetAxis("Mouse Y") * cameraSensitivity * timeDeltaTime;
-            rotationY = Mathf.Clamp(rotationY, -90, 90);
+            rotationY = Mathf.Clamp((float)rotationY, -90, 90);
 
-            transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
-            transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
+            transform.localRotation = Quaternion.AngleAxis((float)rotationX, Vector3.up);
+            transform.localRotation *= Quaternion.AngleAxis((float)rotationY, Vector3.left);
 
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {

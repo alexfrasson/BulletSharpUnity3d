@@ -9,7 +9,7 @@ namespace BulletUnity
     {
 
         KinematicCharacterController m_characterController;
-        public float stepHeight = 1f;
+        public double stepHeight = 1f;
         public int upAxis = 1; //0=x, 1=y, 2=z
 
 
@@ -97,7 +97,7 @@ namespace BulletUnity
             m_characterController.Jump();
         }
 
-        public void Rotate(float turnAmount)
+        public void Rotate(double turnAmount)
         {
             BulletSharp.Math.Matrix xform = m_collisionObject.WorldTransform;
             BulletSharp.Math.Matrix orn = xform;

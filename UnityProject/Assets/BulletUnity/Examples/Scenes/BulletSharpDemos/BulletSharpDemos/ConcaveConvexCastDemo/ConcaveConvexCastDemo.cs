@@ -18,7 +18,7 @@ namespace ConcaveConvexCastDemo
         Vector3[] direction = new Vector3[NUMRAYS_IN_BAR];
         Vector3[] hit_com = new Vector3[NUMRAYS_IN_BAR];
         Vector3[] hit_surface = new Vector3[NUMRAYS_IN_BAR];
-        float[] hit_fraction = new float[NUMRAYS_IN_BAR];
+        double[] hit_fraction = new double[NUMRAYS_IN_BAR];
         Vector3[] normal = new Vector3[NUMRAYS_IN_BAR];
 
         int frame_counter;
@@ -28,12 +28,12 @@ namespace ConcaveConvexCastDemo
         int min_ms;
         int max_ms;
 
-        float dx;
-        float min_x;
-        float max_x;
-        float min_y;
-        float max_y;
-        float sign;
+        double dx;
+        double min_x;
+        double max_x;
+        double min_y;
+        double max_y;
+        double sign;
 
         Vector3  boxShapeHalfExtents;
         BoxShape boxShape;
@@ -48,7 +48,7 @@ namespace ConcaveConvexCastDemo
             sum_ms = 0;
         }
 
-        public ConvexcastBatch(bool unused, float ray_length, float min_z, float max_z, float min_y, float max_y)
+        public ConvexcastBatch(bool unused, double ray_length, double min_z, double max_z, double min_y, double max_y)
         {
             boxShapeHalfExtents = new Vector3(1.0f, 1.0f, 1.0f);
             boxShape = new BoxShape(boxShapeHalfExtents);
@@ -64,17 +64,17 @@ namespace ConcaveConvexCastDemo
             this.min_y = min_y;
             this.max_y = max_y;
             sign = 1.0f;
-            //const float dalpha = 4 * (float)Math.PI / NUMRAYS_IN_BAR;
+            //const double dalpha = 4 * (double)Math.PI / NUMRAYS_IN_BAR;
             for (int i = 0; i < NUMRAYS_IN_BAR; i++)
             {
-                float z = (max_z - min_z) / NUMRAYS_IN_BAR * i + min_z;
+                double z = (max_z - min_z) / NUMRAYS_IN_BAR * i + min_z;
                 source[i] = new Vector3(min_x, this.max_y, z);
                 dest[i] = new Vector3(min_x + ray_length, this.min_y, z);
                 normal[i] = new Vector3(1.0f, 0.0f, 0.0f);
             }
         }
 
-        public ConvexcastBatch(float ray_length, float z, float min_y = -1000, float max_y = 10)
+        public ConvexcastBatch(double ray_length, double z, double min_y = -1000, double max_y = 10)
         {
             boxShapeHalfExtents = new Vector3(1.0f, 1.0f, 1.0f);
             boxShape = new BoxShape(boxShapeHalfExtents);
@@ -90,10 +90,10 @@ namespace ConcaveConvexCastDemo
             this.min_y = min_y;
             this.max_y = max_y;
             sign = 1.0f;
-            const float dalpha = 4 * (float)Math.PI / NUMRAYS_IN_BAR;
+            const double dalpha = 4 * (double)Math.PI / NUMRAYS_IN_BAR;
             for (int i = 0; i < NUMRAYS_IN_BAR; i++)
             {
-                float alpha = dalpha * i;
+                double alpha = dalpha * i;
                 // rotate around by alpha degrees y
                 Matrix tr = Matrix.RotationQuaternion(Quaternion.RotationAxis(new Vector3(0.0f, 1.0f, 0.0f), alpha));
                 direction[i] = new Vector3(1.0f, 0.0f, 0.0f);
@@ -105,7 +105,7 @@ namespace ConcaveConvexCastDemo
             }
         }
 
-        public void Move(float dt)
+        public void Move(double dt)
         {
             if (dt > (1.0f / 60.0f))
                 dt = 1.0f / 60.0f;
@@ -159,7 +159,7 @@ namespace ConcaveConvexCastDemo
                 max_ms = ms > max_ms ? ms : max_ms;
                 sum_ms += ms;
                 sum_ms_samples++;
-                float mean_ms = (float)sum_ms / (float)sum_ms_samples;
+                double mean_ms = (double)sum_ms / (double)sum_ms_samples;
                 Console.WriteLine("{0} rays in {1} ms {2} {3} {4}", NUMRAYS_IN_BAR * frame_counter, ms, min_ms, max_ms, mean_ms);
                 ms = 0;
                 frame_counter = 0;
@@ -177,7 +177,7 @@ namespace ConcaveConvexCastDemo
             {
                 drawer.DrawLine(ref source[i], ref hit_com[i], ref green);
             }
-            const float normalScale = 10.0f; // easier to see if this is big
+            const double normalScale = 10.0f; // easier to see if this is big
             for (i = 0; i < NUMRAYS_IN_BAR; i++)
             {
                 Vector3 to = hit_surface[i] + normalScale * normal[i];
@@ -208,11 +208,11 @@ namespace ConcaveConvexCastDemo
 
         const DebugDrawModes debugMode = DebugDrawModes.None;
 
-        const float TriangleSize = 8.0f;
+        const double TriangleSize = 8.0f;
         const int NumVertsX = 30;
         const int NumVertsY = 30;
-        const float WaveHeight = 5.0f;
-        static float offset = 0.0f;
+        const double WaveHeight = 5.0f;
+        static double offset = 0.0f;
         bool animatedMesh = true;
         const int NumDynamicBoxesX = 30;
         const int NumDynamicBoxesY = 30;
@@ -269,7 +269,7 @@ namespace ConcaveConvexCastDemo
             //convexcastBatch = new ConvexcastBatch(true, 40.0f, -50.0f, 50.0f);
         }
 
-        void SetVertexPositions(float waveheight, float offset)
+        void SetVertexPositions(double waveheight, double offset)
         {
             var vertexStream = indexVertexArrays.GetVertexStream();
             using (var vertexWriter = new BinaryWriter(vertexStream))
@@ -279,7 +279,7 @@ namespace ConcaveConvexCastDemo
                     for (int j = 0; j < NumVertsY; j++)
                     {
                         vertexWriter.Write((i - NumVertsX * 0.5f) * TriangleSize);
-                        vertexWriter.Write(waveheight * (float)Math.Sin((float)i + offset) * (float)Math.Cos((float)j + offset));
+                        vertexWriter.Write(waveheight * (double)Math.Sin((double)i + offset) * (double)Math.Cos((double)j + offset));
                         vertexWriter.Write((j - NumVertsY * 0.5f) * TriangleSize);
                     }
                 }

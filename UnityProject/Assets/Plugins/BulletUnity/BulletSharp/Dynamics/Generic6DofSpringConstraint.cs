@@ -26,17 +26,17 @@ namespace BulletSharp
 			btGeneric6DofSpringConstraint_enableSpring(_native, index, onOff);
 		}
 
-		public float GetDamping(int index)
+		public double GetDamping(int index)
 		{
 			return btGeneric6DofSpringConstraint_getDamping(_native, index);
 		}
 
-		public float GetEquilibriumPoint(int index)
+		public double GetEquilibriumPoint(int index)
 		{
 			return btGeneric6DofSpringConstraint_getEquilibriumPoint(_native, index);
 		}
 
-		public float GetStiffness(int index)
+		public double GetStiffness(int index)
 		{
 			return btGeneric6DofSpringConstraint_getStiffness(_native, index);
 		}
@@ -46,7 +46,7 @@ namespace BulletSharp
 			return btGeneric6DofSpringConstraint_isSpringEnabled(_native, index);
 		}
 
-		public void SetDamping(int index, float damping)
+		public void SetDamping(int index, double damping)
 		{
 			btGeneric6DofSpringConstraint_setDamping(_native, index, damping);
 		}
@@ -61,12 +61,12 @@ namespace BulletSharp
 			btGeneric6DofSpringConstraint_setEquilibriumPoint2(_native, index);
 		}
 
-		public void SetEquilibriumPoint(int index, float val)
+		public void SetEquilibriumPoint(int index, double val)
 		{
 			btGeneric6DofSpringConstraint_setEquilibriumPoint3(_native, index, val);
 		}
 
-		public void SetStiffness(int index, float stiffness)
+		public void SetStiffness(int index, double stiffness)
 		{
 			btGeneric6DofSpringConstraint_setStiffness(_native, index, stiffness);
 		}
@@ -78,24 +78,24 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btGeneric6DofSpringConstraint_enableSpring(IntPtr obj, int index, bool onOff);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btGeneric6DofSpringConstraint_getDamping(IntPtr obj, int index);
+		static extern double btGeneric6DofSpringConstraint_getDamping(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btGeneric6DofSpringConstraint_getEquilibriumPoint(IntPtr obj, int index);
+		static extern double btGeneric6DofSpringConstraint_getEquilibriumPoint(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btGeneric6DofSpringConstraint_getStiffness(IntPtr obj, int index);
+		static extern double btGeneric6DofSpringConstraint_getStiffness(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btGeneric6DofSpringConstraint_isSpringEnabled(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btGeneric6DofSpringConstraint_setDamping(IntPtr obj, int index, float damping);
+		static extern void btGeneric6DofSpringConstraint_setDamping(IntPtr obj, int index, double damping);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btGeneric6DofSpringConstraint_setEquilibriumPoint(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btGeneric6DofSpringConstraint_setEquilibriumPoint2(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btGeneric6DofSpringConstraint_setEquilibriumPoint3(IntPtr obj, int index, float val);
+		static extern void btGeneric6DofSpringConstraint_setEquilibriumPoint3(IntPtr obj, int index, double val);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btGeneric6DofSpringConstraint_setStiffness(IntPtr obj, int index, float stiffness);
+		static extern void btGeneric6DofSpringConstraint_setStiffness(IntPtr obj, int index, double stiffness);
 	}
 
     [StructLayout(LayoutKind.Sequential)]
@@ -103,9 +103,9 @@ namespace BulletSharp
     {
         public Generic6DofConstraintFloatData SixDofData;
         public fixed int SpringEnabled[6];
-        public fixed float EquilibriumPoint[6];
-        public fixed float SpringStiffness[6];
-        public fixed float SpringDamping[6];
+        public fixed double EquilibriumPoint[6];
+        public fixed double SpringStiffness[6];
+        public fixed double SpringDamping[6];
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(Generic6DofSpringConstraintFloatData), fieldName).ToInt32(); }
     }

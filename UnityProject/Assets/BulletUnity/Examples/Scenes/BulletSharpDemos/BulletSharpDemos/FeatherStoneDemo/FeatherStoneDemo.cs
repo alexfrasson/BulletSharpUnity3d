@@ -15,11 +15,11 @@ namespace FeatherStoneDemo
         const int ArraySizeX = 5, ArraySizeY = 5, ArraySizeZ = 5;
 
         // scaling of the objects (0.1 = 20 centimeter boxes )
-        const float StartPosX = -5;
-        const float StartPosY = 2;
-        const float StartPosZ = -3;
+        const double StartPosX = -5;
+        const double StartPosY = 2;
+        const double StartPosZ = -3;
 
-        const float Friction = 1.0f;
+        const double Friction = 1.0f;
 
         protected override void OnInitialize()
         {
@@ -82,16 +82,16 @@ namespace FeatherStoneDemo
 
             if (numLinks > 0)
             {
-                float q0 = 45.0f * (float)Math.PI / 180.0f;
+                double q0 = 45.0f * (double)Math.PI / 180.0f;
                 if (spherical)
                 {
                     Quaternion quat0 = Quaternion.RotationAxis(Vector3.Normalize(new Vector3(1, 1, 0)), q0);
                     quat0.Normalize();
-                    mb.SetJointPosMultiDof(0, new float[] { quat0.X, quat0.Y, quat0.Z, quat0.W });
+                    mb.SetJointPosMultiDof(0, new double[] { quat0.X, quat0.Y, quat0.Z, quat0.W });
                 }
                 else
                 {
-                    mb.SetJointPosMultiDof(0, new float[] { q0 });
+                    mb.SetJointPosMultiDof(0, new double[] { q0 });
                 }
             }
             AddColliders(mb, baseHalfExtents, linkHalfExtents);
@@ -103,7 +103,7 @@ namespace FeatherStoneDemo
         MultiBody CreateFeatherstoneMultiBody(MultiBodyDynamicsWorld world, int numLinks,
             Vector3 basePosition, Vector3 baseHalfExtents, Vector3 linkHalfExtents, bool spherical, bool floating)
         {
-            float mass = 1;
+            double mass = 1;
             Vector3 inertia = Vector3.Zero;
             if (mass != 0)
             {
@@ -118,10 +118,10 @@ namespace FeatherStoneDemo
 
             //body.BaseVelocity = Vector3.Zero;
             mb.BasePosition = basePosition;
-            //body.WorldToBaseRot = new Quaternion(0, 0, 1, -0.125f * (float)Math.PI);
+            //body.WorldToBaseRot = new Quaternion(0, 0, 1, -0.125f * (double)Math.PI);
             mb.WorldToBaseRot = Quaternion.Identity;
 
-            float linkMass = 1;
+            double linkMass = 1;
             Vector3 linkInertia = Vector3.Zero;
             if (linkMass != 0)
             {
@@ -161,15 +161,15 @@ namespace FeatherStoneDemo
         void AddBoxes()
         {
             // create a few dynamic rigidbodies
-            const float mass = 1.0f;
+            const double mass = 1.0f;
 
             BoxShape colShape = new BoxShape(1);
             CollisionShapes.Add(colShape);
             Vector3 localInertia = colShape.CalculateLocalInertia(mass);
 
-            const float startX = StartPosX - ArraySizeX / 2;
-            const float startY = StartPosY;
-            const float startZ = StartPosZ - ArraySizeZ / 2;
+            const double startX = StartPosX - ArraySizeX / 2;
+            const double startY = StartPosY;
+            const double startZ = StartPosZ - ArraySizeZ / 2;
 
             int k, i, j;
             for (k = 0; k < ArraySizeY; k++)
@@ -243,7 +243,7 @@ namespace FeatherStoneDemo
             }
         }
 
-        public override RigidBody LocalCreateRigidBody(float mass, Matrix startTransform, CollisionShape shape,bool isKinematic)
+        public override RigidBody LocalCreateRigidBody(double mass, Matrix startTransform, CollisionShape shape,bool isKinematic)
         {
             //rigidbody is dynamic if and only if mass is non zero, otherwise static
             bool isDynamic = (mass != 0.0f);

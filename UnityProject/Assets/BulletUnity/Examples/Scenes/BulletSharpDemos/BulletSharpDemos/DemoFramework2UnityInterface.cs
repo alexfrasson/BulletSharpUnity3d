@@ -64,28 +64,28 @@ namespace BulletSharpExamples {
         public void DrawLine(ref Vector3 from, ref Vector3 to, ref Vector3 fromColor, ref Vector3 toColor) { }
         public void DrawBox(ref Vector3 bbMin, ref Vector3 bbMax, ref Vector3 color) { }
         public void DrawBox(ref Vector3 bbMin, ref Vector3 bbMax, ref Matrix trans, ref Vector3 color) { }
-        public void DrawSphere(ref Vector3 p, float radius, ref Vector3 color) { }
-        public void DrawSphere(float radius, ref Matrix transform, ref Vector3 color) { }
-        public void DrawTriangle(ref Vector3 v0, ref Vector3 v1, ref Vector3 v2, ref Vector3 n0, ref Vector3 n1, ref Vector3 n2, ref Vector3 color, float alpha) { }
-        public void DrawTriangle(ref Vector3 v0, ref Vector3 v1, ref Vector3 v2, ref Vector3 color, float alpha) { }
-        public void DrawContactPoint(ref Vector3 pointOnB, ref Vector3 normalOnB, float distance, int lifeTime, ref Vector3 color) { }
+        public void DrawSphere(ref Vector3 p, double radius, ref Vector3 color) { }
+        public void DrawSphere(double radius, ref Matrix transform, ref Vector3 color) { }
+        public void DrawTriangle(ref Vector3 v0, ref Vector3 v1, ref Vector3 v2, ref Vector3 n0, ref Vector3 n1, ref Vector3 n2, ref Vector3 color, double alpha) { }
+        public void DrawTriangle(ref Vector3 v0, ref Vector3 v1, ref Vector3 v2, ref Vector3 color, double alpha) { }
+        public void DrawContactPoint(ref Vector3 pointOnB, ref Vector3 normalOnB, double distance, int lifeTime, ref Vector3 color) { }
         public void ReportErrorWarning(String warningString) { }
         public void Draw3dText(ref Vector3 location, String textString) { }
         public DebugDrawModes DebugMode { get; set; }
         public void DrawAabb(ref Vector3 from, ref Vector3 to, ref Vector3 color) { }
-        public void DrawTransform(ref Matrix transform, float orthoLen) { }
-        public void DrawArc(ref Vector3 center, ref Vector3 normal, ref Vector3 axis, float radiusA, float radiusB, float minAngle, float maxAngle,
+        public void DrawTransform(ref Matrix transform, double orthoLen) { }
+        public void DrawArc(ref Vector3 center, ref Vector3 normal, ref Vector3 axis, double radiusA, double radiusB, double minAngle, double maxAngle,
             ref Vector3 color, bool drawSect) { }
-        public void DrawArc(ref Vector3 center, ref Vector3 normal, ref Vector3 axis, float radiusA, float radiusB, float minAngle, float maxAngle,
-            ref Vector3 color, bool drawSect, float stepDegrees) { }
-        public void DrawSpherePatch(ref Vector3 center, ref Vector3 up, ref Vector3 axis, float radius,
-            float minTh, float maxTh, float minPs, float maxPs, ref Vector3 color) { }
-        public void DrawSpherePatch(ref Vector3 center, ref Vector3 up, ref Vector3 axis, float radius,
-            float minTh, float maxTh, float minPs, float maxPs, ref Vector3 color, float stepDegrees) { }
-        public void DrawCapsule(float radius, float halfHeight, int upAxis, ref Matrix transform, ref Vector3 color) { }
-        public void DrawCylinder(float radius, float halfHeight, int upAxis, ref Matrix transform, ref Vector3 color) { }
-        public void DrawCone(float radius, float height, int upAxis, ref Matrix transform, ref Vector3 color) { }
-        public void DrawPlane(ref Vector3 planeNormal, float planeConst, ref Matrix transform, ref Vector3 color) { }
+        public void DrawArc(ref Vector3 center, ref Vector3 normal, ref Vector3 axis, double radiusA, double radiusB, double minAngle, double maxAngle,
+            ref Vector3 color, bool drawSect, double stepDegrees) { }
+        public void DrawSpherePatch(ref Vector3 center, ref Vector3 up, ref Vector3 axis, double radius,
+            double minTh, double maxTh, double minPs, double maxPs, ref Vector3 color) { }
+        public void DrawSpherePatch(ref Vector3 center, ref Vector3 up, ref Vector3 axis, double radius,
+            double minTh, double maxTh, double minPs, double maxPs, ref Vector3 color, double stepDegrees) { }
+        public void DrawCapsule(double radius, double halfHeight, int upAxis, ref Matrix transform, ref Vector3 color) { }
+        public void DrawCylinder(double radius, double halfHeight, int upAxis, ref Matrix transform, ref Vector3 color) { }
+        public void DrawCone(double radius, double height, int upAxis, ref Matrix transform, ref Vector3 color) { }
+        public void DrawPlane(ref Vector3 planeNormal, double planeConst, ref Matrix transform, ref Vector3 color) { }
     }
     */
 
@@ -111,12 +111,12 @@ namespace BulletSharpExamples {
 
     //TODO set formtext and setInfotext should write text to the GUI 
     public class Graphics : IDisposable {
-        public float FieldOfView;
+        public double FieldOfView;
         public bool CullingEnabled;
 
         public GraphicsForm Form;
 
-        public float FarPlane = 600f;
+        public double FarPlane = 600f;
 
         public bool IsFullScreen;
 
@@ -159,7 +159,7 @@ namespace BulletSharpExamples {
 
         }
 
-        public bool Update(float frameDelta) {
+        public bool Update(double frameDelta) {
             return false;
         }
 
@@ -253,7 +253,7 @@ namespace BulletSharpExamples {
 
         }
 
-        public float Update() {
+        public double Update() {
             return UnityEngine.Time.fixedDeltaTime;
         }
     }

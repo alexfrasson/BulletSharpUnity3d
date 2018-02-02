@@ -163,7 +163,7 @@ namespace BulletSharp
 			set { btDbvtBroadphase_setPid(_native, value); }
 		}
 
-		public float Prediction
+		public double Prediction
 		{
 			get { return btDbvtBroadphase_getPrediction(_native); }
 			set { btDbvtBroadphase_setPrediction(_native, value); }
@@ -203,13 +203,13 @@ namespace BulletSharp
 			set { btDbvtBroadphase_setUpdates_done(_native, value); }
 		}
 
-		public float UpdatesRatio
+		public double UpdatesRatio
 		{
 			get { return btDbvtBroadphase_getUpdates_ratio(_native); }
 			set { btDbvtBroadphase_setUpdates_ratio(_native, value); }
 		}
 
-		public float VelocityPrediction
+		public double VelocityPrediction
 		{
 			get { return btDbvtBroadphase_getVelocityPrediction(_native); }
 			set { btDbvtBroadphase_setVelocityPrediction(_native, value); }
@@ -248,7 +248,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btDbvtBroadphase_getPid(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDbvtBroadphase_getPrediction(IntPtr obj);
+		static extern double btDbvtBroadphase_getPrediction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btDbvtBroadphase_getReleasepaircache(IntPtr obj);
@@ -263,9 +263,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern uint btDbvtBroadphase_getUpdates_done(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDbvtBroadphase_getUpdates_ratio(IntPtr obj);
+		static extern double btDbvtBroadphase_getUpdates_ratio(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDbvtBroadphase_getVelocityPrediction(IntPtr obj);
+		static extern double btDbvtBroadphase_getVelocityPrediction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtBroadphase_optimize(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -295,7 +295,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtBroadphase_setPid(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDbvtBroadphase_setPrediction(IntPtr obj, float value);
+		static extern void btDbvtBroadphase_setPrediction(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtBroadphase_setReleasepaircache(IntPtr obj, bool value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -305,8 +305,8 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtBroadphase_setUpdates_done(IntPtr obj, uint value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDbvtBroadphase_setUpdates_ratio(IntPtr obj, float value);
+		static extern void btDbvtBroadphase_setUpdates_ratio(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDbvtBroadphase_setVelocityPrediction(IntPtr obj, float prediction);
+		static extern void btDbvtBroadphase_setVelocityPrediction(IntPtr obj, double prediction);
 	}
 }

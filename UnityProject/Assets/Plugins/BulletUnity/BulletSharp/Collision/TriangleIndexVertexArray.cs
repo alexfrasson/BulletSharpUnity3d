@@ -24,7 +24,7 @@ namespace BulletSharp
 			_native = btIndexedMesh_new();
 		}
 
-        public void Allocate(int numTriangles, int numVertices, int triangleIndexStride = sizeof(int) * 3, int vertexStride = sizeof(float) * 3)
+        public void Allocate(int numTriangles, int numVertices, int triangleIndexStride = sizeof(int) * 3, int vertexStride = sizeof(double) * 3)
         {
             if (_ownsData)
             {
@@ -206,7 +206,7 @@ namespace BulletSharp
 		{
 		}
 
-        public TriangleIndexVertexArray(ICollection<int> triangles, ICollection<float> vertices)
+        public TriangleIndexVertexArray(ICollection<int> triangles, ICollection<double> vertices)
             : base(btTriangleIndexVertexArray_new())
         {
             _initialMesh = new IndexedMesh();
@@ -220,10 +220,10 @@ namespace BulletSharp
             }
             Marshal.Copy(triangleArray, 0, _initialMesh.TriangleIndexBase, triangles.Count);
             
-            float[] vertexArray = vertices as float[];
+            double[] vertexArray = vertices as double[];
             if (vertexArray == null)
             {
-                vertexArray = new float[vertices.Count];
+                vertexArray = new double[vertices.Count];
                 vertices.CopyTo(vertexArray, 0);
             }
             Marshal.Copy(vertexArray, 0, _initialMesh.VertexBase, vertices.Count);
@@ -243,7 +243,7 @@ namespace BulletSharp
                 triangles.CopyTo(triangleArray, 0);
             }
             Marshal.Copy(triangleArray, 0, _initialMesh.TriangleIndexBase, triangles.Count);
-            float[] vertexArray = new float[vertices.Count * 3];
+            double[] vertexArray = new double[vertices.Count * 3];
             int i = 0;
             foreach (Vector3 v in vertices)
             {

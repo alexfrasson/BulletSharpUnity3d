@@ -13,8 +13,8 @@ namespace CcdPhysicsDemo
         Vector3 eye = new Vector3(0, 20, 80);
         Vector3 target = Vector3.Zero;
 
-        const float CubeHalfExtents = 1.0f;
-        const float ExtraHeight = 1.0f;
+        const double CubeHalfExtents = 1.0f;
+        const double ExtraHeight = 1.0f;
 
         void ToggleCcdMode()
         {
@@ -116,7 +116,7 @@ namespace CcdPhysicsDemo
         {
             if (World == null) return;
 
-            const float mass = 1.0f;
+            const double mass = 1.0f;
 
             if (shootBoxShape == null)
             {

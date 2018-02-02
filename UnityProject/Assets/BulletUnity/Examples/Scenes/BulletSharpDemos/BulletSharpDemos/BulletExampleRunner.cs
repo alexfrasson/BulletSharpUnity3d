@@ -261,7 +261,7 @@ public class BulletExampleRunner : MonoBehaviour {
                     ggo.transform.parent = go.transform;
                     ggo.transform.localPosition = Vector3.zero;
                     ggo.transform.localRotation = Quaternion.identity;
-                    ggo.transform.localScale = new Vector3(css.Radius * 2f,css.HalfHeight * 2f,css.Radius * 2f);
+                    ggo.transform.localScale = new Vector3((float)(css.Radius * 2.0), (float)(css.HalfHeight * 2.0), (float)(css.Radius * 2.0));
                     BulletRigidBodyProxy rbp = go.AddComponent<BulletRigidBodyProxy>();
                     rbp.target = co;
                 } else { 
@@ -356,7 +356,7 @@ public class BulletExampleRunner : MonoBehaviour {
         }
         List<int> tris = new List<int>();
         for (int i = 0; i < body.Faces.Count; i++) {
-            BulletSharp.SoftBody.Face f = body.Faces[i];
+            BulletSharp.SoftBody.Face f  = body.Faces[i];
             if (f.Nodes.Count != 3) {
                 Debug.LogError("Face was not a triangle");
                 continue;

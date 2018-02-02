@@ -44,7 +44,7 @@ public class BRigidBodyEditor : Editor
         EditorGUILayout.Separator();
 
         EditorGUILayout.LabelField("Object", EditorStyles.boldLabel);
-        mass = EditorInterface.Layout.DrawFloat("Mass", rb.mass, rb);
+        mass = EditorInterface.Layout.DrawFloat("Mass", (float)rb.mass, rb);
 
         EditorGUILayout.Separator();
 
@@ -55,30 +55,30 @@ public class BRigidBodyEditor : Editor
         EditorGUILayout.Separator();
 
         EditorGUILayout.LabelField("Friction", EditorStyles.boldLabel);
-        friction = EditorInterface.Layout.DrawFloat("Friction", rb.friction, rb);
-        rollingFriction = EditorInterface.Layout.DrawFloat("Rolling Friction", rb.rollingFriction, rb);
+        friction = EditorInterface.Layout.DrawFloat("Friction", (float)rb.friction, rb);
+        rollingFriction = EditorInterface.Layout.DrawFloat("Rolling Friction", (float)rb.rollingFriction, rb);
 
         EditorGUILayout.Separator();
 
         EditorGUILayout.LabelField("Damping", EditorStyles.boldLabel);
-        linearDamping = EditorInterface.Layout.DrawFloat("Linear Damping", rb.linearDamping, rb);
-        angularDamping = EditorInterface.Layout.DrawFloat("Angular Damping", rb.angularDamping, rb);
+        linearDamping = EditorInterface.Layout.DrawFloat("Linear Damping", (float)rb.linearDamping, rb);
+        angularDamping = EditorInterface.Layout.DrawFloat("Angular Damping", (float)rb.angularDamping, rb);
         additionalDamping = EditorInterface.Layout.DrawToggle("Additional Damping", rb.additionalDamping, rb);
 
         if (additionalDamping)
         {
-            additionalDampingFactor = EditorInterface.Layout.DrawFloat("Additional Damping Factor", rb.additionalDampingFactor, rb);
-            additionalLinearDampingThresholdSqr = EditorInterface.Layout.DrawFloat("Additional Linear Damping Threshold Sqr", rb.additionalLinearDampingThresholdSqr, rb);
-            additionalAngularDampingThresholdSqr = EditorInterface.Layout.DrawFloat("Additional Angular Damping Threshold Sqr", rb.additionalAngularDampingThresholdSqr, rb);
-            additionalAngularDampingFactor = EditorInterface.Layout.DrawFloat("Additional Angular Damping Factor", rb.additionalAngularDampingFactor, rb);
+            additionalDampingFactor = EditorInterface.Layout.DrawFloat("Additional Damping Factor", (float)rb.additionalDampingFactor, rb);
+            additionalLinearDampingThresholdSqr = EditorInterface.Layout.DrawFloat("Additional Linear Damping Threshold Sqr", (float)rb.additionalLinearDampingThresholdSqr, rb);
+            additionalAngularDampingThresholdSqr = EditorInterface.Layout.DrawFloat("Additional Angular Damping Threshold Sqr", (float)rb.additionalAngularDampingThresholdSqr, rb);
+            additionalAngularDampingFactor = EditorInterface.Layout.DrawFloat("Additional Angular Damping Factor", (float)rb.additionalAngularDampingFactor, rb);
         }
 
         EditorGUILayout.Separator();
 
         EditorGUILayout.LabelField("Other Settings", EditorStyles.boldLabel);
-        restitution = EditorInterface.Layout.DrawFloat("Restitution", rb.restitution, rb);
-        linearSleepingThreshold = EditorInterface.Layout.DrawFloat("Linear Sleeping Threshold", rb.linearSleepingThreshold, rb);
-        angularSleepingThreshold = EditorInterface.Layout.DrawFloat("Angular Sleeping Threshold", rb.angularSleepingThreshold, rb);
+        restitution = EditorInterface.Layout.DrawFloat("Restitution", (float)rb.restitution, rb);
+        linearSleepingThreshold = EditorInterface.Layout.DrawFloat("Linear Sleeping Threshold", (float)rb.linearSleepingThreshold, rb);
+        angularSleepingThreshold = EditorInterface.Layout.DrawFloat("Angular Sleeping Threshold", (float)rb.angularSleepingThreshold, rb);
 
 		EditorGUILayout.Separator();
 

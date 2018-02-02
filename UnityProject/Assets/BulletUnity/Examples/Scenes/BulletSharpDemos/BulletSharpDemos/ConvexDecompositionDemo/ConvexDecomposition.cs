@@ -48,7 +48,7 @@ namespace ConvexDecompositionDemo
             {
                 centroid += vertex * LocalScaling;
             }
-            centroid /= (float)hullVertices.Length;
+            centroid /= (double)hullVertices.Length;
 
             List<Vector3> outVertices = new List<Vector3>();
             foreach (Vector3 vertex in hullVertices)
@@ -73,14 +73,14 @@ namespace ConvexDecompositionDemo
                 index1 += mBaseCount;
                 index2 += mBaseCount;
 
-                output.WriteLine("f {0} {1} {2}", index0 + 1, index1 + 1, index2 + 1);
+                output.WriteLine(" {0} {1} {2}", index0 + 1, index1 + 1, index2 + 1);
             }
 
             //this is a tools issue: due to collision margin, convex objects overlap, compensate for it here:
             //#define SHRINK_OBJECT_INWARDS 1
 #if SHRINK_OBJECT_INWARDS
 
-            float collisionMargin = 0.01f;
+            double collisionMargin = 0.01f;
 
             AlignedVector3Array planeEquations;
             GeometryUtil.GetPlaneEquationsFromVertices(hullVertices, planeEquations);

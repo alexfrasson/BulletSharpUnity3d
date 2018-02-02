@@ -36,49 +36,49 @@ namespace BulletSharp
 			_native = btContactSolverInfoData_new();
 		}
 
-		public float Damping
+		public double Damping
 		{
 			get { return btContactSolverInfoData_getDamping(_native); }
 			set { btContactSolverInfoData_setDamping(_native, value); }
 		}
 
-		public float Erp
+		public double Erp
 		{
 			get { return btContactSolverInfoData_getErp(_native); }
 			set { btContactSolverInfoData_setErp(_native, value); }
 		}
 
-		public float Erp2
+		public double Erp2
 		{
 			get { return btContactSolverInfoData_getErp2(_native); }
 			set { btContactSolverInfoData_setErp2(_native, value); }
 		}
 
-		public float Friction
+		public double Friction
 		{
 			get { return btContactSolverInfoData_getFriction(_native); }
 			set { btContactSolverInfoData_setFriction(_native, value); }
 		}
 
-		public float GlobalCfm
+		public double GlobalCfm
 		{
 			get { return btContactSolverInfoData_getGlobalCfm(_native); }
 			set { btContactSolverInfoData_setGlobalCfm(_native, value); }
 		}
 
-		public float LinearSlop
+		public double LinearSlop
 		{
 			get { return btContactSolverInfoData_getLinearSlop(_native); }
 			set { btContactSolverInfoData_setLinearSlop(_native, value); }
 		}
 
-		public float MaxErrorReduction
+		public double MaxErrorReduction
 		{
 			get { return btContactSolverInfoData_getMaxErrorReduction(_native); }
 			set { btContactSolverInfoData_setMaxErrorReduction(_native, value); }
 		}
 
-		public float MaxGyroscopicForce
+		public double MaxGyroscopicForce
 		{
 			get { return btContactSolverInfoData_getMaxGyroscopicForce(_native); }
 			set { btContactSolverInfoData_setMaxGyroscopicForce(_native, value); }
@@ -102,13 +102,13 @@ namespace BulletSharp
 			set { btContactSolverInfoData_setRestingContactRestitutionThreshold(_native, value); }
 		}
 
-		public float Restitution
+		public double Restitution
 		{
 			get { return btContactSolverInfoData_getRestitution(_native); }
 			set { btContactSolverInfoData_setRestitution(_native, value); }
 		}
 
-		public float SingleAxisRollingFrictionThreshold
+		public double SingleAxisRollingFrictionThreshold
 		{
 			get { return btContactSolverInfoData_getSingleAxisRollingFrictionThreshold(_native); }
 			set { btContactSolverInfoData_setSingleAxisRollingFrictionThreshold(_native, value); }
@@ -120,7 +120,7 @@ namespace BulletSharp
 			set { btContactSolverInfoData_setSolverMode(_native, value); }
 		}
 
-		public float Sor
+		public double Sor
 		{
 			get { return btContactSolverInfoData_getSor(_native); }
 			set { btContactSolverInfoData_setSor(_native, value); }
@@ -132,31 +132,31 @@ namespace BulletSharp
 			set { btContactSolverInfoData_setSplitImpulse(_native, value); }
 		}
 
-		public float SplitImpulsePenetrationThreshold
+		public double SplitImpulsePenetrationThreshold
 		{
 			get { return btContactSolverInfoData_getSplitImpulsePenetrationThreshold(_native); }
 			set { btContactSolverInfoData_setSplitImpulsePenetrationThreshold(_native, value); }
 		}
 
-		public float SplitImpulseTurnErp
+		public double SplitImpulseTurnErp
 		{
 			get { return btContactSolverInfoData_getSplitImpulseTurnErp(_native); }
 			set { btContactSolverInfoData_setSplitImpulseTurnErp(_native, value); }
 		}
 
-		public float Tau
+		public double Tau
 		{
 			get { return btContactSolverInfoData_getTau(_native); }
 			set { btContactSolverInfoData_setTau(_native, value); }
 		}
 
-		public float TimeStep
+		public double TimeStep
 		{
 			get { return btContactSolverInfoData_getTimeStep(_native); }
 			set { btContactSolverInfoData_setTimeStep(_native, value); }
 		}
 
-		public float WarmStartingFactor
+		public double WarmStartingFactor
 		{
 			get { return btContactSolverInfoData_getWarmstartingFactor(_native); }
 			set { btContactSolverInfoData_setWarmstartingFactor(_native, value); }
@@ -188,21 +188,21 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btContactSolverInfoData_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getDamping(IntPtr obj);
+		static extern double btContactSolverInfoData_getDamping(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getErp(IntPtr obj);
+		static extern double btContactSolverInfoData_getErp(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getErp2(IntPtr obj);
+		static extern double btContactSolverInfoData_getErp2(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getFriction(IntPtr obj);
+		static extern double btContactSolverInfoData_getFriction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getGlobalCfm(IntPtr obj);
+		static extern double btContactSolverInfoData_getGlobalCfm(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getLinearSlop(IntPtr obj);
+		static extern double btContactSolverInfoData_getLinearSlop(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getMaxErrorReduction(IntPtr obj);
+		static extern double btContactSolverInfoData_getMaxErrorReduction(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getMaxGyroscopicForce(IntPtr obj);
+		static extern double btContactSolverInfoData_getMaxGyroscopicForce(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btContactSolverInfoData_getMinimumSolverBatchSize(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -210,41 +210,41 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btContactSolverInfoData_getRestingContactRestitutionThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getRestitution(IntPtr obj);
+		static extern double btContactSolverInfoData_getRestitution(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getSingleAxisRollingFrictionThreshold(IntPtr obj);
+		static extern double btContactSolverInfoData_getSingleAxisRollingFrictionThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern SolverModes btContactSolverInfoData_getSolverMode(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getSor(IntPtr obj);
+		static extern double btContactSolverInfoData_getSor(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btContactSolverInfoData_getSplitImpulse(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getSplitImpulsePenetrationThreshold(IntPtr obj);
+		static extern double btContactSolverInfoData_getSplitImpulsePenetrationThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getSplitImpulseTurnErp(IntPtr obj);
+		static extern double btContactSolverInfoData_getSplitImpulseTurnErp(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getTau(IntPtr obj);
+		static extern double btContactSolverInfoData_getTau(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getTimeStep(IntPtr obj);
+		static extern double btContactSolverInfoData_getTimeStep(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btContactSolverInfoData_getWarmstartingFactor(IntPtr obj);
+		static extern double btContactSolverInfoData_getWarmstartingFactor(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setDamping(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setDamping(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setErp(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setErp(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setErp2(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setErp2(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setFriction(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setFriction(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setGlobalCfm(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setGlobalCfm(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setLinearSlop(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setLinearSlop(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setMaxErrorReduction(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setMaxErrorReduction(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setMaxGyroscopicForce(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setMaxGyroscopicForce(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btContactSolverInfoData_setMinimumSolverBatchSize(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -252,25 +252,25 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btContactSolverInfoData_setRestingContactRestitutionThreshold(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setRestitution(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setRestitution(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setSingleAxisRollingFrictionThreshold(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setSingleAxisRollingFrictionThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern void btContactSolverInfoData_setSolverMode(IntPtr obj, SolverModes value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setSor(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setSor(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btContactSolverInfoData_setSplitImpulse(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setSplitImpulsePenetrationThreshold(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setSplitImpulsePenetrationThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setSplitImpulseTurnErp(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setSplitImpulseTurnErp(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setTau(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setTau(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setTimeStep(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setTimeStep(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btContactSolverInfoData_setWarmstartingFactor(IntPtr obj, float value);
+		static extern void btContactSolverInfoData_setWarmstartingFactor(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btContactSolverInfoData_delete(IntPtr obj);
 	}

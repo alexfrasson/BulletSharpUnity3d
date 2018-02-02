@@ -189,25 +189,25 @@ namespace BulletSharp
 				_native = btTypedConstraint_btConstraintInfo2_new();
 			}
             /*
-			public float Cfm
+			public double Cfm
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getCfm(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setCfm(_native, value._native); }
 			}
 
-			public float ConstraintError
+			public double ConstraintError
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getConstraintError(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setConstraintError(_native, value._native); }
 			}
             */
-			public float Damping
+			public double Damping
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getDamping(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setDamping(_native, value); }
 			}
 
-			public float Erp
+			public double Erp
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getErp(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setErp(_native, value); }
@@ -219,37 +219,37 @@ namespace BulletSharp
 				set { btTypedConstraint_btConstraintInfo2_setFindex(_native, value._native); }
 			}
             */
-			public float Fps
+			public double Fps
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getFps(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setFps(_native, value); }
 			}
             /*
-			public float J1angularAxis
+			public double J1angularAxis
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getJ1angularAxis(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setJ1angularAxis(_native, value._native); }
 			}
 
-			public float J1linearAxis
+			public double J1linearAxis
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getJ1linearAxis(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setJ1linearAxis(_native, value._native); }
 			}
 
-			public float J2angularAxis
+			public double J2angularAxis
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getJ2angularAxis(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setJ2angularAxis(_native, value._native); }
 			}
 
-			public float J2linearAxis
+			public double J2linearAxis
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getJ2linearAxis(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setJ2linearAxis(_native, value._native); }
 			}
 
-			public float LowerLimit
+			public double LowerLimit
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getLowerLimit(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setLowerLimit(_native, value._native); }
@@ -267,7 +267,7 @@ namespace BulletSharp
 				set { btTypedConstraint_btConstraintInfo2_setRowskip(_native, value); }
 			}
             /*
-			public float UpperLimit
+			public double UpperLimit
 			{
 				get { return btTypedConstraint_btConstraintInfo2_getUpperLimit(_native); }
 				set { btTypedConstraint_btConstraintInfo2_setUpperLimit(_native, value._native); }
@@ -300,13 +300,13 @@ namespace BulletSharp
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern IntPtr btTypedConstraint_btConstraintInfo2_getConstraintError(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern float btTypedConstraint_btConstraintInfo2_getDamping(IntPtr obj);
+			static extern double btTypedConstraint_btConstraintInfo2_getDamping(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern float btTypedConstraint_btConstraintInfo2_getErp(IntPtr obj);
+			static extern double btTypedConstraint_btConstraintInfo2_getErp(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern IntPtr btTypedConstraint_btConstraintInfo2_getFindex(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern float btTypedConstraint_btConstraintInfo2_getFps(IntPtr obj);
+			static extern double btTypedConstraint_btConstraintInfo2_getFps(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern IntPtr btTypedConstraint_btConstraintInfo2_getJ1angularAxis(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -328,13 +328,13 @@ namespace BulletSharp
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btTypedConstraint_btConstraintInfo2_setConstraintError(IntPtr obj, IntPtr value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btTypedConstraint_btConstraintInfo2_setDamping(IntPtr obj, float value);
+			static extern void btTypedConstraint_btConstraintInfo2_setDamping(IntPtr obj, double value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btTypedConstraint_btConstraintInfo2_setErp(IntPtr obj, float value);
+			static extern void btTypedConstraint_btConstraintInfo2_setErp(IntPtr obj, double value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btTypedConstraint_btConstraintInfo2_setFindex(IntPtr obj, IntPtr value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btTypedConstraint_btConstraintInfo2_setFps(IntPtr obj, float value);
+			static extern void btTypedConstraint_btConstraintInfo2_setFps(IntPtr obj, double value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btTypedConstraint_btConstraintInfo2_setJ1angularAxis(IntPtr obj, IntPtr value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -406,22 +406,22 @@ namespace BulletSharp
 			btTypedConstraint_getInfo2(_native, info._native);
 		}
 
-        public float GetParam(ConstraintParam num)
+        public double GetParam(ConstraintParam num)
 		{
 			return btTypedConstraint_getParam(_native, num);
 		}
 
-        public float GetParam(ConstraintParam num, int axis)
+        public double GetParam(ConstraintParam num, int axis)
 		{
 			return btTypedConstraint_getParam2(_native, num, axis);
 		}
 
-		public float InternalGetAppliedImpulse()
+		public double InternalGetAppliedImpulse()
 		{
 			return btTypedConstraint_internalGetAppliedImpulse(_native);
 		}
 
-		public void InternalSetAppliedImpulse(float appliedImpulse)
+		public void InternalSetAppliedImpulse(double appliedImpulse)
 		{
 			btTypedConstraint_internalSetAppliedImpulse(_native, appliedImpulse);
 		}
@@ -431,32 +431,32 @@ namespace BulletSharp
 			return Marshal.PtrToStringAnsi(btTypedConstraint_serialize(_native, dataBuffer, serializer._native));
 		}
 
-        public void SetParam(ConstraintParam num, float value)
+        public void SetParam(ConstraintParam num, double value)
 		{
 			btTypedConstraint_setParam(_native, num, value);
 		}
 
-        public void SetParam(ConstraintParam num, float value, int axis)
+        public void SetParam(ConstraintParam num, double value, int axis)
 		{
 			btTypedConstraint_setParam2(_native, num, value, axis);
 		}
         /*
-		public void SetupSolverConstraint(ConstraintArray ca, int solverBodyA, int solverBodyB, float timeStep)
+		public void SetupSolverConstraint(ConstraintArray ca, int solverBodyA, int solverBodyB, double timeStep)
 		{
 			btTypedConstraint_setupSolverConstraint(_native, ca._native, solverBodyA, solverBodyB, timeStep);
 		}
 
-		public void SolveConstraintObsolete(SolverBody __unnamed0, SolverBody __unnamed1, float __unnamed2)
+		public void SolveConstraintObsolete(SolverBody __unnamed0, SolverBody __unnamed1, double __unnamed2)
 		{
 			btTypedConstraint_solveConstraintObsolete(_native, __unnamed0._native, __unnamed1._native, __unnamed2);
 		}
         */
-		public float AppliedImpulse
+		public double AppliedImpulse
 		{
 			get { return btTypedConstraint_getAppliedImpulse(_native); }
 		}
 
-		public float BreakingImpulseThreshold
+		public double BreakingImpulseThreshold
 		{
 			get { return btTypedConstraint_getBreakingImpulseThreshold(_native); }
 			set { btTypedConstraint_setBreakingImpulseThreshold(_native, value); }
@@ -467,7 +467,7 @@ namespace BulletSharp
 			get { return btTypedConstraint_getConstraintType(_native); }
 		}
 
-		public float DebugDrawSize
+		public double DebugDrawSize
 		{
 			get { return btTypedConstraint_getDbgDrawSize(_native); }
 			set { btTypedConstraint_setDbgDrawSize(_native, value); }
@@ -557,13 +557,13 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTypedConstraint_enableFeedback(IntPtr obj, bool needsFeedback);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTypedConstraint_getAppliedImpulse(IntPtr obj);
+		static extern double btTypedConstraint_getAppliedImpulse(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTypedConstraint_getBreakingImpulseThreshold(IntPtr obj);
+		static extern double btTypedConstraint_getBreakingImpulseThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern TypedConstraintType btTypedConstraint_getConstraintType(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTypedConstraint_getDbgDrawSize(IntPtr obj);
+		static extern double btTypedConstraint_getDbgDrawSize(IntPtr obj);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern IntPtr btTypedConstraint_getFixedBody();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -575,9 +575,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btTypedConstraint_getOverrideNumSolverIterations(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern float btTypedConstraint_getParam(IntPtr obj, ConstraintParam num);
+        static extern double btTypedConstraint_getParam(IntPtr obj, ConstraintParam num);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern float btTypedConstraint_getParam2(IntPtr obj, ConstraintParam num, int axis);
+        static extern double btTypedConstraint_getParam2(IntPtr obj, ConstraintParam num, int axis);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern IntPtr btTypedConstraint_getRigidBodyA(IntPtr obj);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -591,9 +591,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btTypedConstraint_getUserConstraintType(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTypedConstraint_internalGetAppliedImpulse(IntPtr obj);
+		static extern double btTypedConstraint_internalGetAppliedImpulse(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTypedConstraint_internalSetAppliedImpulse(IntPtr obj, float appliedImpulse);
+		static extern void btTypedConstraint_internalSetAppliedImpulse(IntPtr obj, double appliedImpulse);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btTypedConstraint_isEnabled(IntPtr obj);
@@ -603,9 +603,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btTypedConstraint_serialize(IntPtr obj, IntPtr dataBuffer, IntPtr serializer);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTypedConstraint_setBreakingImpulseThreshold(IntPtr obj, float threshold);
+		static extern void btTypedConstraint_setBreakingImpulseThreshold(IntPtr obj, double threshold);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTypedConstraint_setDbgDrawSize(IntPtr obj, float dbgDrawSize);
+		static extern void btTypedConstraint_setDbgDrawSize(IntPtr obj, double dbgDrawSize);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTypedConstraint_setEnabled(IntPtr obj, bool enabled);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -613,11 +613,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTypedConstraint_setOverrideNumSolverIterations(IntPtr obj, int overideNumIterations);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern void btTypedConstraint_setParam(IntPtr obj, ConstraintParam num, float value);
+        static extern void btTypedConstraint_setParam(IntPtr obj, ConstraintParam num, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern void btTypedConstraint_setParam2(IntPtr obj, ConstraintParam num, float value, int axis);
+        static extern void btTypedConstraint_setParam2(IntPtr obj, ConstraintParam num, double value, int axis);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTypedConstraint_setupSolverConstraint(IntPtr obj, IntPtr ca, int solverBodyA, int solverBodyB, float timeStep);
+		static extern void btTypedConstraint_setupSolverConstraint(IntPtr obj, IntPtr ca, int solverBodyA, int solverBodyB, double timeStep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTypedConstraint_setUserConstraintId(IntPtr obj, int uid);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -625,7 +625,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTypedConstraint_setUserConstraintType(IntPtr obj, int userConstraintType);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTypedConstraint_solveConstraintObsolete(IntPtr obj, IntPtr __unnamed0, IntPtr __unnamed1, float __unnamed2);
+		static extern void btTypedConstraint_solveConstraintObsolete(IntPtr obj, IntPtr __unnamed0, IntPtr __unnamed1, double __unnamed2);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern void btTypedConstraint_delete(IntPtr obj);
 	}
@@ -646,57 +646,57 @@ namespace BulletSharp
 			_native = btAngularLimit_new();
 		}
 
-		public void Fit(ref float angle)
+		public void Fit(ref double angle)
 		{
 			btAngularLimit_fit(_native, ref angle);
 		}
 
-		public void Set(float low, float high)
+		public void Set(double low, double high)
 		{
 			btAngularLimit_set(_native, low, high);
 		}
 
-		public void Set(float low, float high, float softness)
+		public void Set(double low, double high, double softness)
 		{
 			btAngularLimit_set2(_native, low, high, softness);
 		}
 
-		public void Set(float low, float high, float softness, float biasFactor)
+		public void Set(double low, double high, double softness, double biasFactor)
 		{
 			btAngularLimit_set3(_native, low, high, softness, biasFactor);
 		}
 
-		public void Set(float low, float high, float softness, float biasFactor, float relaxationFactor)
+		public void Set(double low, double high, double softness, double biasFactor, double relaxationFactor)
 		{
 			btAngularLimit_set4(_native, low, high, softness, biasFactor, relaxationFactor);
 		}
 
-		public void Test(float angle)
+		public void Test(double angle)
 		{
 			btAngularLimit_test(_native, angle);
 		}
 
-		public float BiasFactor
+		public double BiasFactor
 		{
 			get { return btAngularLimit_getBiasFactor(_native); }
 		}
 
-		public float Correction
+		public double Correction
 		{
 			get { return btAngularLimit_getCorrection(_native); }
 		}
 
-		public float Error
+		public double Error
 		{
 			get { return btAngularLimit_getError(_native); }
 		}
 
-		public float HalfRange
+		public double HalfRange
 		{
 			get { return btAngularLimit_getHalfRange(_native); }
 		}
 
-		public float High
+		public double High
 		{
 			get { return btAngularLimit_getHigh(_native); }
 		}
@@ -706,22 +706,22 @@ namespace BulletSharp
 			get { return btAngularLimit_isLimit(_native); }
 		}
 
-		public float Low
+		public double Low
 		{
 			get { return btAngularLimit_getLow(_native); }
 		}
 
-		public float RelaxationFactor
+		public double RelaxationFactor
 		{
 			get { return btAngularLimit_getRelaxationFactor(_native); }
 		}
 
-		public float Sign
+		public double Sign
 		{
 			get { return btAngularLimit_getSign(_native); }
 		}
 
-		public float Softness
+		public double Softness
 		{
 			get { return btAngularLimit_getSoftness(_native); }
 		}
@@ -752,38 +752,38 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btAngularLimit_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAngularLimit_fit(IntPtr obj, ref float angle);
+		static extern void btAngularLimit_fit(IntPtr obj, ref double angle);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getBiasFactor(IntPtr obj);
+		static extern double btAngularLimit_getBiasFactor(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getCorrection(IntPtr obj);
+		static extern double btAngularLimit_getCorrection(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getError(IntPtr obj);
+		static extern double btAngularLimit_getError(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getHalfRange(IntPtr obj);
+		static extern double btAngularLimit_getHalfRange(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getHigh(IntPtr obj);
+		static extern double btAngularLimit_getHigh(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getLow(IntPtr obj);
+		static extern double btAngularLimit_getLow(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getRelaxationFactor(IntPtr obj);
+		static extern double btAngularLimit_getRelaxationFactor(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getSign(IntPtr obj);
+		static extern double btAngularLimit_getSign(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btAngularLimit_getSoftness(IntPtr obj);
+		static extern double btAngularLimit_getSoftness(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btAngularLimit_isLimit(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAngularLimit_set(IntPtr obj, float low, float high);
+		static extern void btAngularLimit_set(IntPtr obj, double low, double high);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAngularLimit_set2(IntPtr obj, float low, float high, float _softness);
+		static extern void btAngularLimit_set2(IntPtr obj, double low, double high, double _softness);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAngularLimit_set3(IntPtr obj, float low, float high, float _softness, float _biasFactor);
+		static extern void btAngularLimit_set3(IntPtr obj, double low, double high, double _softness, double _biasFactor);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAngularLimit_set4(IntPtr obj, float low, float high, float _softness, float _biasFactor, float _relaxationFactor);
+		static extern void btAngularLimit_set4(IntPtr obj, double low, double high, double _softness, double _biasFactor, double _relaxationFactor);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAngularLimit_test(IntPtr obj, float angle);
+		static extern void btAngularLimit_test(IntPtr obj, double angle);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btAngularLimit_delete(IntPtr obj);
 	}
@@ -798,11 +798,11 @@ namespace BulletSharp
         public int UserConstraintType;
         public int UserConstraintId;
         public int NeedsFeedback;
-        public float AppliedImpulse;
-        public float DebugDrawSize;
+        public double AppliedImpulse;
+        public double DebugDrawSize;
         public int DisableCollisionsBetweenLinkedBodies;
         public int OverrideNumSolverIterations;
-        public float BreakingImpulseThreshold;
+        public double BreakingImpulseThreshold;
         public int IsEnabled;
 
         public static int Offset(string fieldName) { return Marshal.OffsetOf(typeof(TypedConstraintFloatData), fieldName).ToInt32(); }

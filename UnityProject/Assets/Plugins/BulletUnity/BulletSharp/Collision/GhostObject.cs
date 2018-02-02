@@ -39,12 +39,12 @@ namespace BulletSharp
 			btGhostObject_convexSweepTest(_native, castShape._native, ref convexFromWorld, ref convexToWorld, resultCallback._native);
 		}
 
-        public void ConvexSweepTestRef(ConvexShape castShape, ref Matrix convexFromWorld, ref Matrix convexToWorld, ConvexResultCallback resultCallback, float allowedCcdPenetration)
+        public void ConvexSweepTestRef(ConvexShape castShape, ref Matrix convexFromWorld, ref Matrix convexToWorld, ConvexResultCallback resultCallback, double allowedCcdPenetration)
         {
             btGhostObject_convexSweepTest2(_native, castShape._native, ref convexFromWorld, ref convexToWorld, resultCallback._native, allowedCcdPenetration);
         }
 
-		public void ConvexSweepTest(ConvexShape castShape, Matrix convexFromWorld, Matrix convexToWorld, ConvexResultCallback resultCallback, float allowedCcdPenetration)
+		public void ConvexSweepTest(ConvexShape castShape, Matrix convexFromWorld, Matrix convexToWorld, ConvexResultCallback resultCallback, double allowedCcdPenetration)
 		{
 			btGhostObject_convexSweepTest2(_native, castShape._native, ref convexFromWorld, ref convexToWorld, resultCallback._native, allowedCcdPenetration);
 		}
@@ -105,7 +105,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btGhostObject_convexSweepTest(IntPtr obj, IntPtr castShape, [In] ref Matrix convexFromWorld, [In] ref Matrix convexToWorld, IntPtr resultCallback);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btGhostObject_convexSweepTest2(IntPtr obj, IntPtr castShape, [In] ref Matrix convexFromWorld, [In] ref Matrix convexToWorld, IntPtr resultCallback, float allowedCcdPenetration);
+		static extern void btGhostObject_convexSweepTest2(IntPtr obj, IntPtr castShape, [In] ref Matrix convexFromWorld, [In] ref Matrix convexToWorld, IntPtr resultCallback, double allowedCcdPenetration);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btGhostObject_getNumOverlappingObjects(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

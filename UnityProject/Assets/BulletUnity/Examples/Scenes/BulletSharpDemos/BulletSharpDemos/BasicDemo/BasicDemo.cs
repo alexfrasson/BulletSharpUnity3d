@@ -15,9 +15,9 @@ namespace BasicDemo
         const int ArraySizeX = 5, ArraySizeY = 5, ArraySizeZ = 5;
 
         // scaling of the objects (0.1 = 20 centimeter boxes )
-        const float StartPosX = -5;
-        const float StartPosY = -5;
-        const float StartPosZ = -3;
+        const double StartPosX = -5;
+        const double StartPosY = -5;
+        const double StartPosZ = -3;
 
         protected override void OnInitialize()
         {
@@ -47,15 +47,15 @@ namespace BasicDemo
             ground.UserObject = "Ground";
 
             // create a few dynamic rigidbodies
-            const float mass = 1.0f;
+            const double mass = 1.0f;
 
             BoxShape colShape = new BoxShape(1);
             CollisionShapes.Add(colShape);
             Vector3 localInertia = colShape.CalculateLocalInertia(mass);
 
-            const float startX = StartPosX - ArraySizeX / 2;
-            const float startY = StartPosY;
-            const float startZ = StartPosZ - ArraySizeZ / 2;
+            const double startX = StartPosX - ArraySizeX / 2;
+            const double startY = StartPosY;
+            const double startZ = StartPosZ - ArraySizeZ / 2;
 
             RigidBodyConstructionInfo rbInfo =
                 new RigidBodyConstructionInfo(mass, null, colShape, localInertia);

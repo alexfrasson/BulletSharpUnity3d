@@ -211,8 +211,8 @@ namespace BulletUnity
     }
 
     [SerializeField]
-    float m_fixedTimeStep = 1f / 60f;
-    public float fixedTimeStep
+    double m_fixedTimeStep = 1f / 60f;
+    public double fixedTimeStep
     {
       get
       {
@@ -294,7 +294,7 @@ namespace BulletUnity
       }
     }
 
-    public float timeStr;
+    public double timeStr;
 
     public void RegisterCollisionCallbackListener(BCollisionObject.BICollisionCallbackEventHandler toBeAdded)
     {

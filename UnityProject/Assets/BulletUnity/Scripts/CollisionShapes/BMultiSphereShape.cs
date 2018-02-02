@@ -10,7 +10,7 @@ namespace BulletUnity {
         [Serializable]
         public struct Sphere {
             public Vector3 position;
-            public float radius;
+            public double radius;
         }
 
         public Sphere[] spheres = new Sphere[0];
@@ -38,14 +38,14 @@ namespace BulletUnity {
             for (int i = 0; i < spheres.Length; i++) {
                 Vector3 v = spheres[i].position;
                 v.x *= m_localScaling.x; v.y *= m_localScaling.y; v.z *= m_localScaling.z;
-                BUtility.DebugDrawSphere(transform.TransformPoint(v), Quaternion.identity, Vector3.one, Vector3.one * spheres[i].radius, Gizmos.color);
+                BUtility.DebugDrawSphere(transform.TransformPoint(v), Quaternion.identity, Vector3.one, Vector3.one * (float)spheres[i].radius, Gizmos.color);
             }
         }
 
         MultiSphereShape _CreateMultiSphereShape()
         {
             BulletSharp.Math.Vector3[] positions = new BulletSharp.Math.Vector3[spheres.Length];
-            float[] radius = new float[spheres.Length];
+            double[] radius = new double[spheres.Length];
             for (int i = 0; i < spheres.Length; i++)
             {
                 positions[i] = spheres[i].position.ToBullet();

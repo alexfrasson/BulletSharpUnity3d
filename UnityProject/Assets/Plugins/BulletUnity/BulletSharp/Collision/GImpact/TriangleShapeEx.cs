@@ -30,7 +30,7 @@ namespace BulletSharp
 			GIM_TRIANGLE_CONTACT_copy_from(_native, other._native);
 		}
         
-		public float PenetrationDepth
+		public double PenetrationDepth
 		{
 			get { return GIM_TRIANGLE_CONTACT_getPenetration_depth(_native); }
 			set { GIM_TRIANGLE_CONTACT_setPenetration_depth(_native, value); }
@@ -85,7 +85,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void GIM_TRIANGLE_CONTACT_copy_from(IntPtr obj, IntPtr other);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float GIM_TRIANGLE_CONTACT_getPenetration_depth(IntPtr obj);
+		static extern double GIM_TRIANGLE_CONTACT_getPenetration_depth(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int GIM_TRIANGLE_CONTACT_getPoint_count(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -93,9 +93,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void GIM_TRIANGLE_CONTACT_getSeparating_normal(IntPtr obj, [Out] out Vector4 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void GIM_TRIANGLE_CONTACT_merge_points(IntPtr obj, [In] ref Vector4 plane, float margin, [In] ref Vector3 points, int point_count);
+		static extern void GIM_TRIANGLE_CONTACT_merge_points(IntPtr obj, [In] ref Vector4 plane, double margin, [In] ref Vector3 points, int point_count);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void GIM_TRIANGLE_CONTACT_setPenetration_depth(IntPtr obj, float value);
+		static extern void GIM_TRIANGLE_CONTACT_setPenetration_depth(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void GIM_TRIANGLE_CONTACT_setPoint_count(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -144,13 +144,13 @@ namespace BulletSharp
 			return btPrimitiveTriangle_overlap_test_conservative(_native, other._native);
 		}
 
-		public float Dummy
+		public double Dummy
 		{
 			get { return btPrimitiveTriangle_getDummy(_native); }
 			set { btPrimitiveTriangle_setDummy(_native, value); }
 		}
 
-		public float Margin
+		public double Margin
 		{
 			get { return btPrimitiveTriangle_getMargin(_native); }
 			set { btPrimitiveTriangle_setMargin(_native, value); }
@@ -206,9 +206,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPrimitiveTriangle_get_edge_plane(IntPtr obj, int edge_index, [Out] out Vector4 plane);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btPrimitiveTriangle_getDummy(IntPtr obj);
+		static extern double btPrimitiveTriangle_getDummy(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btPrimitiveTriangle_getMargin(IntPtr obj);
+		static extern double btPrimitiveTriangle_getMargin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPrimitiveTriangle_getPlane(IntPtr obj, [Out] out Vector4 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -217,9 +217,9 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btPrimitiveTriangle_overlap_test_conservative(IntPtr obj, IntPtr other);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btPrimitiveTriangle_setDummy(IntPtr obj, float value);
+		static extern void btPrimitiveTriangle_setDummy(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btPrimitiveTriangle_setMargin(IntPtr obj, float value);
+		static extern void btPrimitiveTriangle_setMargin(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPrimitiveTriangle_setPlane(IntPtr obj, [In] ref Vector4 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

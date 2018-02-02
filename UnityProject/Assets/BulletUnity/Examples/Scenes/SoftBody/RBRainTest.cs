@@ -13,17 +13,17 @@ namespace BulletUnity
          
         public Rect startAreaOfRain = new Rect(new Vector2(0f, 0f), new Vector2(10f, 10f));
         [Range(0.5f, 300f)]
-        public float fromHeight = 30f;
+        public double fromHeight = 30f;
         [Range(0.1f, 20f)]
-        public float rigidBodiesPerSecond = 1.0f;
+        public double rigidBodiesPerSecond = 1.0f;
         [Range(1f, 300f)]
-        public float lifetime = 10f;
+        public double lifetime = 10f;
       
         public bool enableRain = true;
         
        // SelectMesh ProcedurealMesh = SelectMesh.Sphere;
         
-       float lastBunnyTime = 0f;
+       double lastBunnyTime = 0f;
 
         void Start()
         {
@@ -44,7 +44,7 @@ namespace BulletUnity
 
                 pos.x = startAreaOfRain.center.x +  UnityEngine.Random.Range(-startAreaOfRain.width / 2, startAreaOfRain.width / 2);
                 pos.z = startAreaOfRain.center.y + UnityEngine.Random.Range(-startAreaOfRain.height / 2, startAreaOfRain.height / 2);
-                pos.y = fromHeight;
+                pos.y = (float)fromHeight;
 
                 GameObject go = BSphere.CreateNew(pos, UnityEngine.Random.rotation);
 
@@ -59,7 +59,7 @@ namespace BulletUnity
                 go.GetComponent<MeshRenderer>().material.color =
                   new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f));
 
-                Destroy(go, lifetime);
+                Destroy(go, (float)lifetime);
 
                 lastBunnyTime = Time.time;
             }

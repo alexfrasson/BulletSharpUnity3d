@@ -14,11 +14,11 @@ public class BSliderConstraintEditor : Editor {
 
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("Limits", EditorStyles.boldLabel);
-        hc.lowerLinearLimit = EditorGUILayout.FloatField("Lower Linear Limit", hc.lowerLinearLimit);
-        hc.upperLinearLimit = EditorGUILayout.FloatField("Upper Linear Limit", hc.upperLinearLimit);
+        hc.lowerLinearLimit = EditorGUILayout.FloatField("Lower Linear Limit", (float)hc.lowerLinearLimit);
+        hc.upperLinearLimit = EditorGUILayout.FloatField("Upper Linear Limit", (float)hc.upperLinearLimit);
 
-        hc.lowerAngularLimitRadians = EditorGUILayout.FloatField("Lower Angular Limit (Deg.)", hc.lowerAngularLimitRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
-        hc.upperAngularLimitRadians = EditorGUILayout.FloatField("Upper Angular Limit (Deg.)", hc.upperAngularLimitRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.lowerAngularLimitRadians = EditorGUILayout.FloatField("Lower Angular Limit (Deg.)", (float)hc.lowerAngularLimitRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.upperAngularLimitRadians = EditorGUILayout.FloatField("Upper Angular Limit (Deg.)", (float)hc.upperAngularLimitRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
 
         if (GUI.changed)
         {

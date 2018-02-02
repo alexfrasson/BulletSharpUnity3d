@@ -69,8 +69,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _friction = .5f;
-        public float friction
+        double _friction = .5f;
+        public double friction
         {
             get { return _friction; }
             set {
@@ -83,8 +83,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _rollingFriction = 0f;
-        public float rollingFriction
+        double _rollingFriction = 0f;
+        public double rollingFriction
         {
             get { return _rollingFriction; }
             set {
@@ -97,8 +97,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _linearDamping = 0f;
-        public float linearDamping
+        double _linearDamping = 0f;
+        public double linearDamping
         {
             get { return _linearDamping; }
             set {
@@ -111,8 +111,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _angularDamping = 0f;
-        public float angularDamping
+        double _angularDamping = 0f;
+        public double angularDamping
         {
             get { return _angularDamping; }
             set {
@@ -124,8 +124,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _restitution = 0f;
-        public float restitution
+        double _restitution = 0f;
+        public double restitution
         {
             get { return _restitution; }
             set {
@@ -137,8 +137,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _linearSleepingThreshold = .8f;
-        public float linearSleepingThreshold
+        double _linearSleepingThreshold = .8f;
+        public double linearSleepingThreshold
         {
             get { return _linearSleepingThreshold; }
             set {
@@ -150,8 +150,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _angularSleepingThreshold = 1f;
-        public float angularSleepingThreshold
+        double _angularSleepingThreshold = 1f;
+        public double angularSleepingThreshold
         {
             get { return _angularSleepingThreshold; }
             set {
@@ -178,8 +178,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _additionalDampingFactor = .005f;
-        public float additionalDampingFactor
+        double _additionalDampingFactor = .005f;
+        public double additionalDampingFactor
         {
             get { return _additionalDampingFactor; }
             set {
@@ -192,8 +192,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _additionalLinearDampingThresholdSqr = .01f;
-        public float additionalLinearDampingThresholdSqr
+        double _additionalLinearDampingThresholdSqr = .01f;
+        public double additionalLinearDampingThresholdSqr
         {
             get { return _additionalLinearDampingThresholdSqr; }
             set {
@@ -206,8 +206,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _additionalAngularDampingThresholdSqr = .01f;
-        public float additionalAngularDampingThresholdSqr
+        double _additionalAngularDampingThresholdSqr = .01f;
+        public double additionalAngularDampingThresholdSqr
         {
             get { return _additionalAngularDampingThresholdSqr; }
             set {
@@ -220,8 +220,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _additionalAngularDampingFactor = .01f;
-        public float additionalAngularDampingFactor
+        double _additionalAngularDampingFactor = .01f;
+        public double additionalAngularDampingFactor
         {
             get { return _additionalAngularDampingFactor; }
             set {
@@ -262,8 +262,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        float _mass = 1f;
-        public float mass
+        double _mass = 1f;
+        public double mass
         {
             set
             {
@@ -275,7 +275,7 @@ namespace BulletUnity {
             }
         }
         /*
-        public float mass {
+        public double mass {
             set {
                 if (_mass != value) {
                     if (_mass == 0f && isDynamic()) {
@@ -353,7 +353,7 @@ namespace BulletUnity {
 
             if (rb == null)
             {
-                float bulletMass = _mass;
+                double bulletMass = _mass;
                 if (!isDynamic())
                 {
                     bulletMass = 0f;
@@ -375,7 +375,7 @@ namespace BulletUnity {
                 rbInfo.Dispose();
             }
             else {
-                float usedMass = 0f;
+                double usedMass = 0f;
                 if (isDynamic())
                 {
                     usedMass = _mass;

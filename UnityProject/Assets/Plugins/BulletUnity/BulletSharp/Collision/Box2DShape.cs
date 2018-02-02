@@ -15,12 +15,12 @@ namespace BulletSharp
 		{
 		}
 
-        public Box2DShape(float boxHalfExtent)
+        public Box2DShape(double boxHalfExtent)
             : base(btBox2dShape_new2(boxHalfExtent))
         {
         }
 
-        public Box2DShape(float boxHalfExtentX, float boxHalfExtentY, float boxHalfExtentZ)
+        public Box2DShape(double boxHalfExtentX, double boxHalfExtentY, double boxHalfExtentZ)
             : base(btBox2dShape_new3(boxHalfExtentX, boxHalfExtentY, boxHalfExtentZ))
         {
         }
@@ -87,9 +87,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btBox2dShape_new([In] ref Vector3 boxHalfExtents);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern IntPtr btBox2dShape_new2(float boxHalfExtent);
+        static extern IntPtr btBox2dShape_new2(double boxHalfExtent);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern IntPtr btBox2dShape_new3(float boxHalfExtentX, float boxHalfExtentY, float boxHalfExtentZ);
+        static extern IntPtr btBox2dShape_new3(double boxHalfExtentX, double boxHalfExtentY, double boxHalfExtentZ);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btBox2dShape_getCentroid(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

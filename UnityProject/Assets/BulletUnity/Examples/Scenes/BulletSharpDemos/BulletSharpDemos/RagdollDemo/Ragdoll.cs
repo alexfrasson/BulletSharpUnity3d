@@ -26,9 +26,9 @@ namespace RagdollDemo
 
     class Ragdoll
     {
-        const float ConstraintDebugSize = 0.2f;
-        const float PI_2 = (float)Math.PI / 2;
-        const float PI_4 = (float)Math.PI / 4;
+        const double ConstraintDebugSize = 0.2f;
+        const double PI_2 = (double)Math.PI / 2;
+        const double PI_4 = (double)Math.PI / 4;
 
         DynamicsWorld ownerWorld;
         CollisionShape[] shapes = new CollisionShape[(int)BodyPart.Count];
@@ -161,7 +161,7 @@ namespace RagdollDemo
             ownerWorld.AddConstraint(joints[(int)Joint.RightKnee], true);
 
 
-            localA = Matrix.RotationYawPitchRoll(0, 0, (float)Math.PI) * Matrix.Translation(-0.2f, 0.15f, 0);
+            localA = Matrix.RotationYawPitchRoll(0, 0, (double)Math.PI) * Matrix.Translation(-0.2f, 0.15f, 0);
             localB = Matrix.RotationYawPitchRoll(0, 0, PI_2) * Matrix.Translation(0, -0.18f, 0);
             coneC = new ConeTwistConstraint(bodies[(int)BodyPart.Spine], bodies[(int)BodyPart.LeftUpperArm], localA, localB);
             coneC.SetLimit(PI_2, PI_2, 0);
@@ -202,7 +202,7 @@ namespace RagdollDemo
             ownerWorld.AddConstraint(joints[(int)Joint.RightElbow], true);
         }
 
-        RigidBody LocalCreateRigidBody(float mass, Matrix startTransform, CollisionShape shape)
+        RigidBody LocalCreateRigidBody(double mass, Matrix startTransform, CollisionShape shape)
         {
             bool isDynamic = (mass != 0.0f);
 

@@ -16,17 +16,17 @@ namespace BulletSharp
 		{
 		}
 
-        public ConvexHullShape(float[] points)
-            : this(points, points.Length/3, 3 * sizeof(float))
+        public ConvexHullShape(double[] points)
+            : this(points, points.Length, 3 * sizeof(double))
         {
         }
 
-        public ConvexHullShape(float[] points, int numPoints)
-            : this(points, numPoints, 3 * sizeof(float))
+        public ConvexHullShape(double[] points, int numPoints)
+            : this(points, numPoints, 3 * sizeof(double))
         {
         }
 
-		public ConvexHullShape(float[] points, int numPoints, int stride)
+		public ConvexHullShape(double[] points, int numPoints, int stride)
 			: base(btConvexHullShape_new4(points, numPoints, stride))
 		{
 		}
@@ -90,12 +90,13 @@ namespace BulletSharp
             btConvexHullShape_getScaledPoint(_native, i, out value);
             return value;
         }
+
 		/*
-        public void Project(ref Matrix trans, ref Vector3 dir, out float minProj, out float maxProj, out Vector3 witnesPtMin, out Vector3 witnesPtMax)
+        public void Project(ref Matrix trans, ref Vector3 dir, out double minProj, out double maxProj, out Vector3 witnesPtMin, out Vector3 witnesPtMax)
         {
             btConvexHullShape_project(_native, ref trans, ref dir, out minProj, out maxProj, out witnesPtMin, out witnesPtMax);
         }
-*/
+		*/
 		public int NumPoints
 		{
 			get { return btConvexHullShape_getNumPoints(_native); }
@@ -132,7 +133,7 @@ namespace BulletSharp
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern IntPtr btConvexHullShape_new3(Vector3[] points, int numPoints);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern IntPtr btConvexHullShape_new4(float[] points, int numPoints, int stride);
+        static extern IntPtr btConvexHullShape_new4(double[] points, int numPoints, int stride);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern IntPtr btConvexHullShape_new4(Vector3[] points, int numPoints, int stride);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -147,8 +148,8 @@ namespace BulletSharp
 		static extern void btConvexHullShape_getScaledPoint(IntPtr obj, int i, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btConvexHullShape_getUnscaledPoints(IntPtr obj);
-	//	[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-    //    static extern void btConvexHullShape_project(IntPtr obj, [In] ref Matrix trans, [In] ref Vector3 dir, [Out] out float minProj, [Out] out float maxProj, [Out] out Vector3 witnesPtMin, [Out] out Vector3 witnesPtMax);
+		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
+        //static extern void btConvexHullShape_project(IntPtr obj, [In] ref Matrix trans, [In] ref Vector3 dir, [Out] out double minProj, [Out] out double maxProj, [Out] out Vector3 witnesPtMin, [Out] out Vector3 witnesPtMax);
 	}
 
     [StructLayout(LayoutKind.Sequential)]

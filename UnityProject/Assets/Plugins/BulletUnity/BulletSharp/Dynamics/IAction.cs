@@ -8,7 +8,7 @@ namespace BulletSharp
     public interface IAction
     {
         void DebugDraw(IDebugDraw debugDrawer);
-        void UpdateAction(CollisionWorld collisionWorld, float deltaTimeStep);
+        void UpdateAction(CollisionWorld collisionWorld, double deltaTimeStep);
     }
 
     internal class ActionInterfaceWrapper : IDisposable
@@ -20,7 +20,7 @@ namespace BulletSharp
         [UnmanagedFunctionPointerAttribute(Native.Conv), SuppressUnmanagedCodeSecurity]
         delegate void DebugDrawUnmanagedDelegate(IntPtr iaPtrThis, IntPtr debugDrawer);
         [UnmanagedFunctionPointerAttribute(Native.Conv), SuppressUnmanagedCodeSecurity]
-        delegate void UpdateActionUnmanagedDelegate(IntPtr iaPtrThis, IntPtr collisionWorld, float deltaTimeStep);
+        delegate void UpdateActionUnmanagedDelegate(IntPtr iaPtrThis, IntPtr collisionWorld, double deltaTimeStep);
 
         DebugDrawUnmanagedDelegate _debugDraw;
         UpdateActionUnmanagedDelegate _updateAction; 
@@ -52,7 +52,7 @@ namespace BulletSharp
 
 		//changed these so they are static fuctions and have MonoPInvokeCallback decorator so they work from iOS (uses AOT)
 		[MonoPInvokeCallback(typeof(UpdateActionUnmanagedDelegate))]
-        private static void UpdateActionUnmanaged(IntPtr iaPtrThis, IntPtr collisionWorld, float deltaTimeStep)
+        private static void UpdateActionUnmanaged(IntPtr iaPtrThis, IntPtr collisionWorld, double deltaTimeStep)
         {
 			//UnityEngine.Debug.Log("Callback yes!! " + iaPtrThis.ToInt64());
 			ActionInterfaceWrapper ai = GCHandle.FromIntPtr(iaPtrThis).Target as ActionInterfaceWrapper;

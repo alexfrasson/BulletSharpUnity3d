@@ -91,12 +91,12 @@ namespace BulletSharp
 			return value;
 		}
 
-		public void Project(ref Matrix trans, Vector3 dir, out float minProj, out float maxProj, out Vector3 witnesPtMin, out Vector3 witnesPtMax)
+		public void Project(ref Matrix trans, Vector3 dir, out double minProj, out double maxProj, out Vector3 witnesPtMin, out Vector3 witnesPtMax)
 		{
 			btConvexShape_project(_native, ref trans, ref dir, out minProj, out maxProj, out witnesPtMin, out witnesPtMax);
 		}
 
-		public float MarginNonVirtual
+		public double MarginNonVirtual
 		{
 			get { return btConvexShape_getMarginNonVirtual(_native); }
 		}
@@ -113,7 +113,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexShape_getAabbSlow(IntPtr obj, [In] ref Matrix t, [Out] out Vector3 aabbMin, [Out] out Vector3 aabbMax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConvexShape_getMarginNonVirtual(IntPtr obj);
+		static extern double btConvexShape_getMarginNonVirtual(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btConvexShape_getNumPreferredPenetrationDirections(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -127,6 +127,6 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConvexShape_localGetSupportVertexWithoutMarginNonVirtual(IntPtr obj, [In] ref Vector3 vec, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConvexShape_project(IntPtr obj, [In] ref Matrix trans, [In] ref Vector3 dir, [Out] out float minProj, [Out] out float maxProj, [Out] out Vector3 witnesPtMin, [Out] out Vector3 witnesPtMax);
+		static extern void btConvexShape_project(IntPtr obj, [In] ref Matrix trans, [In] ref Vector3 dir, [Out] out double minProj, [Out] out double maxProj, [Out] out Vector3 witnesPtMin, [Out] out Vector3 witnesPtMax);
 	}
 }

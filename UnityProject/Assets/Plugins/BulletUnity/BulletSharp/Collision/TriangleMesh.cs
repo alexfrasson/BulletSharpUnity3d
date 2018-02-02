@@ -82,7 +82,7 @@ namespace BulletSharp
 			get { return btTriangleMesh_getUse4componentVertices(_native); }
 		}
 
-		public float WeldingThreshold
+		public double WeldingThreshold
 		{
 			get { return btTriangleMesh_getWeldingThreshold(_native); }
 			set { btTriangleMesh_setWeldingThreshold(_native, value); }
@@ -113,8 +113,8 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btTriangleMesh_getUse4componentVertices(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleMesh_getWeldingThreshold(IntPtr obj);
+		static extern double btTriangleMesh_getWeldingThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleMesh_setWeldingThreshold(IntPtr obj, float value);
+		static extern void btTriangleMesh_setWeldingThreshold(IntPtr obj, double value);
 	}
 }

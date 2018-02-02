@@ -31,8 +31,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_targetMotorAngularVelocity = 0f;
-        public float targetMotorAngularVelocity
+        protected double m_targetMotorAngularVelocity = 0f;
+        public double targetMotorAngularVelocity
         {
             get { return m_targetMotorAngularVelocity; }
             set
@@ -47,8 +47,8 @@ namespace BulletUnity {
 
 
         [SerializeField]
-        protected float m_maxMotorImpulse = 0f;
-        public float maxMotorImpulse
+        protected double m_maxMotorImpulse = 0f;
+        public double maxMotorImpulse
         {
             get { return m_maxMotorImpulse; }
             set
@@ -71,8 +71,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_lowLimitAngleRadians;
-        public float lowLimitAngleRadians
+        protected double m_lowLimitAngleRadians;
+        public double lowLimitAngleRadians
         {
             get { return m_lowLimitAngleRadians; }
             set
@@ -86,8 +86,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_highLimitAngleRadians;
-        public float highLimitAngleRadians
+        protected double m_highLimitAngleRadians;
+        public double highLimitAngleRadians
         {
             get { return m_highLimitAngleRadians; }
             set
@@ -101,8 +101,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_limitSoftness = .9f;
-        public float limitSoftness
+        protected double m_limitSoftness = .9f;
+        public double limitSoftness
         {
             get { return m_limitSoftness; }
             set
@@ -116,8 +116,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_limitBiasFactor = .3f;
-        public float limitBiasFactor
+        protected double m_limitBiasFactor = .3f;
+        public double limitBiasFactor
         {
             get { return m_limitBiasFactor; }
             set
@@ -131,7 +131,7 @@ namespace BulletUnity {
         }
 
 
-        public float GetAngle() {
+        public double GetAngle() {
             if (m_constraintPtr == null) {
                 return 0;
             }

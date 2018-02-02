@@ -36,14 +36,14 @@ namespace BulletSharp
             }
 		}
 
-        public Vector3 CalculateLocalInertia(float mass)
+        public Vector3 CalculateLocalInertia(double mass)
         {
             Vector3 inertia;
             btCollisionShape_calculateLocalInertia(_native, mass, out inertia);
             return inertia;
         }
 
-		public void CalculateLocalInertia(float mass, out Vector3 inertia)
+		public void CalculateLocalInertia(double mass, out Vector3 inertia)
 		{
 			btCollisionShape_calculateLocalInertia(_native, mass, out inertia);
 		}
@@ -53,7 +53,7 @@ namespace BulletSharp
 			return btCollisionShape_calculateSerializeBufferSize(_native);
 		}
 
-        public void CalculateTemporalAabb(ref Matrix curTrans, ref Vector3 linvel, ref Vector3 angvel, float timeStep, out Vector3 temporalAabbMin, out Vector3 temporalAabbMax)
+        public void CalculateTemporalAabb(ref Matrix curTrans, ref Vector3 linvel, ref Vector3 angvel, double timeStep, out Vector3 temporalAabbMin, out Vector3 temporalAabbMax)
 		{
 			btCollisionShape_calculateTemporalAabb(_native, ref curTrans, ref linvel, ref angvel, timeStep, out temporalAabbMin, out temporalAabbMax);
 		}
@@ -68,12 +68,12 @@ namespace BulletSharp
 			btCollisionShape_getAabb(_native, ref t, out aabbMin, out aabbMax);
 		}
 
-		public void GetBoundingSphere(out Vector3 center, out float radius)
+		public void GetBoundingSphere(out Vector3 center, out double radius)
 		{
 			btCollisionShape_getBoundingSphere(_native, out center, out radius);
 		}
 
-		public float GetContactBreakingThreshold(float defaultContactThresholdFactor)
+		public double GetContactBreakingThreshold(double defaultContactThresholdFactor)
 		{
 			return btCollisionShape_getContactBreakingThreshold(_native, defaultContactThresholdFactor);
 		}
@@ -103,7 +103,7 @@ namespace BulletSharp
             serializer.FinalizeChunk(chunk, structType, DnaID.Shape, _native);
 		}
 
-		public float AngularMotionDisc
+		public double AngularMotionDisc
 		{
 			get { return btCollisionShape_getAngularMotionDisc(_native); }
 		}
@@ -174,7 +174,7 @@ namespace BulletSharp
 			set { btCollisionShape_setLocalScaling(_native, ref value); }
 		}
 
-		public float Margin
+		public double Margin
 		{
 			get { return btCollisionShape_getMargin(_native); }
 			set { btCollisionShape_setMargin(_native, value); }
@@ -236,25 +236,25 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionShape_calculateLocalInertia(IntPtr obj, float mass, [Out] out Vector3 inertia);
+		static extern void btCollisionShape_calculateLocalInertia(IntPtr obj, double mass, [Out] out Vector3 inertia);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btCollisionShape_calculateSerializeBufferSize(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionShape_calculateTemporalAabb(IntPtr obj, [In] ref Matrix curTrans, [In] ref Vector3 linvel, [In] ref Vector3 angvel, float timeStep, [Out] out Vector3 temporalAabbMin, [Out] out Vector3 temporalAabbMax);
+		static extern void btCollisionShape_calculateTemporalAabb(IntPtr obj, [In] ref Matrix curTrans, [In] ref Vector3 linvel, [In] ref Vector3 angvel, double timeStep, [Out] out Vector3 temporalAabbMin, [Out] out Vector3 temporalAabbMax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionShape_getAabb(IntPtr obj, [In] ref Matrix t, [Out] out Vector3 aabbMin, [Out] out Vector3 aabbMax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionShape_getAngularMotionDisc(IntPtr obj);
+		static extern double btCollisionShape_getAngularMotionDisc(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionShape_getAnisotropicRollingFrictionDirection(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionShape_getBoundingSphere(IntPtr obj, [Out] out Vector3 center, [Out] out float radius);
+		static extern void btCollisionShape_getBoundingSphere(IntPtr obj, [Out] out Vector3 center, [Out] out double radius);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionShape_getContactBreakingThreshold(IntPtr obj, float defaultContactThresholdFactor);
+		static extern double btCollisionShape_getContactBreakingThreshold(IntPtr obj, double defaultContactThresholdFactor);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionShape_getLocalScaling(IntPtr obj, [Out] out Vector3 scaling);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionShape_getMargin(IntPtr obj);
+		static extern double btCollisionShape_getMargin(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btCollisionShape_getName(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -294,7 +294,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionShape_setLocalScaling(IntPtr obj, [In] ref Vector3 scaling);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btCollisionShape_setMargin(IntPtr obj, float margin);
+		static extern void btCollisionShape_setMargin(IntPtr obj, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionShape_setUserIndex(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

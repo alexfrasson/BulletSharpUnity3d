@@ -11,7 +11,7 @@ namespace BulletSharp
 		{
 		}
 
-		public MultiBodyJointLimitConstraint(MultiBody body, int link, float lower, float upper)
+		public MultiBodyJointLimitConstraint(MultiBody body, int link, double lower, double upper)
 			: base(btMultiBodyJointLimitConstraint_new(body._native, link, lower, upper))
 		{
             _multiBodyA = body;
@@ -19,6 +19,6 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btMultiBodyJointLimitConstraint_new(IntPtr body, int link, float lower, float upper);
+		static extern IntPtr btMultiBodyJointLimitConstraint_new(IntPtr body, int link, double lower, double upper);
 	}
 }

@@ -28,25 +28,25 @@ namespace VehicleDemo
         // btRaycastVehicle is the interface for the constraint that implements the raycast vehicle
         // notice that for higher-quality slow-moving vehicles, another approach might be better
         // implementing explicit hinged-wheel constraints with cylinder collision, rather then raycasts
-        float gEngineForce = 0.0f;
-        float gBreakingForce = 0.0f;
+        double gEngineForce = 0.0f;
+        double gBreakingForce = 0.0f;
 
-        const float maxEngineForce = 2000.0f;//this should be engine/velocity dependent
-        const float maxBreakingForce = 100.0f;
+        const double maxEngineForce = 2000.0f;//this should be engine/velocity dependent
+        const double maxBreakingForce = 100.0f;
 
-        float gVehicleSteering = 0.0f;
-        const float steeringIncrement = 1.0f;
-        const float steeringClamp = 0.3f;
-        public const float wheelRadius = 0.7f;
-        public const float wheelWidth = 0.4f;
-        const float wheelFriction = 1000;//BT_LARGE_FLOAT;
-        const float suspensionStiffness = 20.0f;
-        const float suspensionDamping = 2.3f;
-        const float suspensionCompression = 4.4f;
-        const float rollInfluence = 0.1f;//1.0f;
+        double gVehicleSteering = 0.0f;
+        const double steeringIncrement = 1.0f;
+        const double steeringClamp = 0.3f;
+        public const double wheelRadius = 0.7f;
+        public const double wheelWidth = 0.4f;
+        const double wheelFriction = 1000;//BT_LARGE_FLOAT;
+        const double suspensionStiffness = 20.0f;
+        const double suspensionDamping = 2.3f;
+        const double suspensionCompression = 4.4f;
+        const double rollInfluence = 0.1f;//1.0f;
 
-        const float suspensionRestLength = 0.6f;
-        const float CUBE_HALF_EXTENTS = 1;
+        const double suspensionRestLength = 0.6f;
+        const double CUBE_HALF_EXTENTS = 1;
 
         //public RaycastVehicle vehicle;
         public CustomVehicle vehicle;
@@ -83,7 +83,7 @@ namespace VehicleDemo
             Matrix vehicleTr;
             //if (UseTrimeshGround)
             {
-                const float scale = 20.0f;
+                const double scale = 20.0f;
 
                 //create a triangle-mesh ground
                 const int NumVertsX = 20;
@@ -125,8 +125,8 @@ namespace VehicleDemo
                     {
                         for (int j = 0; j < NumVertsY; j++)
                         {
-                            float wl = .2f;
-                            float height = 20.0f * (float)(Math.Sin(i * wl) * Math.Cos(j * wl));
+                            double wl = .2f;
+                            double height = 20.0f * (double)(Math.Sin(i * wl) * Math.Cos(j * wl));
 
                             vertices.Write((i - NumVertsX * 0.5f) * scale);
                             vertices.Write(height);
@@ -148,21 +148,21 @@ namespace VehicleDemo
 
                 int width = 40, length = 40;
                 //int width = 128, length = 128; // Debugging is too slow for this
-                float maxHeight = 10.0f;
-                float heightScale = maxHeight / 256.0f;
+                double maxHeight = 10.0f;
+                double heightScale = maxHeight / 256.0f;
                 Vector3 scale = new Vector3(20.0f, maxHeight, 20.0f);
 
                 //PhyScalarType scalarType = PhyScalarType.PhyUChar;
                 //FileStream file = new FileStream(heightfieldFile, FileMode.Open, FileAccess.Read);
 
-                // Use float data
+                // Use double data
                 PhyScalarType scalarType = PhyScalarType.PhyFloat;
                 byte[] terr = new byte[width * length * 4];
                 MemoryStream file = new MemoryStream(terr);
                 BinaryWriter writer = new BinaryWriter(file);
                 for (i = 0; i < width; i++)
                     for (int j = 0; j < length; j++)
-                        writer.Write((float)((maxHeight / 2) + 4 * Math.Sin(j * 0.5f) * Math.Cos(i)));
+                        writer.Write((double)((maxHeight / 2) + 4 * Math.Sin(j * 0.5f) * Math.Cos(i)));
                 writer.Flush();
                 file.Position = 0;
 
@@ -192,10 +192,10 @@ namespace VehicleDemo
                 {
                     for (int j = 0; j < length; j++)
                     {
-                        float height;
+                        double height;
                         if (scalarType == PhyScalarType.PhyFloat)
                         {
-                            // heightScale isn't applied internally for float data
+                            // heightScale isn't applied internally for double data
                             height = reader.ReadSingle();
                         }
                         else if (scalarType == PhyScalarType.PhyUChar)
@@ -298,7 +298,7 @@ namespace VehicleDemo
             World.AddAction(vehicle);
 
 
-            const float connectionHeight = 1.2f;
+            const double connectionHeight = 1.2f;
             bool isFrontWheel = true;
 
             // choose coordinate system
@@ -354,7 +354,7 @@ namespace VehicleDemo
                 if (gVehicleSteering > steeringClamp)
                     gVehicleSteering = steeringClamp;
             }
-            else if ((gVehicleSteering - float.Epsilon) > 0)
+            else if ((gVehicleSteering - double.Epsilon) > 0)
             {
                 gVehicleSteering -= FrameDelta * steeringIncrement;
             }
@@ -365,7 +365,7 @@ namespace VehicleDemo
                 if (gVehicleSteering < -steeringClamp)
                     gVehicleSteering = -steeringClamp;
             }
-            else if ((gVehicleSteering + float.Epsilon) < 0)
+            else if ((gVehicleSteering + double.Epsilon) < 0)
             {
                 gVehicleSteering += FrameDelta * steeringIncrement;
             }

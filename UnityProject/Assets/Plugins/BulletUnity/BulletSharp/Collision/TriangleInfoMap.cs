@@ -18,19 +18,19 @@ namespace BulletSharp
 			_native = btTriangleInfo_new();
 		}
 
-		public float EdgeV0V1Angle
+		public double EdgeV0V1Angle
 		{
 			get { return btTriangleInfo_getEdgeV0V1Angle(_native); }
 			set { btTriangleInfo_setEdgeV0V1Angle(_native, value); }
 		}
 
-		public float EdgeV1V2Angle
+		public double EdgeV1V2Angle
 		{
 			get { return btTriangleInfo_getEdgeV1V2Angle(_native); }
 			set { btTriangleInfo_setEdgeV1V2Angle(_native, value); }
 		}
 
-		public float EdgeV2V0Angle
+		public double EdgeV2V0Angle
 		{
 			get { return btTriangleInfo_getEdgeV2V0Angle(_native); }
 			set { btTriangleInfo_setEdgeV2V0Angle(_native, value); }
@@ -65,19 +65,19 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btTriangleInfo_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfo_getEdgeV0V1Angle(IntPtr obj);
+		static extern double btTriangleInfo_getEdgeV0V1Angle(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfo_getEdgeV1V2Angle(IntPtr obj);
+		static extern double btTriangleInfo_getEdgeV1V2Angle(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfo_getEdgeV2V0Angle(IntPtr obj);
+		static extern double btTriangleInfo_getEdgeV2V0Angle(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btTriangleInfo_getFlags(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfo_setEdgeV0V1Angle(IntPtr obj, float value);
+		static extern void btTriangleInfo_setEdgeV0V1Angle(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfo_setEdgeV1V2Angle(IntPtr obj, float value);
+		static extern void btTriangleInfo_setEdgeV1V2Angle(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfo_setEdgeV2V0Angle(IntPtr obj, float value);
+		static extern void btTriangleInfo_setEdgeV2V0Angle(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTriangleInfo_setFlags(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -115,37 +115,37 @@ namespace BulletSharp
 			return Marshal.PtrToStringAnsi(btTriangleInfoMap_serialize(_native, dataBuffer, serializer._native));
 		}
 
-		public float ConvexEpsilon
+		public double ConvexEpsilon
 		{
 			get { return btTriangleInfoMap_getConvexEpsilon(_native); }
 			set { btTriangleInfoMap_setConvexEpsilon(_native, value); }
 		}
 
-		public float EdgeDistanceThreshold
+		public double EdgeDistanceThreshold
 		{
 			get { return btTriangleInfoMap_getEdgeDistanceThreshold(_native); }
 			set { btTriangleInfoMap_setEdgeDistanceThreshold(_native, value); }
 		}
 
-		public float EqualVertexThreshold
+		public double EqualVertexThreshold
 		{
 			get { return btTriangleInfoMap_getEqualVertexThreshold(_native); }
 			set { btTriangleInfoMap_setEqualVertexThreshold(_native, value); }
 		}
 
-		public float MaxEdgeAngleThreshold
+		public double MaxEdgeAngleThreshold
 		{
 			get { return btTriangleInfoMap_getMaxEdgeAngleThreshold(_native); }
 			set { btTriangleInfoMap_setMaxEdgeAngleThreshold(_native, value); }
 		}
 
-		public float PlanarEpsilon
+		public double PlanarEpsilon
 		{
 			get { return btTriangleInfoMap_getPlanarEpsilon(_native); }
 			set { btTriangleInfoMap_setPlanarEpsilon(_native, value); }
 		}
 
-		public float ZeroAreaThreshold
+		public double ZeroAreaThreshold
 		{
 			get { return btTriangleInfoMap_getZeroAreaThreshold(_native); }
 			set { btTriangleInfoMap_setZeroAreaThreshold(_native, value); }
@@ -181,31 +181,31 @@ namespace BulletSharp
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern void btTriangleInfoMap_deSerialize(IntPtr obj, IntPtr data);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfoMap_getConvexEpsilon(IntPtr obj);
+		static extern double btTriangleInfoMap_getConvexEpsilon(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfoMap_getEdgeDistanceThreshold(IntPtr obj);
+		static extern double btTriangleInfoMap_getEdgeDistanceThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfoMap_getEqualVertexThreshold(IntPtr obj);
+		static extern double btTriangleInfoMap_getEqualVertexThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfoMap_getMaxEdgeAngleThreshold(IntPtr obj);
+		static extern double btTriangleInfoMap_getMaxEdgeAngleThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfoMap_getPlanarEpsilon(IntPtr obj);
+		static extern double btTriangleInfoMap_getPlanarEpsilon(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btTriangleInfoMap_getZeroAreaThreshold(IntPtr obj);
+		static extern double btTriangleInfoMap_getZeroAreaThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btTriangleInfoMap_serialize(IntPtr obj, IntPtr dataBuffer, IntPtr serializer);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfoMap_setConvexEpsilon(IntPtr obj, float value);
+		static extern void btTriangleInfoMap_setConvexEpsilon(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfoMap_setEdgeDistanceThreshold(IntPtr obj, float value);
+		static extern void btTriangleInfoMap_setEdgeDistanceThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfoMap_setEqualVertexThreshold(IntPtr obj, float value);
+		static extern void btTriangleInfoMap_setEqualVertexThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfoMap_setMaxEdgeAngleThreshold(IntPtr obj, float value);
+		static extern void btTriangleInfoMap_setMaxEdgeAngleThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfoMap_setPlanarEpsilon(IntPtr obj, float value);
+		static extern void btTriangleInfoMap_setPlanarEpsilon(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btTriangleInfoMap_setZeroAreaThreshold(IntPtr obj, float value);
+		static extern void btTriangleInfoMap_setZeroAreaThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btTriangleInfoMap_delete(IntPtr obj);
 	}

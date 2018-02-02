@@ -8,12 +8,12 @@ namespace BulletSharp
 {
 	public class MultiSphereShape : ConvexInternalAabbCachingShape
 	{
-        public MultiSphereShape(Vector3[] positions, float[] radi)
+        public MultiSphereShape(Vector3[] positions, double[] radi)
             : base(btMultiSphereShape_new(positions, radi, (radi.Length < positions.Length) ? radi.Length : positions.Length))
         {
         }
 
-		public MultiSphereShape(Vector3Array positions, float[] radi)
+		public MultiSphereShape(Vector3Array positions, double[] radi)
 			: base(btMultiSphereShape_new2(positions._native, radi, (radi.Length < positions.Count) ? radi.Length : positions.Count))
 		{
 		}
@@ -25,7 +25,7 @@ namespace BulletSharp
 			return value;
 		}
 
-		public float GetSphereRadius(int index)
+		public double GetSphereRadius(int index)
 		{
 			return btMultiSphereShape_getSphereRadius(_native, index);
 		}
@@ -67,14 +67,14 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btMultiSphereShape_new(Vector3[] positions, float[] radi, int numSpheres);
+		static extern IntPtr btMultiSphereShape_new(Vector3[] positions, double[] radi, int numSpheres);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btMultiSphereShape_new2(IntPtr positions, float[] radi, int numSpheres);
+		static extern IntPtr btMultiSphereShape_new2(IntPtr positions, double[] radi, int numSpheres);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btMultiSphereShape_getSphereCount(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiSphereShape_getSpherePosition(IntPtr obj, int index, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultiSphereShape_getSphereRadius(IntPtr obj, int index);
+		static extern double btMultiSphereShape_getSphereRadius(IntPtr obj, int index);
 	}
 }

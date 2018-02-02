@@ -26,7 +26,7 @@ namespace BulletUnity
 
         [Header("Mesh post processing")]
         public bool autoWeldVertices = false;
-        public float autoWeldThreshold = 0.001f; //TODO
+        public double autoWeldThreshold = 0.001f; //TODO
         [Tooltip("Should use this if autoWeldVertices is selected.")]
         public bool recalculateNormals = false;
         public bool addBackFaceTriangles = false;
@@ -70,9 +70,9 @@ namespace BulletUnity
     {
         [Header("Cone Mesh settings:")]
         [Range(0, 1000)]
-        public float height = 1f;
+        public double height = 1f;
         [Range(0, 1000)]
-        public float radius = 0.5f;
+        public double radius = 0.5f;
         [Range(2, 100)]
         public int nbSides = 18;
 
@@ -138,7 +138,7 @@ namespace BulletUnity
     {
         [Header("Sphere Mesh settings:")]
         [Range(0, 1000)]
-        public float radius = 0.5f;
+        public double radius = 0.5f;
         [Range(2, 100)]
         public int numLongitudeLines = 24;
         [Range(2, 100)]
@@ -168,13 +168,13 @@ namespace BulletUnity
         //Unity wont allow switching classes in editor, so this class has all parameters in one pile, ick!
         public Vector3 extents = Vector3.one; //cube
         [Range(0, 1000)]
-        public float radius = 0.5f; //sphere, cone, cylinder
+        public double radius = 0.5f; //sphere, cone, cylinder
         [Range(0, 1000)]
-        public float height = 1f; //cone, cylinder
+        public double height = 1f; //cone, cylinder
         [Range(0, 1000)]
-        public float length = 5f;
+        public double length = 5f;
         [Range(0, 1000)]
-        public float width = 5f; //Plane
+        public double width = 5f; //Plane
         [Range(2, 100)]
         public int numLongitudeLines = 10; //sphere
         [Range(2, 100)]
@@ -192,7 +192,7 @@ namespace BulletUnity
 
         [Header("Mesh post processing")]
         public bool autoWeldVertices = false;
-        public float autoWeldThreshold = 0.001f; //TODO
+        public double autoWeldThreshold = 0.001f; //TODO
         [Tooltip("Should use this if autoWeldVertices is selected.")]
         public bool recalculateNormals = false;
         public bool addBackFaceTriangles = false;
@@ -269,9 +269,9 @@ namespace BulletUnity
     public class BPlaneMeshSettings : BPrimitiveMeshSettings
     {
         [Range(0, 1000)]
-        public float length = 1f;
+        public double length = 1f;
         [Range(0, 1000)]
-        public float width = 1f;
+        public double width = 1f;
         [Range(2, 1000)]
         public int resX = 5;
         [Range(2, 1000)]

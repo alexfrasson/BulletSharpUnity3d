@@ -19,7 +19,7 @@ namespace BulletUnity
     public static class ProceduralPrimitives
     {
 
-        public static Mesh CreateMeshPlane(float length = 1f, float width = 1f, int resX = 10, int resZ = 10)
+        public static Mesh CreateMeshPlane(double length = 1f, double width = 1f, int resX = 10, int resZ = 10)
         {
             Mesh mesh = new Mesh();
             mesh.name = "PPPlane";
@@ -29,12 +29,12 @@ namespace BulletUnity
             for (int z = 0; z < resZ; z++)
             {
                 // [ -length / 2, length / 2 ]
-                float zPos = ((float)z / (resZ - 1) - .5f) * length;
+                double zPos = ((double)z / (resZ - 1) - .5f) * length;
                 for (int x = 0; x < resX; x++)
                 {
                     // [ -width / 2, width / 2 ]
-                    float xPos = ((float)x / (resX - 1) - .5f) * width;
-                    vertices[x + z * resX] = new Vector3(xPos, 0f, zPos);
+                    double xPos = ((double)x / (resX - 1) - .5f) * width;
+                    vertices[x + z * resX] = new Vector3((float)xPos, 0f, (float)zPos);
                 }
             }
             #endregion
@@ -225,15 +225,15 @@ namespace BulletUnity
             return mesh;
         }
 
-        public static Mesh CreateMeshCapsule(float height = 1f, float radius = 1f, int nbSides = 18, int axis = 1)
+        public static Mesh CreateMeshCapsule(double height = 1f, double radius = 1f, int nbSides = 18, int axis = 1)
         {
             Mesh mesh = new Mesh();
-            CreateMeshCapsule(mesh, height, radius, radius, nbSides, axis);
+            CreateMeshCapsule(mesh, (float)height, (float)radius, (float)radius, nbSides, axis);
             mesh.name = "PPCapsule";
             return mesh;
         }
 
-        public static Mesh CreateMeshCylinder(float height = 1f, float radius = 1f, int nbSides = 18)
+        public static Mesh CreateMeshCylinder(double height = 1f, double radius = 1f, int nbSides = 18)
         {
             Mesh mesh = CreateMeshCone(height, radius, radius, nbSides);
             mesh.name = "PPCylinder";
@@ -241,7 +241,7 @@ namespace BulletUnity
 
         }
 
-        public static Mesh CreateMeshPyramid(float height = 1f, float baseSize = 1f)
+        public static Mesh CreateMeshPyramid(double height = 1f, double baseSize = 1f)
         {
             Mesh mesh = CreateMeshCone(height, baseSize, 0f, 4);
             mesh.name = "PPPyramid";
@@ -249,12 +249,12 @@ namespace BulletUnity
         }
 
         //Note that cylinders(bottomRadius == topRadius) and pyramids(4 sides, topRadius == 0) are types of cones, and can be created with this script.
-        public static Mesh CreateMeshCone(float height = 1f, float bottomRadius = 1f, float topRadius = 0f, int nbSides = 18)
+        public static Mesh CreateMeshCone(double height = 1f, double bottomRadius = 1f, double topRadius = 0f, int nbSides = 18)
         {
             Mesh mesh = new Mesh();
             mesh.name = "PPCone";
             mesh.Clear();
-            CreateMeshCone(mesh, height, bottomRadius, topRadius, nbSides);
+            CreateMeshCone(mesh, (float)height, (float)bottomRadius, (float)topRadius, nbSides);
             return mesh;
         }
 
@@ -270,14 +270,14 @@ namespace BulletUnity
             // bottom + top + sides
             Vector3[] vertices = new Vector3[nbVerticesCap + nbVerticesCap + nbSides * nbHeightSeg * 2 + 2];
             int vert = 0;
-            float _2pi = Mathf.PI * 2f;
+            double _2pi = Mathf.PI * 2f;
 
             // Bottom cap
             vertices[vert++] = new Vector3(0f, -bottomRadius, 0f);
             while (vert <= nbSides)
             {
-                float rad = (float)vert / nbSides * _2pi;
-                vertices[vert] = new Vector3(Mathf.Cos(rad) * bottomRadius, 0f, Mathf.Sin(rad) * bottomRadius);
+                double rad = (double)vert / nbSides * _2pi;
+                vertices[vert] = new Vector3(Mathf.Cos((float)rad) * bottomRadius, 0f, Mathf.Sin((float)rad) * bottomRadius);
                 vert++;
             }
 
@@ -285,8 +285,8 @@ namespace BulletUnity
             vertices[vert++] = new Vector3(0f, height + topRadius, 0f);
             while (vert <= nbSides * 2 + 1)
             {
-                float rad = (float)(vert - nbSides - 1) / nbSides * _2pi;
-                vertices[vert] = new Vector3(Mathf.Cos(rad) * topRadius, height, Mathf.Sin(rad) * topRadius);
+                double rad = (double)(vert - nbSides - 1) / nbSides * _2pi;
+                vertices[vert] = new Vector3(Mathf.Cos((float)rad) * topRadius, height, Mathf.Sin((float)rad) * topRadius);
                 vert++;
             }
 
@@ -294,9 +294,9 @@ namespace BulletUnity
             int v = 0;
             while (vert <= vertices.Length - 4)
             {
-                float rad = (float)v / nbSides * _2pi;
-                vertices[vert] = new Vector3(Mathf.Cos(rad) * topRadius, height, Mathf.Sin(rad) * topRadius);
-                vertices[vert + 1] = new Vector3(Mathf.Cos(rad) * bottomRadius, 0, Mathf.Sin(rad) * bottomRadius);
+                double rad = (double)v / nbSides * _2pi;
+                vertices[vert] = new Vector3(Mathf.Cos((float)rad) * topRadius, height, Mathf.Sin((float)rad) * topRadius);
+                vertices[vert + 1] = new Vector3(Mathf.Cos((float)rad) * bottomRadius, 0, Mathf.Sin((float)rad) * bottomRadius);
                 vert += 2;
                 v++;
             }
@@ -308,7 +308,7 @@ namespace BulletUnity
             //Apply offset to vertices to shift pivot to center (Bullet default)
 
             //TODO: User settable offset
-            Vector3 offset = new Vector3(0f, -1f, 0f) * (height / 2);
+            Vector3 offset = new Vector3(0f, -1f, 0f) * ((float)height / 2);
 
             for (int ii = 0; ii < vertices.Length; ii++)
             {
@@ -339,11 +339,11 @@ namespace BulletUnity
             v = 0;
             while (vert <= vertices.Length - 4)
             {
-                float rad = (float)v / nbSides * _2pi;
-                float cos = Mathf.Cos(rad);
-                float sin = Mathf.Sin(rad);
+                double rad = (double)v / nbSides * _2pi;
+                double cos = Mathf.Cos((float)rad);
+                double sin = Mathf.Sin((float)rad);
 
-                normales[vert] = new Vector3(cos, 0f, sin);
+                normales[vert] = new Vector3((float)cos, 0f, (float)sin);
                 normales[vert + 1] = normales[vert];
 
                 vert += 2;
@@ -381,8 +381,8 @@ namespace BulletUnity
             uvs[u++] = new Vector2(0.5f, 0.5f);
             while (u <= nbSides)
             {
-                float rad = (float)u / nbSides * _2pi;
-                uvs[u] = new Vector2(Mathf.Cos(rad) * .5f + .5f, Mathf.Sin(rad) * .5f + .5f);
+                double rad = (double)u / nbSides * _2pi;
+                uvs[u] = new Vector2(Mathf.Cos((float)rad) * .5f + .5f, Mathf.Sin((float)rad) * .5f + .5f);
                 u++;
             }
 
@@ -390,8 +390,8 @@ namespace BulletUnity
             uvs[u++] = new Vector2(0.5f, 0.5f);
             while (u <= nbSides * 2 + 1)
             {
-                float rad = (float)u / nbSides * _2pi;
-                uvs[u] = new Vector2(Mathf.Cos(rad) * .5f + .5f, Mathf.Sin(rad) * .5f + .5f);
+                double rad = (double)u / nbSides * _2pi;
+                uvs[u] = new Vector2(Mathf.Cos((float)rad) * .5f + .5f, Mathf.Sin((float)rad) * .5f + .5f);
                 u++;
             }
 
@@ -399,9 +399,9 @@ namespace BulletUnity
             int u_sides = 0;
             while (u <= uvs.Length - 4)
             {
-                float t = (float)u_sides / nbSides;
-                uvs[u] = new Vector3(t, 1f);
-                uvs[u + 1] = new Vector3(t, 0f);
+                double t = (double)u_sides / nbSides;
+                uvs[u] = new Vector3((float)t, 1f);
+                uvs[u + 1] = new Vector3((float)t, 0f);
                 u += 2;
                 u_sides++;
             }
@@ -483,23 +483,23 @@ namespace BulletUnity
             // bottom + top + sides
             Vector3[] vertices = new Vector3[nbVerticesCap + nbVerticesCap + nbSides * nbHeightSeg * 2 + 2];
             int vert = 0;
-            float _2pi = Mathf.PI * 2f;
+            double _2pi = Mathf.PI * 2f;
 
             // Bottom cap
             vertices[vert++] = new Vector3(0f, 0f, 0f);
             while (vert <= nbSides)
             {
-                float rad = (float)vert / nbSides * _2pi;
-                vertices[vert] = new Vector3(Mathf.Cos(rad) * bottomRadius, 0f, Mathf.Sin(rad) * bottomRadius);
+                double rad = (double)vert / nbSides * _2pi;
+                vertices[vert] = new Vector3(Mathf.Cos((float)rad) * bottomRadius, 0f, Mathf.Sin((float)rad) * bottomRadius);
                 vert++;
             }
 
             // Top cap
-            vertices[vert++] = new Vector3(0f, height, 0f);
+            vertices[vert++] = new Vector3(0f, (float)height, 0f);
             while (vert <= nbSides * 2 + 1)
             {
-                float rad = (float)(vert - nbSides - 1) / nbSides * _2pi;
-                vertices[vert] = new Vector3(Mathf.Cos(rad) * topRadius, height, Mathf.Sin(rad) * topRadius);
+                double rad = (double)(vert - nbSides - 1) / nbSides * _2pi;
+                vertices[vert] = new Vector3(Mathf.Cos((float)rad) * topRadius, height, Mathf.Sin((float)rad) * topRadius);
                 vert++;
             }
 
@@ -507,9 +507,9 @@ namespace BulletUnity
             int v = 0;
             while (vert <= vertices.Length - 4)
             {
-                float rad = (float)v / nbSides * _2pi;
-                vertices[vert] = new Vector3(Mathf.Cos(rad) * topRadius, height, Mathf.Sin(rad) * topRadius);
-                vertices[vert + 1] = new Vector3(Mathf.Cos(rad) * bottomRadius, 0, Mathf.Sin(rad) * bottomRadius);
+                double rad = (double)v / nbSides * _2pi;
+                vertices[vert] = new Vector3(Mathf.Cos((float)rad) * topRadius, (float)height, Mathf.Sin((float)rad) * topRadius);
+                vertices[vert + 1] = new Vector3(Mathf.Cos((float)rad) * bottomRadius, 0, Mathf.Sin((float)rad) * bottomRadius);
                 vert += 2;
                 v++;
             }
@@ -521,7 +521,7 @@ namespace BulletUnity
             //Apply offset to vertices to shift pivot to center (Bullet default)
 
             //TODO: User settable offset
-            Vector3 offset = new Vector3(0f, -1f, 0f) * (height / 2);
+            Vector3 offset = new Vector3(0f, -1f, 0f) * ((float)height / 2);
 
             for (int ii = 0; ii < vertices.Length; ii++)
             {
@@ -552,11 +552,11 @@ namespace BulletUnity
             v = 0;
             while (vert <= vertices.Length - 4)
             {
-                float rad = (float)v / nbSides * _2pi;
-                float cos = Mathf.Cos(rad);
-                float sin = Mathf.Sin(rad);
+                double rad = (double)v / nbSides * _2pi;
+                double cos = Mathf.Cos((float)rad);
+                double sin = Mathf.Sin((float)rad);
 
-                normales[vert] = new Vector3(cos, 0f, sin);
+                normales[vert] = new Vector3((float)cos, 0f, (float)sin);
                 normales[vert + 1] = normales[vert];
 
                 vert += 2;
@@ -574,8 +574,8 @@ namespace BulletUnity
             uvs[u++] = new Vector2(0.5f, 0.5f);
             while (u <= nbSides)
             {
-                float rad = (float)u / nbSides * _2pi;
-                uvs[u] = new Vector2(Mathf.Cos(rad) * .5f + .5f, Mathf.Sin(rad) * .5f + .5f);
+                double rad = (double)u / nbSides * _2pi;
+                uvs[u] = new Vector2(Mathf.Cos((float)rad) * .5f + .5f, Mathf.Sin((float)rad) * .5f + .5f);
                 u++;
             }
 
@@ -583,8 +583,8 @@ namespace BulletUnity
             uvs[u++] = new Vector2(0.5f, 0.5f);
             while (u <= nbSides * 2 + 1)
             {
-                float rad = (float)u / nbSides * _2pi;
-                uvs[u] = new Vector2(Mathf.Cos(rad) * .5f + .5f, Mathf.Sin(rad) * .5f + .5f);
+                double rad = (double)u / nbSides * _2pi;
+                uvs[u] = new Vector2(Mathf.Cos((float)rad) * .5f + .5f, Mathf.Sin((float)rad) * .5f + .5f);
                 u++;
             }
 
@@ -592,9 +592,9 @@ namespace BulletUnity
             int u_sides = 0;
             while (u <= uvs.Length - 4)
             {
-                float t = (float)u_sides / nbSides;
-                uvs[u] = new Vector3(t, 1f);
-                uvs[u + 1] = new Vector3(t, 0f);
+                double t = (double)u_sides / nbSides;
+                uvs[u] = new Vector3((float)t, 1f);
+                uvs[u + 1] = new Vector3((float)t, 0f);
                 u += 2;
                 u_sides++;
             }
@@ -665,7 +665,7 @@ namespace BulletUnity
         }
 
         public static Mesh MeshCreateTube(float height = 1f, int nbSides = 24, float bottomRadius1 = .5f,
-            float bottomRadius2 = .15f, float topRadius1 = .5f, float topRadius2 = .15f)
+			float bottomRadius2 = .15f, float topRadius1 = .5f, float topRadius2 = .15f)
         {
             Mesh mesh = new Mesh();
             mesh.name = "PPTube";
@@ -678,7 +678,7 @@ namespace BulletUnity
             // bottom + top + sides
             Vector3[] vertices = new Vector3[nbVerticesCap * 2 + nbVerticesSides * 2];
             int vert = 0;
-            float _2pi = Mathf.PI * 2f;
+            double _2pi = Mathf.PI * 2f;
 
             // Bottom cap
             int sideCounter = 0;
@@ -686,9 +686,9 @@ namespace BulletUnity
             {
                 sideCounter = sideCounter == nbSides ? 0 : sideCounter;
 
-                float r1 = (float)(sideCounter++) / nbSides * _2pi;
-                float cos = Mathf.Cos(r1);
-                float sin = Mathf.Sin(r1);
+                double r1 = (double)(sideCounter++) / nbSides * _2pi;
+				float cos = Mathf.Cos((float)r1);
+				float sin = Mathf.Sin((float)r1);
                 vertices[vert] = new Vector3(cos * (bottomRadius1 - bottomRadius2 * .5f), 0f, sin * (bottomRadius1 - bottomRadius2 * .5f));
                 vertices[vert + 1] = new Vector3(cos * (bottomRadius1 + bottomRadius2 * .5f), 0f, sin * (bottomRadius1 + bottomRadius2 * .5f));
                 vert += 2;
@@ -700,9 +700,9 @@ namespace BulletUnity
             {
                 sideCounter = sideCounter == nbSides ? 0 : sideCounter;
 
-                float r1 = (float)(sideCounter++) / nbSides * _2pi;
-                float cos = Mathf.Cos(r1);
-                float sin = Mathf.Sin(r1);
+                double r1 = (double)(sideCounter++) / nbSides * _2pi;
+				float cos = Mathf.Cos((float)r1);
+				float sin = Mathf.Sin((float)r1);
                 vertices[vert] = new Vector3(cos * (topRadius1 - topRadius2 * .5f), height, sin * (topRadius1 - topRadius2 * .5f));
                 vertices[vert + 1] = new Vector3(cos * (topRadius1 + topRadius2 * .5f), height, sin * (topRadius1 + topRadius2 * .5f));
                 vert += 2;
@@ -714,9 +714,9 @@ namespace BulletUnity
             {
                 sideCounter = sideCounter == nbSides ? 0 : sideCounter;
 
-                float r1 = (float)(sideCounter++) / nbSides * _2pi;
-                float cos = Mathf.Cos(r1);
-                float sin = Mathf.Sin(r1);
+                double r1 = (double)(sideCounter++) / nbSides * _2pi;
+				float cos = Mathf.Cos((float)r1);
+				float sin = Mathf.Sin((float)r1);
 
                 vertices[vert] = new Vector3(cos * (topRadius1 + topRadius2 * .5f), height, sin * (topRadius1 + topRadius2 * .5f));
                 vertices[vert + 1] = new Vector3(cos * (bottomRadius1 + bottomRadius2 * .5f), 0, sin * (bottomRadius1 + bottomRadius2 * .5f));
@@ -729,9 +729,9 @@ namespace BulletUnity
             {
                 sideCounter = sideCounter == nbSides ? 0 : sideCounter;
 
-                float r1 = (float)(sideCounter++) / nbSides * _2pi;
-                float cos = Mathf.Cos(r1);
-                float sin = Mathf.Sin(r1);
+                double r1 = (double)(sideCounter++) / nbSides * _2pi;
+				float cos = Mathf.Cos((float)r1);
+				float sin = Mathf.Sin((float)r1);
 
                 vertices[vert] = new Vector3(cos * (topRadius1 - topRadius2 * .5f), height, sin * (topRadius1 - topRadius2 * .5f));
                 vertices[vert + 1] = new Vector3(cos * (bottomRadius1 - bottomRadius2 * .5f), 0, sin * (bottomRadius1 - bottomRadius2 * .5f));
@@ -763,9 +763,9 @@ namespace BulletUnity
             {
                 sideCounter = sideCounter == nbSides ? 0 : sideCounter;
 
-                float r1 = (float)(sideCounter++) / nbSides * _2pi;
+                double r1 = (double)(sideCounter++) / nbSides * _2pi;
 
-                normales[vert] = new Vector3(Mathf.Cos(r1), 0f, Mathf.Sin(r1));
+                normales[vert] = new Vector3(Mathf.Cos((float)r1), 0f, Mathf.Sin((float)r1));
                 normales[vert + 1] = normales[vert];
                 vert += 2;
             }
@@ -776,9 +776,9 @@ namespace BulletUnity
             {
                 sideCounter = sideCounter == nbSides ? 0 : sideCounter;
 
-                float r1 = (float)(sideCounter++) / nbSides * _2pi;
+                double r1 = (double)(sideCounter++) / nbSides * _2pi;
 
-                normales[vert] = -(new Vector3(Mathf.Cos(r1), 0f, Mathf.Sin(r1)));
+                normales[vert] = -(new Vector3(Mathf.Cos((float)r1), 0f, Mathf.Sin((float)r1)));
                 normales[vert + 1] = normales[vert];
                 vert += 2;
             }
@@ -792,36 +792,36 @@ namespace BulletUnity
             sideCounter = 0;
             while (vert < nbVerticesCap)
             {
-                float t = (float)(sideCounter++) / nbSides;
-                uvs[vert++] = new Vector2(0f, t);
-                uvs[vert++] = new Vector2(1f, t);
+                double t = (double)(sideCounter++) / nbSides;
+                uvs[vert++] = new Vector2(0f, (float)t);
+                uvs[vert++] = new Vector2(1f, (float)t);
             }
 
             // Top cap
             sideCounter = 0;
             while (vert < nbVerticesCap * 2)
             {
-                float t = (float)(sideCounter++) / nbSides;
-                uvs[vert++] = new Vector2(0f, t);
-                uvs[vert++] = new Vector2(1f, t);
+                double t = (double)(sideCounter++) / nbSides;
+                uvs[vert++] = new Vector2(0f, (float)t);
+                uvs[vert++] = new Vector2(1f, (float)t);
             }
 
             // Sides (out)
             sideCounter = 0;
             while (vert < nbVerticesCap * 2 + nbVerticesSides)
             {
-                float t = (float)(sideCounter++) / nbSides;
-                uvs[vert++] = new Vector2(t, 0f);
-                uvs[vert++] = new Vector2(t, 1f);
+                double t = (double)(sideCounter++) / nbSides;
+                uvs[vert++] = new Vector2((float)t, 0f);
+                uvs[vert++] = new Vector2((float)t, 1f);
             }
 
             // Sides (in)
             sideCounter = 0;
             while (vert < vertices.Length)
             {
-                float t = (float)(sideCounter++) / nbSides;
-                uvs[vert++] = new Vector2(t, 0f);
-                uvs[vert++] = new Vector2(t, 1f);
+                double t = (double)(sideCounter++) / nbSides;
+                uvs[vert++] = new Vector2((float)t, 0f);
+                uvs[vert++] = new Vector2((float)t, 1f);
             }
             #endregion
 
@@ -910,28 +910,28 @@ namespace BulletUnity
             return mesh;
         }
 
-        public static Mesh CreateMeshTorus(float radius1 = 1f, float radius2 = .3f, int nbRadSeg = 24, int nbSides = 18)
+        public static Mesh CreateMeshTorus(double radius1 = 1f, double radius2 = .3f, int nbRadSeg = 24, int nbSides = 18)
         {
             Mesh mesh = new Mesh();
             mesh.name = "PPTorus";
 
             #region Vertices		
             Vector3[] vertices = new Vector3[(nbRadSeg + 1) * (nbSides + 1)];
-            float _2pi = Mathf.PI * 2f;
+            double _2pi = Mathf.PI * 2f;
             for (int seg = 0; seg <= nbRadSeg; seg++)
             {
                 int currSeg = seg == nbRadSeg ? 0 : seg;
 
-                float t1 = (float)currSeg / nbRadSeg * _2pi;
-                Vector3 r1 = new Vector3(Mathf.Cos(t1) * radius1, 0f, Mathf.Sin(t1) * radius1);
+                double t1 = (double)currSeg / nbRadSeg * _2pi;
+                Vector3 r1 = new Vector3(Mathf.Cos((float)t1) * (float)radius1, 0f, Mathf.Sin((float)t1) * (float)radius1);
 
                 for (int side = 0; side <= nbSides; side++)
                 {
                     int currSide = side == nbSides ? 0 : side;
 
                     //Vector3 normale = Vector3.Cross(r1, Vector3.up);
-                    float t2 = (float)currSide / nbSides * _2pi;
-                    Vector3 r2 = Quaternion.AngleAxis(-t1 * Mathf.Rad2Deg, Vector3.up) * new Vector3(Mathf.Sin(t2) * radius2, Mathf.Cos(t2) * radius2);
+                    double t2 = (double)currSide / nbSides * _2pi;
+                    Vector3 r2 = Quaternion.AngleAxis(-(float)t1 * (float)Mathf.Rad2Deg, Vector3.up) * new Vector3(Mathf.Sin((float)t2) * (float)radius2, Mathf.Cos((float)t2) * (float)radius2);
 
                     vertices[side + seg * (nbSides + 1)] = r1 + r2;
                 }
@@ -944,8 +944,8 @@ namespace BulletUnity
             {
                 int currSeg = seg == nbRadSeg ? 0 : seg;
 
-                float t1 = (float)currSeg / nbRadSeg * _2pi;
-                Vector3 r1 = new Vector3(Mathf.Cos(t1) * radius1, 0f, Mathf.Sin(t1) * radius1);
+                double t1 = (double)currSeg / nbRadSeg * _2pi;
+                Vector3 r1 = new Vector3(Mathf.Cos((float)t1) * (float)radius1, 0f, Mathf.Sin((float)t1) * (float)radius1);
 
                 for (int side = 0; side <= nbSides; side++)
                 {
@@ -1003,7 +1003,7 @@ namespace BulletUnity
         /// <param name="nbLong">number of longitude lines</param>
         /// <param name="nbLat">number of latitude lines</param>
         /// <returns></returns>
-        public static Mesh CreateMeshSphere(float radius = 1f, int nbLong = 24, int nbLat = 16)
+        public static Mesh CreateMeshSphere(double radius = 1f, int nbLong = 24, int nbLat = 16)
         {
             Mesh mesh = new Mesh();
             mesh.name = "PPSphere";
@@ -1011,26 +1011,26 @@ namespace BulletUnity
 
             #region Vertices
             Vector3[] vertices = new Vector3[(nbLong + 1) * nbLat + 2];
-            float _pi = Mathf.PI;
-            float _2pi = _pi * 2f;
+            double _pi = Mathf.PI;
+            double _2pi = _pi * 2f;
 
-            vertices[0] = Vector3.up * radius;
+            vertices[0] = Vector3.up * (float)radius;
             for (int lat = 0; lat < nbLat; lat++)
             {
-                float a1 = _pi * (float)(lat + 1) / (nbLat + 1);
-                float sin1 = Mathf.Sin(a1);
-                float cos1 = Mathf.Cos(a1);
+                double a1 = _pi * (double)(lat + 1) / (nbLat + 1);
+				float sin1 = Mathf.Sin((float)a1);
+				float cos1 = Mathf.Cos((float)a1);
 
                 for (int lon = 0; lon <= nbLong; lon++)
                 {
-                    float a2 = _2pi * (float)(lon == nbLong ? 0 : lon) / nbLong;
-                    float sin2 = Mathf.Sin(a2);
-                    float cos2 = Mathf.Cos(a2);
+                    double a2 = _2pi * (double)(lon == nbLong ? 0 : lon) / nbLong;
+					float sin2 = Mathf.Sin((float)a2);
+					float cos2 = Mathf.Cos((float)a2);
 
-                    vertices[lon + lat * (nbLong + 1) + 1] = new Vector3(sin1 * cos2, cos1, sin1 * sin2) * radius;
+                    vertices[lon + lat * (nbLong + 1) + 1] = new Vector3(sin1 * cos2, cos1, sin1 * sin2) * (float)radius;
                 }
             }
-            vertices[vertices.Length - 1] = Vector3.up * -radius;
+            vertices[vertices.Length - 1] = Vector3.up * -(float)radius;
             #endregion
 
             #region Normales		
@@ -1123,7 +1123,7 @@ namespace BulletUnity
             }
 
             // return index of point in the middle of p1 and p2
-            private static int getMiddlePoint(int p1, int p2, ref List<Vector3> vertices, ref Dictionary<long, int> cache, float radius)
+            private static int getMiddlePoint(int p1, int p2, ref List<Vector3> vertices, ref Dictionary<long, int> cache, double radius)
             {
                 // first check if we have it already
                 bool firstIsSmaller = p1 < p2;
@@ -1169,10 +1169,10 @@ namespace BulletUnity
                 int index = 0;
 
                 int recursionLevel = 3;
-                float radius = 1f;
+                double radius = 1f;
 
                 // create 12 vertices of a icosahedron
-                float t = (1f + Mathf.Sqrt(5f)) / 2f;
+                double t = (1f + Mathf.Sqrt(5f)) / 2f;
 
                 vertList.Add(new Vector3(-1f, t, 0f).normalized * radius);
                 vertList.Add(new Vector3(1f, t, 0f).normalized * radius);
@@ -1267,7 +1267,7 @@ namespace BulletUnity
         }
         */
 
-        public static Mesh BuildMeshFromData(float[] vertices, int[] triangles)
+        public static Mesh BuildMeshFromData(double[] vertices, int[] triangles)
         {
             Mesh mesh = new Mesh();
             mesh.name = "PPMeshFromData";
@@ -1277,7 +1277,7 @@ namespace BulletUnity
 
             for (int i = 0, j = 0; j < numVertices; j++, i += 3)
             {
-                newVerts[j] = new Vector3(vertices[i], vertices[i + 1], vertices[i + 2]);
+                newVerts[j] = new Vector3((float)vertices[i], (float)vertices[i + 1], (float)vertices[i + 2]);
             }
 
             mesh.vertices = newVerts;
@@ -1294,7 +1294,7 @@ namespace BulletUnity
         /// <param name="mesh"></param>
         /// <param name="threshold"></param>
         /// <returns></returns>
-        public static void AutoWeldVertices(this Mesh mesh, float threshold = 0.001f)
+        public static void AutoWeldVertices(this Mesh mesh, double threshold = 0.001f)
         {
             Vector3[] verts = mesh.vertices;
 
@@ -1399,7 +1399,7 @@ namespace BulletUnity
         /// </summary>
         public static void ApplyMeshPostProcessing(this Mesh mesh,
                 bool autoWeldVertices = false,
-         float autoWeldThreshold = 0.001f,
+         double autoWeldThreshold = 0.001f,
          bool addBackFaceTriangles = false,
          bool recalculateNormals = false,
          bool recalculateBounds = true,
@@ -1419,7 +1419,7 @@ namespace BulletUnity
                 mesh.RecalculateBounds();
 
             if (optimize)
-                mesh.Optimize();
+                ;
 
         }
     }

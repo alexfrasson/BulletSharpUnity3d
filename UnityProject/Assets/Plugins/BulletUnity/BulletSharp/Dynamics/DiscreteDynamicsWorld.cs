@@ -121,7 +121,7 @@ namespace BulletSharp
 			btDiscreteDynamicsWorld_synchronizeSingleMotionState(_native, body._native);
 		}
 
-		public void UpdateVehicles(float timeStep)
+		public void UpdateVehicles(double timeStep)
 		{
 			btDiscreteDynamicsWorld_updateVehicles(_native, timeStep);
 		}
@@ -191,6 +191,6 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDiscreteDynamicsWorld_synchronizeSingleMotionState(IntPtr obj, IntPtr body);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDiscreteDynamicsWorld_updateVehicles(IntPtr obj, float timeStep);
+		static extern void btDiscreteDynamicsWorld_updateVehicles(IntPtr obj, double timeStep);
 	}
 }

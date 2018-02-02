@@ -148,7 +148,7 @@ namespace ConvexDecompositionDemo
 
 
             // Add non-moving body to world
-            float mass = 1.0f;
+            double mass = 1.0f;
             LocalCreateRigidBody(mass, Matrix.Translation(0, 2, 14), convexShape);
 
             const bool useQuantization = true;
@@ -202,7 +202,7 @@ namespace ConvexDecompositionDemo
                 for (int vi = 0; vi < nVertices; vi++)
                 {
                     verticesArray[vi] = new Vector3(
-                        (float)points[vi3], (float)points[vi3 + 1], (float)points[vi3 + 2]);
+                        (double)points[vi3], (double)points[vi3 + 1], (double)points[vi3 + 2]);
                     vi3 += 3;
                 }
 

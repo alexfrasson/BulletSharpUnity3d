@@ -331,7 +331,7 @@ namespace BulletSharp
 			btQuantizedBvh_setQuantizationValues(_native, ref bvhAabbMin, ref bvhAabbMax);
 		}
 
-		public void SetQuantizationValues(Vector3 bvhAabbMin, Vector3 bvhAabbMax, float quantizationMargin)
+		public void SetQuantizationValues(Vector3 bvhAabbMin, Vector3 bvhAabbMax, double quantizationMargin)
 		{
 			btQuantizedBvh_setQuantizationValues2(_native, ref bvhAabbMin, ref bvhAabbMax, quantizationMargin);
 		}
@@ -439,7 +439,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btQuantizedBvh_setQuantizationValues(IntPtr obj, [In] ref Vector3 bvhAabbMin, [In] ref Vector3 bvhAabbMax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btQuantizedBvh_setQuantizationValues2(IntPtr obj, [In] ref Vector3 bvhAabbMin, [In] ref Vector3 bvhAabbMax, float quantizationMargin);
+		static extern void btQuantizedBvh_setQuantizationValues2(IntPtr obj, [In] ref Vector3 bvhAabbMin, [In] ref Vector3 bvhAabbMax, double quantizationMargin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btQuantizedBvh_setTraversalMode(IntPtr obj, TraversalMode traversalMode);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

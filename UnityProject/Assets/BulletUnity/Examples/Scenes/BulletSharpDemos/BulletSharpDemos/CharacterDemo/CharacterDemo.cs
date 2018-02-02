@@ -23,7 +23,7 @@ namespace CharacterDemo
             if (vertices.Count == 0)
                 return;
 
-            const float mass = 0.0f;
+            const double mass = 0.0f;
             //can use a shift
             Matrix startTransform = Matrix.Translation(0, -10.0f, 0);
             //this create an internal copy of the vertices
@@ -76,13 +76,13 @@ namespace CharacterDemo
             ghostObject.WorldTransform = startTransform;
             Broadphase.OverlappingPairCache.SetInternalGhostPairCallback(new GhostPairCallback());
 
-            const float characterHeight = 1.75f;
-            const float characterWidth = 1.75f;
+            const double characterHeight = 1.75f;
+            const double characterWidth = 1.75f;
             ConvexShape capsule = new CapsuleShape(characterWidth, characterHeight);
             ghostObject.CollisionShape = capsule;
             ghostObject.CollisionFlags = CollisionFlags.CharacterObject;
 
-            const float stepHeight = 0.35f;
+            const double stepHeight = 0.35f;
             character = new KinematicCharacterController(ghostObject, capsule, stepHeight);
 
             BspLoader bspLoader = new BspLoader();
@@ -125,9 +125,9 @@ namespace CharacterDemo
             Vector3 pos = xform.Origin;
 
             Vector3 walkDirection = Vector3.Zero;
-            const float walkVelocity = 1.1f * 4.0f;
-            float walkSpeed = walkVelocity * FrameDelta * 10;// * 0.0001f;
-            float turnSpeed = FrameDelta * 3;
+            const double walkVelocity = 1.1f * 4.0f;
+            double walkSpeed = walkVelocity * FrameDelta * 10;// * 0.0001f;
+            double turnSpeed = FrameDelta * 3;
 
             if (Input.KeysDown.Contains(Keys.Left))
             {

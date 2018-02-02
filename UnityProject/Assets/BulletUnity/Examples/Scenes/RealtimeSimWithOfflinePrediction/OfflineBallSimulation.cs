@@ -39,7 +39,7 @@ public static class OfflineBallSimulation {
             if (co != null && co.UserObject is BRigidBody)
             {
                 BRigidBody rb = (BRigidBody) co.UserObject;
-                float mass = rb.isDynamic() ? rb.mass : 0f;
+                double mass = rb.isDynamic() ? rb.mass : 0f;
                 BCollisionShape existingShape = rb.GetComponent<BCollisionShape>();
                 CollisionShape shape = null;
                 if (existingShape is BSphereShape)

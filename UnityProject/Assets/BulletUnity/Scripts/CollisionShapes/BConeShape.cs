@@ -9,8 +9,8 @@ namespace BulletUnity
     public class BConeShape : BCollisionShape
     {
         [SerializeField]
-        protected float radius = 1f;
-        public float Radius
+        protected double radius = 1f;
+        public double Radius
         {
             get { return radius; }
             set
@@ -27,8 +27,8 @@ namespace BulletUnity
         }
 
         [SerializeField]
-        protected float height = 2f;
-        public float Height
+        protected double height = 2f;
+        public double Height
         {
             get { return height; }
             set
@@ -68,7 +68,7 @@ namespace BulletUnity
             UnityEngine.Vector3 position = transform.position;
             UnityEngine.Quaternion rotation = transform.rotation;
             UnityEngine.Vector3 scale = m_localScaling;
-            BUtility.DebugDrawCone(position, rotation, scale, radius, height, 1, Color.yellow);
+            BUtility.DebugDrawCone(position, rotation, scale, (float)radius, (float)height, 1, Color.yellow);
         }
 
         public override CollisionShape CopyCollisionShape()

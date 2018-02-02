@@ -12,7 +12,7 @@ namespace BulletSharp
 		{
 		}
 
-		public float Distance
+		public double Distance
 		{
 			get { return btPointCollector_getDistance(_native); }
 			set { btPointCollector_setDistance(_native, value); }
@@ -49,7 +49,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btPointCollector_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btPointCollector_getDistance(IntPtr obj);
+		static extern double btPointCollector_getDistance(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btPointCollector_getHasResult(IntPtr obj);
@@ -58,7 +58,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPointCollector_getPointInWorld(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btPointCollector_setDistance(IntPtr obj, float value);
+		static extern void btPointCollector_setDistance(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPointCollector_setHasResult(IntPtr obj, bool value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

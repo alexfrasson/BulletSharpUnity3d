@@ -16,7 +16,7 @@ namespace BulletSharp
 				_native = btDiscreteCollisionDetectorInterface_ClosestPointInput_new();
 			}
 
-			public float MaximumDistanceSquared
+			public double MaximumDistanceSquared
 			{
 				get { return btDiscreteCollisionDetectorInterface_ClosestPointInput_getMaximumDistanceSquared(_native); }
 				set { btDiscreteCollisionDetectorInterface_ClosestPointInput_setMaximumDistanceSquared(_native, value); }
@@ -67,13 +67,13 @@ namespace BulletSharp
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern IntPtr btDiscreteCollisionDetectorInterface_ClosestPointInput_new();
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern float btDiscreteCollisionDetectorInterface_ClosestPointInput_getMaximumDistanceSquared(IntPtr obj);
+			static extern double btDiscreteCollisionDetectorInterface_ClosestPointInput_getMaximumDistanceSquared(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDiscreteCollisionDetectorInterface_ClosestPointInput_getTransformA(IntPtr obj, [Out] out Matrix value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDiscreteCollisionDetectorInterface_ClosestPointInput_getTransformB(IntPtr obj, [Out] out Matrix value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btDiscreteCollisionDetectorInterface_ClosestPointInput_setMaximumDistanceSquared(IntPtr obj, float value);
+			static extern void btDiscreteCollisionDetectorInterface_ClosestPointInput_setMaximumDistanceSquared(IntPtr obj, double value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDiscreteCollisionDetectorInterface_ClosestPointInput_setTransformA(IntPtr obj, [In] ref Matrix value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -91,7 +91,7 @@ namespace BulletSharp
 				_native = native;
 			}
 
-			public void AddContactPoint(Vector3 normalOnBInWorld, Vector3 pointInWorld, float depth)
+			public void AddContactPoint(Vector3 normalOnBInWorld, Vector3 pointInWorld, double depth)
 			{
 				btDiscreteCollisionDetectorInterface_Result_addContactPoint(_native, ref normalOnBInWorld, ref pointInWorld, depth);
 			}
@@ -127,7 +127,7 @@ namespace BulletSharp
 			}
 
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btDiscreteCollisionDetectorInterface_Result_addContactPoint(IntPtr obj, [In] ref Vector3 normalOnBInWorld, [In] ref Vector3 pointInWorld, float depth);
+			static extern void btDiscreteCollisionDetectorInterface_Result_addContactPoint(IntPtr obj, [In] ref Vector3 normalOnBInWorld, [In] ref Vector3 pointInWorld, double depth);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDiscreteCollisionDetectorInterface_Result_setShapeIdentifiersA(IntPtr obj, int partId0, int index0);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -204,7 +204,7 @@ namespace BulletSharp
 			set { btStorageResult_setClosestPointInB(_native, ref value); }
 		}
 
-		public float Distance
+		public double Distance
 		{
 			get { return btStorageResult_getDistance(_native); }
 			set { btStorageResult_setDistance(_native, value); }
@@ -226,13 +226,13 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btStorageResult_getClosestPointInB(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btStorageResult_getDistance(IntPtr obj);
+		static extern double btStorageResult_getDistance(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btStorageResult_getNormalOnSurfaceB(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btStorageResult_setClosestPointInB(IntPtr obj, [In] ref Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btStorageResult_setDistance(IntPtr obj, float value);
+		static extern void btStorageResult_setDistance(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btStorageResult_setNormalOnSurfaceB(IntPtr obj, [In] ref Vector3 value);
 	}

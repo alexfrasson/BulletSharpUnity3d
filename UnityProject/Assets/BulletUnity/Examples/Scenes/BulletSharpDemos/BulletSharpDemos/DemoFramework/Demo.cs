@@ -15,15 +15,15 @@ namespace DemoFramework
 
         // Frame counting
         Clock clock = new Clock();
-        float frameAccumulator;
+        double frameAccumulator;
         int frameCount;
 
-        float _frameDelta;
-        public float FrameDelta
+        double _frameDelta;
+        public double FrameDelta
         {
             get { return _frameDelta; }
         }
-        public float FramesPerSecond { get; private set; }
+        public double FramesPerSecond { get; private set; }
 
 
         // Physics
@@ -41,10 +41,10 @@ namespace DemoFramework
         public List<CollisionShape> CollisionShapes { get; private set; }
 
         protected BoxShape shootBoxShape;
-        protected float shootBoxInitialSpeed = 40;
+        protected double shootBoxInitialSpeed = 40;
         RigidBody pickedBody;
         protected TypedConstraint pickConstraint;
-        float oldPickingDist;
+        double oldPickingDist;
 
         // Debug drawing
         bool _isDebugDrawEnabled;
@@ -466,13 +466,13 @@ namespace DemoFramework
             }
         }
 
-        protected Vector3 GetRayTo(Point point, Vector3 eye, Vector3 target, float fov)
+        protected Vector3 GetRayTo(Point point, Vector3 eye, Vector3 target, double fov)
         {
-            float aspect;
+            double aspect;
 
             Vector3 rayForward = target - eye;
             rayForward.Normalize();
-            const float farPlane = 10000.0f;
+            const double farPlane = 10000.0f;
             rayForward *= farPlane;
 
             Vector3 vertical = Freelook.Up;
@@ -482,25 +482,25 @@ namespace DemoFramework
             vertical = Vector3.Cross(hor, rayForward);
             vertical.Normalize();
 
-            float tanFov = (float)Math.Tan(fov / 2);
+            double tanFov = (double)Math.Tan(fov / 2);
             hor *= 2.0f * farPlane * tanFov;
             vertical *= 2.0f * farPlane * tanFov;
 
             Size clientSize = Graphics.Form.ClientSize;
             if (clientSize.Width > clientSize.Height)
             {
-                aspect = (float)clientSize.Width / (float)clientSize.Height;
+                aspect = (double)clientSize.Width / (double)clientSize.Height;
                 hor *= aspect;
             }
             else
             {
-                aspect = (float)clientSize.Height / (float)clientSize.Width;
+                aspect = (double)clientSize.Height / (double)clientSize.Width;
                 vertical *= aspect;
             }
 
             Vector3 rayToCenter = eye + rayForward;
-            Vector3 dHor = hor / (float)clientSize.Width;
-            Vector3 dVert = vertical / (float)clientSize.Height;
+            Vector3 dHor = hor / (double)clientSize.Width;
+            Vector3 dVert = vertical / (double)clientSize.Height;
 
             Vector3 rayTo = rayToCenter - 0.5f * hor + 0.5f * vertical;
             rayTo += (clientSize.Width - point.X) * dHor;
@@ -514,7 +514,7 @@ namespace DemoFramework
             if (_world == null)
                 return;
 
-            const float mass = 1.0f;
+            const double mass = 1.0f;
 
             if (shootBoxShape == null)
             {
@@ -534,7 +534,7 @@ namespace DemoFramework
             body.CcdSweptSphereRadius = 0.9f;
         }
 
-        public virtual RigidBody LocalCreateRigidBody(float mass, Matrix startTransform, CollisionShape shape, bool isKinematic = false)
+        public virtual RigidBody LocalCreateRigidBody(double mass, Matrix startTransform, CollisionShape shape, bool isKinematic = false)
         {
             //rigidbody is dynamic if and only if mass is non zero, otherwise static
             bool isDynamic = (mass != 0.0f);

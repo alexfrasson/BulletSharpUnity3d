@@ -33,7 +33,7 @@ namespace BulletSharp
 			_native = btAABB_new2(ref v1, ref v2, ref v3);
 		}
 
-		public Aabb(Vector3 v1, Vector3 v2, Vector3 v3, float margin)
+		public Aabb(Vector3 v1, Vector3 v2, Vector3 v3, double margin)
 		{
 			_native = btAABB_new3(ref v1, ref v2, ref v3, margin);
 		}
@@ -43,7 +43,7 @@ namespace BulletSharp
 			_native = btAABB_new4(other._native);
 		}
 
-		public Aabb(Aabb other, float margin)
+		public Aabb(Aabb other, double margin)
 		{
 			_native = btAABB_new5(other._native, margin);
 		}
@@ -68,7 +68,7 @@ namespace BulletSharp
 			return btAABB_collide_triangle_exact(_native, ref p1, ref p2, ref p3, ref trianglePlane);
 		}
 
-		public void CopyWithMargin(Aabb other, float margin)
+		public void CopyWithMargin(Aabb other, double margin)
 		{
 			btAABB_copy_with_margin(_native, other._native, margin);
 		}
@@ -88,7 +88,7 @@ namespace BulletSharp
 			return btAABB_has_collision(_native, other._native);
 		}
 
-		public void IncrementMargin(float margin)
+		public void IncrementMargin(double margin)
 		{
 			btAABB_increment_margin(_native, margin);
 		}
@@ -113,7 +113,7 @@ namespace BulletSharp
 			return btAABB_plane_classify(_native, ref plane);
 		}
 
-        public void ProjectionInterval(ref Vector3 direction, out float vmin, out float vmax)
+        public void ProjectionInterval(ref Vector3 direction, out double vmin, out double vmax)
 		{
             btAABB_projection_interval(_native, ref direction, out vmin, out vmax);
 		}
@@ -168,11 +168,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btAABB_new2([In] ref Vector3 V1, [In] ref Vector3 V2, [In] ref Vector3 V3);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btAABB_new3([In] ref Vector3 V1, [In] ref Vector3 V2, [In] ref Vector3 V3, float margin);
+		static extern IntPtr btAABB_new3([In] ref Vector3 V1, [In] ref Vector3 V2, [In] ref Vector3 V3, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btAABB_new4(IntPtr other);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btAABB_new5(IntPtr other, float margin);
+		static extern IntPtr btAABB_new5(IntPtr other, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btAABB_appy_transform(IntPtr obj, [In] ref Matrix trans);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -187,7 +187,7 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btAABB_collide_triangle_exact(IntPtr obj, [In] ref Vector3 p1, [In] ref Vector3 p2, [In] ref Vector3 p3, [In] ref Vector4 triangle_plane);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAABB_copy_with_margin(IntPtr obj, IntPtr other, float margin);
+		static extern void btAABB_copy_with_margin(IntPtr obj, IntPtr other, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btAABB_find_intersection(IntPtr obj, IntPtr other, IntPtr intersection);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -200,7 +200,7 @@ namespace BulletSharp
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btAABB_has_collision(IntPtr obj, IntPtr other);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAABB_increment_margin(IntPtr obj, float margin);
+		static extern void btAABB_increment_margin(IntPtr obj, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btAABB_invalidate(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -217,7 +217,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern eBT_PLANE_INTERSECTION_TYPE btAABB_plane_classify(IntPtr obj, [In] ref Vector4 plane);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btAABB_projection_interval(IntPtr obj, [In] ref Vector3 direction, [Out] out float vmin, [Out] out float vmax);
+		static extern void btAABB_projection_interval(IntPtr obj, [In] ref Vector3 direction, [Out] out double vmin, [Out] out double vmax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btAABB_setMax(IntPtr obj, [In] ref Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

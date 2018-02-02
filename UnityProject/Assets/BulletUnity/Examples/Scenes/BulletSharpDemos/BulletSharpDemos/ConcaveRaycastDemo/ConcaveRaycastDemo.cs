@@ -26,12 +26,12 @@ namespace ConcaveRaycastDemo
         int min_ms;
         int max_ms;
 
-        float dx;
-        float min_x;
-        float max_x;
-        float min_y;
-        float max_y;
-        float sign;
+        double dx;
+        double min_x;
+        double max_x;
+        double min_y;
+        double max_y;
+        double sign;
 
         public RaycastBar()
         {
@@ -42,7 +42,7 @@ namespace ConcaveRaycastDemo
             sum_ms = 0;
         }
 
-        public RaycastBar(bool unused, float ray_length, float min_z, float max_z, float min_y = -10, float max_y = 10)
+        public RaycastBar(bool unused, double ray_length, double min_z, double max_z, double min_y = -10, double max_y = 10)
         {
             frame_counter = 0;
             ms = 0;
@@ -58,14 +58,14 @@ namespace ConcaveRaycastDemo
             sign = 1.0f;
             for (int i = 0; i < NUMRAYS_IN_BAR; i++)
             {
-                float z = (max_z - min_z) / NUMRAYS_IN_BAR * (float)i + min_z;
+                double z = (max_z - min_z) / NUMRAYS_IN_BAR * (double)i + min_z;
                 source[i] = new Vector3(min_x, this.max_y, z);
                 dest[i] = new Vector3(min_x + ray_length, this.min_y, z);
                 normal[i] = new Vector3(1.0f, 0.0f, 0.0f);
             }
         }
 
-        public RaycastBar(float ray_length, float z, float min_y = -1000, float max_y = 10)
+        public RaycastBar(double ray_length, double z, double min_y = -1000, double max_y = 10)
         {
             frame_counter = 0;
             ms = 0;
@@ -79,10 +79,10 @@ namespace ConcaveRaycastDemo
             this.min_y = min_y;
             this.max_y = max_y;
             sign = 1.0f;
-            float dalpha = 4 * (float)Math.PI / NUMRAYS_IN_BAR;
+            double dalpha = 4 * (double)Math.PI / NUMRAYS_IN_BAR;
             for (int i = 0; i < NUMRAYS_IN_BAR; i++)
             {
-                float alpha = dalpha * i;
+                double alpha = dalpha * i;
                 // rotate around by alpha degrees y
                 Matrix tr = Matrix.RotationQuaternion(Quaternion.RotationAxis(new Vector3(0.0f, 1.0f, 0.0f), alpha));
                 direction[i] = new Vector3(1.0f, 0.0f, 0.0f);
@@ -95,7 +95,7 @@ namespace ConcaveRaycastDemo
             }
         }
 
-        public void Move(float dt)
+        public void Move(double dt)
         {
             if (dt > (1.0f / 60.0f))
                 dt = 1.0f / 60.0f;
@@ -157,7 +157,7 @@ namespace ConcaveRaycastDemo
                 max_ms = ms > max_ms ? ms : max_ms;
                 sum_ms += ms;
                 sum_ms_samples++;
-                float mean_ms = (float)sum_ms / (float)sum_ms_samples;
+                double mean_ms = (double)sum_ms / (double)sum_ms_samples;
                 Console.WriteLine("{0} rays in {1} ms {2} {3} {4}", NUMRAYS_IN_BAR * frame_counter, ms, min_ms, max_ms, mean_ms);
                 ms = 0;
                 frame_counter = 0;
@@ -191,11 +191,11 @@ namespace ConcaveRaycastDemo
 
         const DebugDrawModes debugMode = DebugDrawModes.None;
 
-        const float TriangleSize = 8.0f;
+        const double TriangleSize = 8.0f;
         const int NumVertsX = 30;
         const int NumVertsY = 30;
-        const float waveHeight = 5.0f;
-        static float offset = 0.0f;
+        const double waveHeight = 5.0f;
+        static double offset = 0.0f;
         bool animatedMesh = false;
 
         TriangleIndexVertexArray indexVertexArrays;
@@ -217,7 +217,7 @@ namespace ConcaveRaycastDemo
             DebugDrawMode = debugMode;
         }
 
-        void SetVertexPositions(float waveheight, float offset)
+        void SetVertexPositions(double waveheight, double offset)
         {
             var vertexStream = indexVertexArrays.GetVertexStream();
             using (var vertexWriter = new BinaryWriter(vertexStream))
@@ -227,7 +227,7 @@ namespace ConcaveRaycastDemo
                     for (int j = 0; j < NumVertsY; j++)
                     {
                         vertexWriter.Write((i - NumVertsX * 0.5f) * TriangleSize);
-                        vertexWriter.Write(waveheight * (float)Math.Sin((float)i + offset) * (float)Math.Cos((float)j + offset));
+                        vertexWriter.Write(waveheight * Math.Sin(i + offset) * Math.Cos(j + offset));
                         vertexWriter.Write((j - NumVertsY * 0.5f) * TriangleSize);
                     }
                 }
@@ -295,7 +295,7 @@ namespace ConcaveRaycastDemo
             }
 
 
-            SetVertexPositions(waveHeight, 0.0f);
+            SetVertexPositions((float)waveHeight, 0.0f);
 
             const bool useQuantizedAabbCompression = true;
             groundShape = new BvhTriangleMeshShape(indexVertexArrays, useQuantizedAabbCompression);
@@ -311,7 +311,7 @@ namespace ConcaveRaycastDemo
             if (animatedMesh)
             {
                 offset += FrameDelta;
-                SetVertexPositions(waveHeight, offset);
+                SetVertexPositions((float)waveHeight, (float)offset);
                 //Graphics.MeshFactory.RemoveShape(groundShape);
 
                 Vector3 worldMin = new Vector3(-1000, -1000, -1000);

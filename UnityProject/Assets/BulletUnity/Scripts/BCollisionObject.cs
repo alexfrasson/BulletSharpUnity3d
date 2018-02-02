@@ -31,7 +31,8 @@ namespace BulletUnity
         [SerializeField]
         protected BulletSharp.CollisionFilterGroups m_groupsIBelongTo = BulletSharp.CollisionFilterGroups.DefaultFilter; // A bitmask
         [SerializeField]
-        protected BulletSharp.CollisionFilterGroups m_collisionMask = CollisionFilterGroups.Everything; // A colliding object must match this mask in order to collide with me.
+        //protected BulletSharp.CollisionFilterGroups m_collisionMask = CollisionFilterGroups.Everything; // A colliding object must match this mask in order to collide with me.
+		protected BulletSharp.CollisionFilterGroups m_collisionMask = CollisionFilterGroups.AllFilter; // A colliding object must match this mask in order to collide with me.
 
         public virtual BulletSharp.CollisionFlags collisionFlags
         {
@@ -145,7 +146,7 @@ namespace BulletUnity
                 BulletSharp.Math.Matrix worldTrans;
                 BulletSharp.Math.Quaternion q = transform.rotation.ToBullet();
                 BulletSharp.Math.Matrix.RotationQuaternion(ref q, out worldTrans);
-                worldTrans.Origin = transform.position.ToBullet();
+                worldTrans.Origin = transform.position.ToBullet() + CopyTransform.offset;
                 m_collisionObject.WorldTransform = worldTrans;
                 m_collisionObject.CollisionFlags = m_collisionFlags;
             }
@@ -154,7 +155,7 @@ namespace BulletUnity
                 BulletSharp.Math.Matrix worldTrans;
                 BulletSharp.Math.Quaternion q = transform.rotation.ToBullet();
                 BulletSharp.Math.Matrix.RotationQuaternion(ref q, out worldTrans);
-                worldTrans.Origin = transform.position.ToBullet();
+                worldTrans.Origin = transform.position.ToBullet() + CopyTransform.offset;
                 m_collisionObject.WorldTransform = worldTrans;
                 m_collisionObject.CollisionFlags = m_collisionFlags;
             }

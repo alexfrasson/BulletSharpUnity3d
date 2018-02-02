@@ -42,10 +42,10 @@ namespace BulletUnity {
             TerrainData td = t.terrainData;
             int width = td.heightmapWidth;
             int length = td.heightmapHeight;
-            float maxHeight = td.size.y;
+            double maxHeight = td.size.y;
 
             //generate procedural data
-            byte[] terr = new byte[width * length * sizeof(float)];
+            byte[] terr = new byte[width * length * sizeof(double)];
             System.IO.MemoryStream file = new System.IO.MemoryStream(terr);
             System.IO.BinaryWriter writer = new System.IO.BinaryWriter(file);
 
@@ -54,7 +54,7 @@ namespace BulletUnity {
                 float[,] row = td.GetHeights(0, i, width, 1);
                 for (int j = 0; j < width; j++)
                 {
-                    writer.Write((float)row[0, j] * maxHeight);
+                    writer.Write((double)row[0, j] * maxHeight);
                 }
             }
 
@@ -66,7 +66,7 @@ namespace BulletUnity {
             HeightfieldTerrainShape hs = new HeightfieldTerrainShape(width, length, pinnedTerrainData.AddrOfPinnedObject(), 1f, 0f, maxHeight, upIndex, scalarType, false);
             hs.SetUseDiamondSubdivision(true);
             hs.LocalScaling = new BulletSharp.Math.Vector3(td.heightmapScale.x, 1f, td.heightmapScale.z);
-            //just allocated several hundred float arrays. Garbage collect now since 99% likely we just loaded the scene
+            //just allocated several hundred double arrays. Garbage collect now since 99% likely we just loaded the scene
             GC.Collect();
             return hs;
         }

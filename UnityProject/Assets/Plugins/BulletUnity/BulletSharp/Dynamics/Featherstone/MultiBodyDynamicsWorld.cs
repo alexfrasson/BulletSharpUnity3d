@@ -69,7 +69,7 @@ namespace BulletSharp
             return _constraints[constraintIndex];
 		}
 
-		public void IntegrateTransforms(float timeStep)
+		public void IntegrateTransforms(double timeStep)
 		{
 			btMultiBodyDynamicsWorld_integrateTransforms(_native, timeStep);
 		}
@@ -123,7 +123,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btMultiBodyDynamicsWorld_getNumMultiBodyConstraints(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultiBodyDynamicsWorld_integrateTransforms(IntPtr obj, float timeStep);
+		static extern void btMultiBodyDynamicsWorld_integrateTransforms(IntPtr obj, double timeStep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultiBodyDynamicsWorld_removeMultiBody(IntPtr obj, IntPtr body);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

@@ -15,8 +15,8 @@ namespace BulletUnity {
 
         [Header("Limits")]
         [SerializeField]
-        protected float m_lowerLinearLimit = -10f;
-        public float lowerLinearLimit
+        protected double m_lowerLinearLimit = -10f;
+        public double lowerLinearLimit
         {
             get { return m_lowerLinearLimit; }
             set
@@ -31,8 +31,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_upperLinearLimit = 10f;
-        public float upperLinearLimit
+        protected double m_upperLinearLimit = 10f;
+        public double upperLinearLimit
         {
             get { return m_upperLinearLimit; }
             set
@@ -47,8 +47,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_lowerAngularLimitRadians = -Mathf.PI;
-        public float lowerAngularLimitRadians
+        protected double m_lowerAngularLimitRadians = -Mathf.PI;
+        public double lowerAngularLimitRadians
         {
             get { return m_lowerAngularLimitRadians; }
             set
@@ -63,8 +63,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_upperAngularLimitRadians = Mathf.PI;
-        public float upperAngularLimitRadians
+        protected double m_upperAngularLimitRadians = Mathf.PI;
+        public double upperAngularLimitRadians
         {
             get { return m_upperAngularLimitRadians; }
             set

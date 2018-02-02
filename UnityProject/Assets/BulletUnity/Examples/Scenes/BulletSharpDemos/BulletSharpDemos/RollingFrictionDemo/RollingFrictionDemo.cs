@@ -15,9 +15,9 @@ namespace RollingFrictionDemo
         const int ArraySizeX = 5, ArraySizeY = 5, ArraySizeZ = 5;
 
         // scaling of the objects (0.1 = 20 centimeter boxes )
-        const float StartPosX = -5;
-        const float StartPosY = -5;
-        const float StartPosZ = -3;
+        const double StartPosX = -5;
+        const double StartPosY = -5;
+        const double StartPosZ = -3;
 
         protected override void OnInitialize()
         {
@@ -41,7 +41,7 @@ namespace RollingFrictionDemo
             CollisionShape groundShape = new BoxShape(20, 50, 10);
             CollisionShapes.Add(groundShape);
             CollisionObject ground = LocalCreateRigidBody(0,
-                Matrix.RotationAxis(new Vector3(0, 0, 1), (float)Math.PI * 0.03f) * Matrix.Translation(0, -50, 0),
+                Matrix.RotationAxis(new Vector3(0, 0, 1), (double)Math.PI * 0.03f) * Matrix.Translation(0, -50, 0),
                 groundShape);
             ground.Friction = 1;
             ground.RollingFriction = 1;
@@ -72,7 +72,7 @@ namespace RollingFrictionDemo
                 CollisionShapes.Add(collisionShape);
             }
 
-            const float mass = 1.0f;
+            const double mass = 1.0f;
 
             CollisionShape colShape = new BoxShape(1);
             CollisionShapes.Add(colShape);
@@ -80,9 +80,9 @@ namespace RollingFrictionDemo
 
             var rbInfo = new RigidBodyConstructionInfo(mass, null, null, localInertia);
 
-            const float startX = StartPosX - ArraySizeX / 2;
-            const float startY = StartPosY;
-            const float startZ = StartPosZ - ArraySizeZ / 2;
+            const double startX = StartPosX - ArraySizeX / 2;
+            const double startY = StartPosY;
+            const double startZ = StartPosZ - ArraySizeZ / 2;
 
             int shapeIndex = 0;
             for (int k = 0; k < ArraySizeY; k++)

@@ -11,13 +11,13 @@ namespace BulletSharp
         {
         }
 
-        public float ReadByte(int position)
+        public double ReadByte(int position)
         {
             BaseStream.Position = position;
             return ReadByte();
         }
 
-        public float ReadSingle(int position)
+        public double ReadSingle(int position)
         {
             BaseStream.Position = position;
             return ReadSingle();
@@ -37,7 +37,7 @@ namespace BulletSharp
 
         public Matrix ReadMatrix()
         {
-            float[] m = new float[16];
+            double[] m = new double[16];
             m[0] = ReadSingle();
             m[4] = ReadSingle();
             m[8] = ReadSingle();
@@ -77,10 +77,10 @@ namespace BulletSharp
 
         public Vector3 ReadVector3()
         {
-            float x = ReadSingle();
-            float y = ReadSingle();
-            float z = ReadSingle();
-            BaseStream.Position += 4; // float w = ReadSingle();
+            double x = ReadSingle();
+            double y = ReadSingle();
+            double z = ReadSingle();
+            BaseStream.Position += 4; // double w = ReadSingle();
             return new Vector3(x, y, z);
         }
 

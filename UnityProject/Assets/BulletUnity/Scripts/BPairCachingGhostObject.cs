@@ -91,7 +91,7 @@ namespace BulletUnity
 
             //m_currentPosition = m_ghostObject.WorldTransform.Origin;
 
-            //float maxPen = 0f;
+            //double maxPen = 0f;
             objsCurrentlyInContactWith.Clear();
             for (int i = 0; i < m_ghostObject.OverlappingPairCache.NumOverlappingPairs; i++)
             {

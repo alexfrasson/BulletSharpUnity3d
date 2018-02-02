@@ -14,7 +14,7 @@ namespace CollisionInterfaceDemo
             this.world = world;
         }
 
-        public override float AddSingleResult(ManifoldPoint cp,
+        public override double AddSingleResult(ManifoldPoint cp,
             CollisionObjectWrapper colObj0Wrap, int partId0, int index0,
             CollisionObjectWrapper colObj1Wrap, int partId1, int index1)
         {

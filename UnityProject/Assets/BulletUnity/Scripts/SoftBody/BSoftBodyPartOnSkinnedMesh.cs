@@ -18,13 +18,13 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
         [Tooltip("A Bullet Physics rigid body")]
         public BRigidBody anchorRigidBody;
         [Tooltip("A range in the green channel. Vertices with a vertex color green value in this range will be bound to this anchor")]
-        public float colRangeFrom = 0f;
+        public double colRangeFrom = 0f;
         [Tooltip("A range in the green channel. Vertices with a vertex color green value in this range will be bound to this anchor")]
-        public float colRangeTo = 1f;
+        public double colRangeTo = 1f;
         [HideInInspector]
         public List<int> anchorNodeIndexes = new List<int>();
         [HideInInspector]
-        public List<float> anchorNodeStrength = new List<float>();
+        public List<double> anchorNodeStrength = new List<double>();
         [HideInInspector]
         public List<Vector3> anchorPosition = new List<Vector3>();
     }
@@ -47,7 +47,7 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
     public class Edge: IComparable<Edge>
     {
         public int nodeIdx;
-        public float r_angleFromPlane;
+        public double r_angleFromPlane;
         public Vector3 edgeXnorm; //normalized cross product of edge with normal
         public Vector3 bindEdgeXnorm; //in world space,
 
@@ -56,7 +56,7 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
             nodeIdx = p2;
             Vector3 e = verts[p2] - verts[p1];
             edgeXnorm = Vector3.Cross(e, normals[p1]);
-            float sinTheta;
+            double sinTheta;
             if (e.magnitude < 10e-8f)
             {
                 sinTheta = 0;
@@ -67,7 +67,7 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
                 {
                     Debug.LogError("Should never get here " + sinTheta.ToString("f15"));
                 }
-                r_angleFromPlane = Mathf.Abs(Mathf.Asin(sinTheta) - Mathf.PI/2);
+                r_angleFromPlane = Mathf.Abs(Mathf.Asin((float)sinTheta) - Mathf.PI/2);
             }
             edgeXnorm.Normalize();
         }
@@ -93,7 +93,7 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
         //want to choose edges that are closest to 90 degrees with Normal first
         public int CompareTo(Edge e)
         {
-            return (int) Mathf.Sign(r_angleFromPlane - e.r_angleFromPlane);
+            return (int) Math.Sign(r_angleFromPlane - e.r_angleFromPlane);
         }
     }
 
@@ -109,7 +109,7 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
 
     [Header("Binding Bones To Soft Body Mesh Nodes Settings")]
     [Tooltip("Bones that are within 'radius' of soft body mesh vertices will be bound to those vertices")]
-    public float radius = .0001f;
+    public double radius = .0001f;
     MeshFilter physicsSimMesh;
     [Tooltip("Anchors are Bullet rigid bodies that some soft body nodes/vertices have been bound to. Vertex colors in the Soft Body mesh are used " +
              " to map the nodes/vertices to the anchors. The red channel defines the strength of the anchor. The green channel defines which anchor a" +
@@ -559,22 +559,22 @@ public class BSoftBodyPartOnSkinnedMesh : BSoftBody
         Vector3 b1Xb2 = Vector3.Cross(b1, b2);
         float b1Dotr1 = Vector3.Dot(b1, r1);
         Vector3 b1Xr1 = Vector3.Cross(b1, r1);
-        float mu = (1 + b1Dotr1) *
+		float mu = (1 + b1Dotr1) *
                     Vector3.Dot(b1Xb2, r1Xr2) -
                     Vector3.Dot(b1, r1Xr2) *
                     Vector3.Dot(r1, b1Xb2);
-        float v = Vector3.Dot((b1 + r1),Vector3.Cross(b1Xb2,r1Xr2));
-        float p = Mathf.Sqrt(mu * mu + v * v);
+		float v = Vector3.Dot((b1 + r1),Vector3.Cross(b1Xb2,r1Xr2));
+		float p = Mathf.Sqrt(mu * mu + v * v);
         Vector3 qV;
-        float qs;
+		float qs;
         if (mu >= 0)
         {
-            float a = 1 / (2 * Mathf.Sqrt(p * (p + mu) * (1 + b1Dotr1)));
+			float a = 1 / (2 * Mathf.Sqrt(p * (p + mu) * (1 + b1Dotr1)));
             qV = a * ((p + mu) * b1Xr1 + v * (b1 + r1));
             qs = a * ((p + mu) * (1 + b1Dotr1));
         } else
         {
-            float a = 1 / (2 * Mathf.Sqrt(p * (p - mu) * (1 + b1Dotr1)));
+			float a = 1 / (2 * Mathf.Sqrt(p * (p - mu) * (1 + b1Dotr1)));
             qV = a * ((v) * b1Xr1 + (p - mu) * (b1 + r1));
             qs = a * (v * (1 + b1Dotr1));
         }

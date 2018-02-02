@@ -49,7 +49,7 @@ namespace BulletUnity {
             Vector3[] verts = hullMesh.vertices;
             //todo remove duplicate verts
             //todo use vertex reduction utility
-            float[] points = new float[verts.Length * 3];
+            double[] points = new double[verts.Length * 3];
             for (int i = 0; i < verts.Length; i++)
             {
                 int idx = i * 3;

@@ -7,8 +7,8 @@ namespace BulletUnity {
 	[AddComponentMenu("Physics Bullet/Shapes/Sphere")]
     public class BSphereShape : BCollisionShape {
         [SerializeField]
-        protected float radius = 1f;
-        public float Radius
+        protected double radius = 1f;
+        public double Radius
         {
             get { return radius; }
             set
@@ -47,7 +47,7 @@ namespace BulletUnity {
             UnityEngine.Vector3 position = transform.position;
             UnityEngine.Quaternion rotation = transform.rotation;
             UnityEngine.Vector3 scale = m_localScaling;
-            BUtility.DebugDrawSphere(position, rotation, scale, Vector3.one * radius, Color.yellow);
+            BUtility.DebugDrawSphere(position, rotation, scale, Vector3.one * (float)radius, Color.yellow);
         }
 
         public override CollisionShape CopyCollisionShape()

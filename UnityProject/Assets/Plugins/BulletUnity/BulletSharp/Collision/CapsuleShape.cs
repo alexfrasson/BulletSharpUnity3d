@@ -11,17 +11,17 @@ namespace BulletSharp
 		{
 		}
 
-		public CapsuleShape(float radius, float height)
+		public CapsuleShape(double radius, double height)
 			: base(btCapsuleShape_new(radius, height))
 		{
 		}
 
-		public float HalfHeight
+		public double HalfHeight
 		{
 			get { return btCapsuleShape_getHalfHeight(_native); }
 		}
 
-		public float Radius
+		public double Radius
 		{
 			get { return btCapsuleShape_getRadius(_native); }
 		}
@@ -32,34 +32,34 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btCapsuleShape_new(float radius, float height);
+		static extern IntPtr btCapsuleShape_new(double radius, double height);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCapsuleShape_getHalfHeight(IntPtr obj);
+		static extern double btCapsuleShape_getHalfHeight(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCapsuleShape_getRadius(IntPtr obj);
+		static extern double btCapsuleShape_getRadius(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btCapsuleShape_getUpAxis(IntPtr obj);
 	}
 
 	public class CapsuleShapeX : CapsuleShape
 	{
-		public CapsuleShapeX(float radius, float height)
+		public CapsuleShapeX(double radius, double height)
 			: base(btCapsuleShapeX_new(radius, height))
 		{
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btCapsuleShapeX_new(float radius, float height);
+		static extern IntPtr btCapsuleShapeX_new(double radius, double height);
 	}
 
 	public class CapsuleShapeZ : CapsuleShape
 	{
-		public CapsuleShapeZ(float radius, float height)
+		public CapsuleShapeZ(double radius, double height)
 			: base(btCapsuleShapeZ_new(radius, height))
 		{
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btCapsuleShapeZ_new(float radius, float height);
+		static extern IntPtr btCapsuleShapeZ_new(double radius, double height);
 	}
 }

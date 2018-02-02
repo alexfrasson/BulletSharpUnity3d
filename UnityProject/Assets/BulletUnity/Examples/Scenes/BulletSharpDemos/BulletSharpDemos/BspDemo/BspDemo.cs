@@ -23,7 +23,7 @@ namespace BspDemo
             if (vertices.Count == 0)
                 return;
 
-            float mass = 0.0f;
+            double mass = 0.0f;
             //can use a shift
             Matrix startTransform = Matrix.Translation(0, 0, -10.0f);
             CollisionShape shape = new ConvexHullShape(vertices);

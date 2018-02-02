@@ -14,7 +14,7 @@ namespace BulletSharp
 			_native = native;
 		}
 
-		public int Classify(Vector3 n, float o, int s)
+		public int Classify(Vector3 n, double o, int s)
 		{
 			return btDbvtAabbMm_Classify(_native, ref n, o, s);
 		}
@@ -34,7 +34,7 @@ namespace BulletSharp
 			return btDbvtAabbMm_FromCE(ref c, ref e);
 		}
 
-		public static DbvtAabbMm FromCR(Vector3 c, float r)
+		public static DbvtAabbMm FromCR(Vector3 c, double r)
 		{
 			return btDbvtAabbMm_FromCR(ref c, r);
 		}
@@ -54,7 +54,7 @@ namespace BulletSharp
 			return btDbvtAabbMm_FromPoints2(ref pts, n);
 		}
         */
-		public float ProjectMinimum(Vector3 v, uint signs)
+		public double ProjectMinimum(Vector3 v, uint signs)
 		{
 			return btDbvtAabbMm_ProjectMinimum(_native, ref v, signs);
 		}
@@ -139,7 +139,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtAabbMm_Center(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern int btDbvtAabbMm_Classify(IntPtr obj, [In] ref Vector3 n, float o, int s);
+		static extern int btDbvtAabbMm_Classify(IntPtr obj, [In] ref Vector3 n, double o, int s);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btDbvtAabbMm_Contain(IntPtr obj, IntPtr a);
@@ -150,7 +150,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtAabbMm_FromCE([In] ref Vector3 c, [In] ref Vector3 e);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btDbvtAabbMm_FromCR([In] ref Vector3 c, float r);
+		static extern void btDbvtAabbMm_FromCR([In] ref Vector3 c, double r);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtAabbMm_FromMM([In] ref Vector3 mi, [In] ref Vector3 mx);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -164,7 +164,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtAabbMm_Mins(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btDbvtAabbMm_ProjectMinimum(IntPtr obj, [In] ref Vector3 v, uint signs);
+		static extern double btDbvtAabbMm_ProjectMinimum(IntPtr obj, [In] ref Vector3 v, uint signs);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvtAabbMm_SignedExpand(IntPtr obj, [In] ref Vector3 e);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -346,7 +346,7 @@ namespace BulletSharp
 				btDbvt_ICollide_Process2(_native, __unnamed0._native);
 			}
 
-			public void Process(DbvtNode n, float __unnamed1)
+			public void Process(DbvtNode n, double __unnamed1)
 			{
 				btDbvt_ICollide_Process3(_native, n._native, __unnamed1);
 			}
@@ -384,7 +384,7 @@ namespace BulletSharp
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDbvt_ICollide_Process2(IntPtr obj, IntPtr __unnamed0);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btDbvt_ICollide_Process3(IntPtr obj, IntPtr n, float __unnamed1);
+			static extern void btDbvt_ICollide_Process3(IntPtr obj, IntPtr n, double __unnamed1);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDbvt_ICollide_delete(IntPtr obj);
 		}
@@ -664,7 +664,7 @@ namespace BulletSharp
 				_native = btDbvt_sStkNPS_new();
 			}
 
-			public StkNps(DbvtNode n, uint m, float v)
+			public StkNps(DbvtNode n, uint m, double v)
 			{
 				_native = btDbvt_sStkNPS_new2(n._native, m, v);
 			}
@@ -685,7 +685,7 @@ namespace BulletSharp
                 set { btDbvt_sStkNPS_setNode(_native, (value != null) ? value._native : IntPtr.Zero); }
 			}
 
-			public float Value
+			public double Value
 			{
 				get { return btDbvt_sStkNPS_getValue(_native); }
 				set { btDbvt_sStkNPS_setValue(_native, value); }
@@ -714,19 +714,19 @@ namespace BulletSharp
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern IntPtr btDbvt_sStkNPS_new();
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern IntPtr btDbvt_sStkNPS_new2(IntPtr n, uint m, float v);
+			static extern IntPtr btDbvt_sStkNPS_new2(IntPtr n, uint m, double v);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern int btDbvt_sStkNPS_getMask(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern IntPtr btDbvt_sStkNPS_getNode(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern float btDbvt_sStkNPS_getValue(IntPtr obj);
+			static extern double btDbvt_sStkNPS_getValue(IntPtr obj);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDbvt_sStkNPS_setMask(IntPtr obj, int value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDbvt_sStkNPS_setNode(IntPtr obj, IntPtr value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-			static extern void btDbvt_sStkNPS_setValue(IntPtr obj, float value);
+			static extern void btDbvt_sStkNPS_setValue(IntPtr obj, double value);
 			[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 			static extern void btDbvt_sStkNPS_delete(IntPtr obj);
 		}
@@ -770,17 +770,17 @@ namespace BulletSharp
 			btDbvt_clone2(_native, dest._native, iclone._native);
 		}
         /*
-		public static void CollideKdop(DbvtNode root, Vector3 normals, float offsets, int count, ICollide policy)
+		public static void CollideKdop(DbvtNode root, Vector3 normals, double offsets, int count, ICollide policy)
 		{
 			btDbvt_collideKDOP(root._native, ref normals, offsets._native, count, policy._native);
 		}
 
-		public static void CollideOcl(DbvtNode root, Vector3 normals, float offsets, Vector3 sortaxis, int count, ICollide policy)
+		public static void CollideOcl(DbvtNode root, Vector3 normals, double offsets, Vector3 sortaxis, int count, ICollide policy)
 		{
 			btDbvt_collideOCL(root._native, ref normals, offsets._native, ref sortaxis, count, policy._native);
 		}
 
-		public static void CollideOcl(DbvtNode root, Vector3 normals, float offsets, Vector3 sortaxis, int count, ICollide policy, bool fullsort)
+		public static void CollideOcl(DbvtNode root, Vector3 normals, double offsets, Vector3 sortaxis, int count, ICollide policy, bool fullsort)
 		{
 			btDbvt_collideOCL2(root._native, ref normals, offsets._native, ref sortaxis, count, policy._native, fullsort);
 		}
@@ -840,7 +840,7 @@ namespace BulletSharp
 			return btDbvt_maxdepth(node._native);
 		}
 
-		public static int Nearest(int[] i, StkNps a, float v, int l, int h)
+		public static int Nearest(int[] i, StkNps a, double v, int l, int h)
 		{
 			return btDbvt_nearest(i, a._native, v, l, h);
 		}
@@ -870,7 +870,7 @@ namespace BulletSharp
 			btDbvt_rayTest(root._native, ref rayFrom, ref rayTo, policy._native);
 		}
 
-		public void RayTestInternal(DbvtNode root, Vector3 rayFrom, Vector3 rayTo, Vector3 rayDirectionInverse, uint[] signs, float lambdaMax, Vector3 aabbMin, Vector3 aabbMax, ICollide policy)
+		public void RayTestInternal(DbvtNode root, Vector3 rayFrom, Vector3 rayTo, Vector3 rayDirectionInverse, uint[] signs, double lambdaMax, Vector3 aabbMin, Vector3 aabbMax, ICollide policy)
 		{
 			btDbvt_rayTestInternal(_native, root._native, ref rayFrom, ref rayTo, ref rayDirectionInverse, signs, lambdaMax, ref aabbMin, ref aabbMax, policy._native);
 		}
@@ -895,7 +895,7 @@ namespace BulletSharp
 			btDbvt_update3(_native, leaf._native, lookahead);
 		}
 
-		public bool Update(DbvtNode leaf, DbvtVolume volume, float margin)
+		public bool Update(DbvtNode leaf, DbvtVolume volume, double margin)
 		{
 			return btDbvt_update4(_native, leaf._native, volume._native, margin);
 		}
@@ -905,7 +905,7 @@ namespace BulletSharp
 			return btDbvt_update5(_native, leaf._native, volume._native, ref velocity);
 		}
 
-		public bool Update(DbvtNode leaf, DbvtVolume volume, Vector3 velocity, float margin)
+		public bool Update(DbvtNode leaf, DbvtVolume volume, Vector3 velocity, double margin)
 		{
 			return btDbvt_update6(_native, leaf._native, volume._native, ref velocity, margin);
 		}
@@ -1042,7 +1042,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btDbvt_maxdepth(IntPtr node);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern int btDbvt_nearest(int[] i, IntPtr a, float v, int l, int h);
+		static extern int btDbvt_nearest(int[] i, IntPtr a, double v, int l, int h);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvt_optimizeBottomUp(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -1054,7 +1054,7 @@ namespace BulletSharp
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		//static extern void btDbvt_rayTest(IntPtr root, [In] ref Vector3 rayFrom, [In] ref Vector3 rayTo, IntPtr policy);
 		//[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		//static extern void btDbvt_rayTestInternal(IntPtr obj, IntPtr root, [In] ref Vector3 rayFrom, [In] ref Vector3 rayTo, [In] ref Vector3 rayDirectionInverse, uint[] signs, float lambda_max, [In] ref Vector3 aabbMin, [In] ref Vector3 aabbMax, IntPtr policy);
+		//static extern void btDbvt_rayTestInternal(IntPtr obj, IntPtr root, [In] ref Vector3 rayFrom, [In] ref Vector3 rayTo, [In] ref Vector3 rayDirectionInverse, uint[] signs, double lambda_max, [In] ref Vector3 aabbMin, [In] ref Vector3 aabbMax, IntPtr policy);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvt_remove(IntPtr obj, IntPtr leaf);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -1075,13 +1075,13 @@ namespace BulletSharp
 		static extern void btDbvt_update3(IntPtr obj, IntPtr leaf, int lookahead);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
-		static extern bool btDbvt_update4(IntPtr obj, IntPtr leaf, IntPtr volume, float margin);
+		static extern bool btDbvt_update4(IntPtr obj, IntPtr leaf, IntPtr volume, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
 		static extern bool btDbvt_update5(IntPtr obj, IntPtr leaf, IntPtr volume, [In] ref Vector3 velocity);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		[return: MarshalAs(UnmanagedType.I1)]
-		static extern bool btDbvt_update6(IntPtr obj, IntPtr leaf, IntPtr volume, [In] ref Vector3 velocity, float margin);
+		static extern bool btDbvt_update6(IntPtr obj, IntPtr leaf, IntPtr volume, [In] ref Vector3 velocity, double margin);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btDbvt_write(IntPtr obj, IntPtr iwriter);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

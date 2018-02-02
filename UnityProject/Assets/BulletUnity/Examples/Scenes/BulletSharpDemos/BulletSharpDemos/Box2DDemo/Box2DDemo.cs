@@ -13,7 +13,7 @@ namespace Box2DDemo
 
         ///create 25 (5x5) dynamic objects
         const int ArraySizeX = 5, ArraySizeY = 5;
-        public float Depth = 0.04f;
+        public double Depth = 0.04f;
 
         protected override void OnInitialize()
         {
@@ -56,7 +56,7 @@ namespace Box2DDemo
 
             // create a few dynamic rigidbodies
             // Re-using the same collision is better for memory usage and performance
-            float u = 0.96f;
+            double u = 0.96f;
             Vector3[] points = { new Vector3(0, u, 0), new Vector3(-u, -u, 0), new Vector3(u, -u, 0) };
             ConvexShape childShape0 = new BoxShape(1, 1, Depth);
             ConvexShape colShape = new Convex2DShape(childShape0);
@@ -75,7 +75,7 @@ namespace Box2DDemo
 
             colShape.Margin = 0.03f;
 
-            float mass = 1.0f;
+            double mass = 1.0f;
             Vector3 localInertia = colShape.CalculateLocalInertia(mass);
 
             Matrix startTransform;

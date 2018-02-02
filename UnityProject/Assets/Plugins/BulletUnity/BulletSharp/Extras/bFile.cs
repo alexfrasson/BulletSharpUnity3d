@@ -100,7 +100,7 @@ namespace BulletSharp
 
         private void GetElement(BinaryReader reader, int ArrayLen, Dna.TypeDecl type, double[] data)
         {
-            if (type.Name.Equals("float"))
+            if (type.Name.Equals("double"))
             {
                 for (int i = 0; i < ArrayLen; i++)
                 {

@@ -89,7 +89,7 @@ namespace BulletSharp
             _preventDelete = preventDelete;
 		}
 
-		public float CalculateTimeOfImpact(CollisionObject body0, CollisionObject body1, DispatcherInfo dispatchInfo, ManifoldResult resultOut)
+		public double CalculateTimeOfImpact(CollisionObject body0, CollisionObject body1, DispatcherInfo dispatchInfo, ManifoldResult resultOut)
 		{
 			return btCollisionAlgorithm_calculateTimeOfImpact(_native, body0._native, body1._native, dispatchInfo._native, resultOut._native);
 		}
@@ -128,7 +128,7 @@ namespace BulletSharp
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btCollisionAlgorithm_calculateTimeOfImpact(IntPtr obj, IntPtr body0, IntPtr body1, IntPtr dispatchInfo, IntPtr resultOut);
+		static extern double btCollisionAlgorithm_calculateTimeOfImpact(IntPtr obj, IntPtr body0, IntPtr body1, IntPtr dispatchInfo, IntPtr resultOut);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btCollisionAlgorithm_getAllContactManifolds(IntPtr obj, IntPtr manifoldArray);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

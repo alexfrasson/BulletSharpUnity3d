@@ -22,19 +22,19 @@ namespace BulletSharp
 			_native = native;
 		}
 
-		public float Damping
+		public double Damping
 		{
 			get { return btConstraintSetting_getDamping(_native); }
 			set { btConstraintSetting_setDamping(_native, value); }
 		}
 
-		public float ImpulseClamp
+		public double ImpulseClamp
 		{
 			get { return btConstraintSetting_getImpulseClamp(_native); }
 			set { btConstraintSetting_setImpulseClamp(_native, value); }
 		}
 
-		public float Tau
+		public double Tau
 		{
 			get { return btConstraintSetting_getTau(_native); }
 			set { btConstraintSetting_setTau(_native, value); }
@@ -43,17 +43,17 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btConstraintSetting_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConstraintSetting_getDamping(IntPtr obj);
+		static extern double btConstraintSetting_getDamping(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConstraintSetting_getImpulseClamp(IntPtr obj);
+		static extern double btConstraintSetting_getImpulseClamp(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btConstraintSetting_getTau(IntPtr obj);
+		static extern double btConstraintSetting_getTau(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConstraintSetting_setDamping(IntPtr obj, float value);
+		static extern void btConstraintSetting_setDamping(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConstraintSetting_setImpulseClamp(IntPtr obj, float value);
+		static extern void btConstraintSetting_setImpulseClamp(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btConstraintSetting_setTau(IntPtr obj, float value);
+		static extern void btConstraintSetting_setTau(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btConstraintSetting_delete(IntPtr obj);
 	}
@@ -84,7 +84,7 @@ namespace BulletSharp
 			btPoint2PointConstraint_getInfo2NonVirtual(_native, info._native, ref body0Trans, ref body1Trans);
 		}
 
-		public void UpdateRhs(float timeStep)
+		public void UpdateRhs(double timeStep)
 		{
 			btPoint2PointConstraint_updateRHS(_native, timeStep);
 		}
@@ -153,7 +153,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPoint2PointConstraint_setUseSolveConstraintObsolete(IntPtr obj, bool value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btPoint2PointConstraint_updateRHS(IntPtr obj, float timeStep);
+		static extern void btPoint2PointConstraint_updateRHS(IntPtr obj, double timeStep);
 	}
 
     [StructLayout(LayoutKind.Sequential)]

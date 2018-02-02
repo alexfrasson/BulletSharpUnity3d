@@ -12,7 +12,7 @@ namespace DistanceDemo
         Vector3 target = new Vector3(0, 5, -4);
 
         //Vector3 distanceFrom, distanceTo;
-        //float distance;
+        //double distance;
 
         Matrix rotBodyPosition = Matrix.Translation(0, 10, 0);
         Matrix body2Position = Matrix.Translation(0, 5, 0);
@@ -21,7 +21,7 @@ namespace DistanceDemo
 
         VoronoiSimplexSolver sGjkSimplexSolver = new VoronoiSimplexSolver();
 
-        float rotation = 0;
+        double rotation = 0;
 
         protected override void OnInitialize()
         {

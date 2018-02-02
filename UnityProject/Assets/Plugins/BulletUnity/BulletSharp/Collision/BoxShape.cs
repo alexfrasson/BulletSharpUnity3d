@@ -12,12 +12,12 @@ namespace BulletSharp
 		{
 		}
 
-        public BoxShape(float boxHalfExtent)
+        public BoxShape(double boxHalfExtent)
             : base(btBoxShape_new2(boxHalfExtent))
         {
         }
 
-        public BoxShape(float boxHalfExtentX, float boxHalfExtentY, float boxHalfExtentZ)
+        public BoxShape(double boxHalfExtentX, double boxHalfExtentY, double boxHalfExtentZ)
             : base(btBoxShape_new3(boxHalfExtentX, boxHalfExtentY, boxHalfExtentZ))
         {
         }
@@ -50,9 +50,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btBoxShape_new([In] ref Vector3 boxHalfExtents);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern IntPtr btBoxShape_new2(float boxHalfExtent);
+        static extern IntPtr btBoxShape_new2(double boxHalfExtent);
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern IntPtr btBoxShape_new3(float boxHalfExtentX, float boxHalfExtentY, float boxHalfExtentZ);
+        static extern IntPtr btBoxShape_new3(double boxHalfExtentX, double boxHalfExtentY, double boxHalfExtentZ);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btBoxShape_getHalfExtentsWithMargin(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

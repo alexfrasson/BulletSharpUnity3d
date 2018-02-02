@@ -21,12 +21,12 @@ namespace BulletSharp
 		{
 		}
 
-		public static float CalculateCombinedFriction(CollisionObject body0, CollisionObject body1)
+		public static double CalculateCombinedFriction(CollisionObject body0, CollisionObject body1)
 		{
 			return btManifoldResult_calculateCombinedFriction(body0._native, body1._native);
 		}
 
-		public static float CalculateCombinedRestitution(CollisionObject body0, CollisionObject body1)
+		public static double CalculateCombinedRestitution(CollisionObject body0, CollisionObject body1)
 		{
 			return btManifoldResult_calculateCombinedRestitution(body0._native, body1._native);
 		}
@@ -69,9 +69,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btManifoldResult_new2(IntPtr body0Wrap, IntPtr body1Wrap);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btManifoldResult_calculateCombinedFriction(IntPtr body0, IntPtr body1);
+		static extern double btManifoldResult_calculateCombinedFriction(IntPtr body0, IntPtr body1);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btManifoldResult_calculateCombinedRestitution(IntPtr body0, IntPtr body1);
+		static extern double btManifoldResult_calculateCombinedRestitution(IntPtr body0, IntPtr body1);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btManifoldResult_getBody0Internal(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

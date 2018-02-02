@@ -173,30 +173,30 @@ namespace BulletUnity
                     bAny.extents = EditorGUILayout.Vector3Field("Extents", bAny.extents);
                     break;
                 case PrimitiveMeshOptions.Sphere:
-                    bAny.radius = EditorGUILayout.FloatField("radius", bAny.radius);
+                    bAny.radius = EditorGUILayout.FloatField("radius", (float)bAny.radius);
                     bAny.numLongitudeLines = EditorGUILayout.IntField("numLongitudeLines", bAny.numLongitudeLines);
                     bAny.numLatitudeLines = EditorGUILayout.IntField("numLatitudeLines", bAny.numLatitudeLines);
 
                     break;
                 case PrimitiveMeshOptions.Cylinder:
-                    bAny.height = EditorGUILayout.FloatField("height", bAny.height);
-                    bAny.radius = EditorGUILayout.FloatField("radius", bAny.radius);
-                    bAny.nbSides = EditorGUILayout.IntField("nbSides", bAny.nbSides);
+                    bAny.height = EditorGUILayout.FloatField("height", (float)bAny.height);
+                    bAny.radius = EditorGUILayout.FloatField("radius", (float)bAny.radius);
+                    bAny.nbSides = EditorGUILayout.IntField("nbSides", (int)bAny.nbSides);
                     break;
                 case PrimitiveMeshOptions.Cone:
-                    bAny.height = EditorGUILayout.FloatField("height", bAny.height);
-                    bAny.radius = EditorGUILayout.FloatField("radius", bAny.radius);
-                    bAny.nbSides = EditorGUILayout.IntField("nbSides", bAny.nbSides);
+                    bAny.height = EditorGUILayout.FloatField("height", (float)bAny.height);
+                    bAny.radius = EditorGUILayout.FloatField("radius", (float)bAny.radius);
+                    bAny.nbSides = EditorGUILayout.IntField("nbSides", (int)bAny.nbSides);
                     break;
                 case PrimitiveMeshOptions.Pyramid:
-                    bAny.height = EditorGUILayout.FloatField("height", bAny.height);
-                    bAny.radius = EditorGUILayout.FloatField("radius", bAny.radius);
+                    bAny.height = EditorGUILayout.FloatField("height", (float)bAny.height);
+                    bAny.radius = EditorGUILayout.FloatField("radius", (float)bAny.radius);
                     break;
                 case PrimitiveMeshOptions.Bunny:
                     break;
                 case PrimitiveMeshOptions.Plane:
-                    bAny.length = EditorGUILayout.FloatField("length", bAny.length);
-                    bAny.width = EditorGUILayout.FloatField("width", bAny.width);
+                    bAny.length = EditorGUILayout.FloatField("length", (float)bAny.length);
+                    bAny.width = EditorGUILayout.FloatField("width", (float)bAny.width);
                     bAny.resX = EditorGUILayout.IntField("resX", bAny.resX);
                     bAny.resZ = EditorGUILayout.IntField("resZ", bAny.resZ);
                     break;
@@ -208,14 +208,14 @@ namespace BulletUnity
             bAny.extents.x = Mathf.Clamp(bAny.extents.x, 0f, 10000f);
             bAny.extents.y = Mathf.Clamp(bAny.extents.y, 0f, 10000f);
             bAny.extents.z = Mathf.Clamp(bAny.extents.z, 0f, 10000f);
-            bAny.radius = Mathf.Clamp(bAny.radius, 0f, 10000f);
+            bAny.radius = Mathf.Clamp((float)bAny.radius, 0f, 10000f);
             bAny.numLatitudeLines = Mathf.Clamp(bAny.numLatitudeLines, 2, 100);
             bAny.numLongitudeLines = Mathf.Clamp(bAny.numLongitudeLines, 2, 100);
-            bAny.height = Mathf.Clamp(bAny.height, 0, 100);
+            bAny.height = Mathf.Clamp((float)bAny.height, 0, 100);
             bAny.nbSides = Mathf.Clamp(bAny.nbSides, 2, 100);
 
-            bAny.length = Mathf.Clamp(bAny.length, 0, 1000);
-            bAny.width = Mathf.Clamp(bAny.width, 0, 1000);
+            bAny.length = Mathf.Clamp((float)bAny.length, 0, 1000);
+            bAny.width = Mathf.Clamp((float)bAny.width, 0, 1000);
             bAny.resX = Mathf.Clamp(bAny.resX, 2, 100);
             bAny.resZ = Mathf.Clamp(bAny.resZ, 2, 100);
 

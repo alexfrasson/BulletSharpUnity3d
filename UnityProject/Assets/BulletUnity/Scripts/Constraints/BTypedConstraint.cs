@@ -76,8 +76,8 @@ namespace BulletUnity {
 
 
         [SerializeField]
-        protected float m_breakingImpulseThreshold = Mathf.Infinity;
-        public float breakingImpulseThreshold
+        protected double m_breakingImpulseThreshold = Mathf.Infinity;
+        public double breakingImpulseThreshold
         {
             get { return m_breakingImpulseThreshold; }
             set
@@ -165,8 +165,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_debugDrawSize;
-        public float debugDrawSize
+        protected double m_debugDrawSize;
+        public double debugDrawSize
         {
             get { return m_debugDrawSize; }
             set
@@ -271,9 +271,9 @@ namespace BulletUnity {
             BM.Vector4 x = frameInA.Row1;
             BM.Vector4 y = frameInA.Row2;
             BM.Vector4 z = frameInA.Row3;
-            Vector3 xx = new Vector3(x.X, x.Y, x.Z);
-            Vector3 yy = new Vector3(y.X, y.Y, y.Z);
-            Vector3 zz = new Vector3(z.X, z.Y, z.Z);
+            Vector3 xx = new Vector3((float)x.X, (float)x.Y, (float)x.Z);
+            Vector3 yy = new Vector3((float)y.X, (float)y.Y, (float)y.Z);
+            Vector3 zz = new Vector3((float)z.X, (float)z.Y, (float)z.Z);
             Quaternion q = transform.localRotation * Quaternion.Inverse(m_otherRigidBody.transform.localRotation);
             xx = q * xx;
             yy = q * yy;

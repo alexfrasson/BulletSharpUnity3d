@@ -14,12 +14,12 @@ namespace BulletSharp
 			_rigidBodyB = rigidBodyB;
 		}
 
-		public void SetLowerLimit(float ang1min, float ang2min)
+		public void SetLowerLimit(double ang1min, double ang2min)
 		{
 			btUniversalConstraint_setLowerLimit(_native, ang1min, ang2min);
 		}
 
-		public void SetUpperLimit(float ang1max, float ang2max)
+		public void SetUpperLimit(double ang1max, double ang2max)
 		{
 			btUniversalConstraint_setUpperLimit(_native, ang1max, ang2max);
 		}
@@ -44,12 +44,12 @@ namespace BulletSharp
 			}
 		}
 
-		public float Angle1
+		public double Angle1
 		{
 			get { return btUniversalConstraint_getAngle1(_native); }
 		}
 
-		public float Angle2
+		public double Angle2
 		{
 			get { return btUniversalConstraint_getAngle2(_native); }
 		}
@@ -81,16 +81,16 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btUniversalConstraint_getAnchor2(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btUniversalConstraint_getAngle1(IntPtr obj);
+		static extern double btUniversalConstraint_getAngle1(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btUniversalConstraint_getAngle2(IntPtr obj);
+		static extern double btUniversalConstraint_getAngle2(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btUniversalConstraint_getAxis1(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btUniversalConstraint_getAxis2(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btUniversalConstraint_setLowerLimit(IntPtr obj, float ang1min, float ang2min);
+		static extern void btUniversalConstraint_setLowerLimit(IntPtr obj, double ang1min, double ang2min);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btUniversalConstraint_setUpperLimit(IntPtr obj, float ang1max, float ang2max);
+		static extern void btUniversalConstraint_setUpperLimit(IntPtr obj, double ang1max, double ang2max);
 	}
 }

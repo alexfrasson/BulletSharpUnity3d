@@ -92,7 +92,7 @@ namespace BulletSharp
             _native = btPersistentManifold_new();
 		}
 
-		public PersistentManifold(CollisionObject body0, CollisionObject body1, int __unnamed2, float contactBreakingThreshold, float contactProcessingThreshold)
+		public PersistentManifold(CollisionObject body0, CollisionObject body1, int __unnamed2, double contactBreakingThreshold, double contactProcessingThreshold)
 		{
             _native = btPersistentManifold_new2(body0._native, body1._native, __unnamed2, contactBreakingThreshold, contactProcessingThreshold);
 		}
@@ -179,13 +179,13 @@ namespace BulletSharp
 			set { btPersistentManifold_setCompanionIdB(_native, value); }
 		}
 
-		public float ContactBreakingThreshold
+		public double ContactBreakingThreshold
 		{
 			get { return btPersistentManifold_getContactBreakingThreshold(_native); }
 			set { btPersistentManifold_setContactBreakingThreshold(_native, value); }
 		}
 
-		public float ContactProcessingThreshold
+		public double ContactProcessingThreshold
 		{
 			get { return btPersistentManifold_getContactProcessingThreshold(_native); }
 			set { btPersistentManifold_setContactProcessingThreshold(_native, value); }
@@ -229,7 +229,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btPersistentManifold_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btPersistentManifold_new2(IntPtr body0, IntPtr body1, int __unnamed2, float contactBreakingThreshold, float contactProcessingThreshold);
+		static extern IntPtr btPersistentManifold_new2(IntPtr body0, IntPtr body1, int __unnamed2, double contactBreakingThreshold, double contactProcessingThreshold);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btPersistentManifold_addManifoldPoint(IntPtr obj, IntPtr newPoint);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -249,11 +249,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btPersistentManifold_getCompanionIdB(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btPersistentManifold_getContactBreakingThreshold(IntPtr obj);
+		static extern double btPersistentManifold_getContactBreakingThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btPersistentManifold_getContactPoint(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btPersistentManifold_getContactProcessingThreshold(IntPtr obj);
+		static extern double btPersistentManifold_getContactProcessingThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btPersistentManifold_getIndex1a(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -271,9 +271,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPersistentManifold_setCompanionIdB(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btPersistentManifold_setContactBreakingThreshold(IntPtr obj, float contactBreakingThreshold);
+		static extern void btPersistentManifold_setContactBreakingThreshold(IntPtr obj, double contactBreakingThreshold);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btPersistentManifold_setContactProcessingThreshold(IntPtr obj, float contactProcessingThreshold);
+		static extern void btPersistentManifold_setContactProcessingThreshold(IntPtr obj, double contactProcessingThreshold);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btPersistentManifold_setIndex1a(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]

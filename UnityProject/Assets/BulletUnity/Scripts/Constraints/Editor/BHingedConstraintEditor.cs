@@ -17,16 +17,16 @@ public class BHingedConstraintEditor : Editor {
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("Motor", EditorStyles.boldLabel);
         hc.enableMotor = EditorGUILayout.Toggle("Enable Motor",hc.enableMotor);
-        hc.targetMotorAngularVelocity = EditorGUILayout.FloatField("Target Motor Angular Velocity (Rad/Sec)", hc.targetMotorAngularVelocity);
-        hc.maxMotorImpulse = EditorGUILayout.FloatField("Max Motor Impulse", hc.maxMotorImpulse);
+        hc.targetMotorAngularVelocity = EditorGUILayout.FloatField("Target Motor Angular Velocity (Rad/Sec)", (float)hc.targetMotorAngularVelocity);
+        hc.maxMotorImpulse = EditorGUILayout.FloatField("Max Motor Impulse", (float)hc.maxMotorImpulse);
 
         EditorGUILayout.Separator();
         EditorGUILayout.LabelField("Limits", EditorStyles.boldLabel);
         hc.setLimit = EditorGUILayout.Toggle("Set Limit", hc.setLimit);
-        hc.lowLimitAngleRadians = EditorGUILayout.FloatField("Low Angle (Deg.)", hc.lowLimitAngleRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
-        hc.highLimitAngleRadians = EditorGUILayout.FloatField("High Angle (Deg.)", hc.highLimitAngleRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
-        hc.limitSoftness = EditorGUILayout.FloatField("Limit Softness", hc.limitSoftness);
-        hc.limitBiasFactor = EditorGUILayout.FloatField("Limit Bias Factor", hc.limitBiasFactor);
+        hc.lowLimitAngleRadians = EditorGUILayout.FloatField("Low Angle (Deg.)", (float)hc.lowLimitAngleRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.highLimitAngleRadians = EditorGUILayout.FloatField("High Angle (Deg.)", (float)hc.highLimitAngleRadians * Mathf.Rad2Deg) * Mathf.Deg2Rad;
+        hc.limitSoftness = EditorGUILayout.FloatField("Limit Softness", (float)hc.limitSoftness);
+        hc.limitBiasFactor = EditorGUILayout.FloatField("Limit Bias Factor", (float)hc.limitBiasFactor);
         if (GUI.changed)
         {
             serializedObject.ApplyModifiedProperties();

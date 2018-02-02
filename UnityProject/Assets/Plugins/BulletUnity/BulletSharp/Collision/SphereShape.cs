@@ -6,26 +6,26 @@ namespace BulletSharp
 {
 	public class SphereShape : ConvexInternalShape
 	{
-		public SphereShape(float radius)
+		public SphereShape(double radius)
 			: base(btSphereShape_new(radius))
 		{
 		}
 
-		public void SetUnscaledRadius(float radius)
+		public void SetUnscaledRadius(double radius)
 		{
 			btSphereShape_setUnscaledRadius(_native, radius);
 		}
 
-		public float Radius
+		public double Radius
 		{
 			get { return btSphereShape_getRadius(_native); }
 		}
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern IntPtr btSphereShape_new(float radius);
+		static extern IntPtr btSphereShape_new(double radius);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btSphereShape_getRadius(IntPtr obj);
+		static extern double btSphereShape_getRadius(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btSphereShape_setUnscaledRadius(IntPtr obj, float radius);
+		static extern void btSphereShape_setUnscaledRadius(IntPtr obj, double radius);
 	}
 }

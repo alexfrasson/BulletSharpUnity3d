@@ -72,7 +72,7 @@ namespace BulletSharp
                 Marshal.GetFunctionPointerForDelegate(_process));
         }
 
-		public float LambdaMax
+		public double LambdaMax
 		{
 			get { return btBroadphaseRayCallback_getLambda_max(_native); }
 			set { btBroadphaseRayCallback_setLambda_max(_native, value); }
@@ -104,13 +104,13 @@ namespace BulletSharp
         [DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern IntPtr btBroadphaseRayCallbackWrapper_new(IntPtr process);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btBroadphaseRayCallback_getLambda_max(IntPtr obj);
+		static extern double btBroadphaseRayCallback_getLambda_max(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btBroadphaseRayCallback_getRayDirectionInverse(IntPtr obj, [Out] out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btBroadphaseRayCallback_getSigns(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btBroadphaseRayCallback_setLambda_max(IntPtr obj, float value);
+		static extern void btBroadphaseRayCallback_setLambda_max(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btBroadphaseRayCallback_setRayDirectionInverse(IntPtr obj, [In] ref Vector3 value);
 	}

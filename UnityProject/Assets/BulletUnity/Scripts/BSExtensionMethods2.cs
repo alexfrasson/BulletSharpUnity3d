@@ -12,7 +12,7 @@ namespace BulletUnity {
         }
 
         public static UnityEngine.Quaternion ToUnity(this BulletSharp.Math.Quaternion v) {
-            return new UnityEngine.Quaternion(v.X, v.Y, v.Z, v.W);
+            return new UnityEngine.Quaternion((float)v.X, (float)v.Y, (float)v.Z, (float)v.W);
         }
 
         public static BulletSharp.Math.Vector3 ToBullet(this UnityEngine.Vector3 v) {
@@ -20,30 +20,30 @@ namespace BulletUnity {
         }
 
         public static UnityEngine.Vector3 ToUnity(this BulletSharp.Math.Vector3 v) {
-            return new UnityEngine.Vector3(v.X, v.Y, v.Z);
+            return new UnityEngine.Vector3((float)v.X, (float)v.Y, (float)v.Z);
         }
 
         public static UnityEngine.Matrix4x4 ToUnity(this BulletSharp.Math.Matrix bm) {
             Matrix4x4 um = new Matrix4x4();
-            um[0, 0] = bm[0, 0];
-            um[0, 1] = bm[1, 0];
-            um[0, 2] = bm[2, 0];
-            um[0, 3] = bm[3, 0];
+            um[0, 0] = (float)bm[0, 0];
+            um[0, 1] = (float)bm[1, 0];
+            um[0, 2] = (float)bm[2, 0];
+            um[0, 3] = (float)bm[3, 0];
 
-            um[1, 0] = bm[0, 1];
-            um[1, 1] = bm[1, 1];
-            um[1, 2] = bm[2, 1];
-            um[1, 3] = bm[3, 1];
+            um[1, 0] = (float)bm[0, 1];
+            um[1, 1] = (float)bm[1, 1];
+            um[1, 2] = (float)bm[2, 1];
+            um[1, 3] = (float)bm[3, 1];
 
-            um[2, 0] = bm[0, 2];
-            um[2, 1] = bm[1, 2];
-            um[2, 2] = bm[2, 2];
-            um[2, 3] = bm[3, 2];
+            um[2, 0] = (float)bm[0, 2];
+            um[2, 1] = (float)bm[1, 2];
+            um[2, 2] = (float)bm[2, 2];
+            um[2, 3] = (float)bm[3, 2];
 
-            um[3, 0] = bm[0, 3];
-            um[3, 1] = bm[1, 3];
-            um[3, 2] = bm[2, 3];
-            um[3, 3] = bm[3, 3];
+            um[3, 0] = (float)bm[0, 3];
+            um[3, 1] = (float)bm[1, 3];
+            um[3, 2] = (float)bm[2, 3];
+            um[3, 3] = (float)bm[3, 3];
             return um;
         }
 
@@ -51,13 +51,13 @@ namespace BulletUnity {
         public static BulletSharp.Math.Quaternion GetOrientation(this BulletSharp.Math.Matrix bm)
         {
                 /*
-                float trace = M11 + M22 + M33;
+                double trace = M11 + M22 + M33;
 
-                float[] temp = new float[4];
+                double[] temp = new double[4];
 
                 if (trace > 0.0f)
                 {
-                    float s = UnityEngine.Mathf.Sqrt(trace + (1.0f));
+                    double s = UnityEngine.Mathf.Sqrt(trace + (1.0f));
                     temp[3] = (s * (0.5f));
                     s = (0.5f) / s;
 
@@ -77,7 +77,7 @@ namespace BulletUnity {
                     int j = (i + 1) % 3;
                     int k = (i + 2) % 3;
 
-                    float s = UnityEngine.Mathf.Sqrt(this[i,i] - this[j,j] - this[k,k] + 1.0f);
+                    double s = UnityEngine.Mathf.Sqrt(this[i,i] - this[j,j] - this[k,k] + 1.0f);
                     temp[i] = s * 0.5f;
                     s = 0.5f / s;
 
@@ -90,32 +90,32 @@ namespace BulletUnity {
 
                 //Scaling is the length of the rows.
                 BulletSharp.Math.Vector3 scale;
-                scale.X = (float)System.Math.Sqrt((bm.M11 * bm.M11) + (bm.M12 * bm.M12) + (bm.M13 * bm.M13));
-                scale.Y = (float)System.Math.Sqrt((bm.M21 * bm.M21) + (bm.M22 * bm.M22) + (bm.M23 * bm.M23));
-                scale.Z = (float)System.Math.Sqrt((bm.M31 * bm.M31) + (bm.M32 * bm.M32) + (bm.M33 * bm.M33));
+                scale.X = (double)System.Math.Sqrt((bm.M11 * bm.M11) + (bm.M12 * bm.M12) + (bm.M13 * bm.M13));
+                scale.Y = (double)System.Math.Sqrt((bm.M21 * bm.M21) + (bm.M22 * bm.M22) + (bm.M23 * bm.M23));
+                scale.Z = (double)System.Math.Sqrt((bm.M31 * bm.M31) + (bm.M32 * bm.M32) + (bm.M33 * bm.M33));
 
                 //The rotation is the left over matrix after dividing out the scaling.
-                float mm11 = bm.M11 / scale.X;
-                float mm12 = bm.M12 / scale.X;
-                float mm13 = bm.M13 / scale.X;
+                double mm11 = bm.M11 / scale.X;
+                double mm12 = bm.M12 / scale.X;
+                double mm13 = bm.M13 / scale.X;
 
-                float mm21 = bm.M21 / scale.Y;
-                float mm22 = bm.M22 / scale.Y;
-                float mm23 = bm.M23 / scale.Y;
+                double mm21 = bm.M21 / scale.Y;
+                double mm22 = bm.M22 / scale.Y;
+                double mm23 = bm.M23 / scale.Y;
 
-                float mm31 = bm.M31 / scale.Z;
-                float mm32 = bm.M32 / scale.Z;
-                float mm33 = bm.M33 / scale.Z;
+                double mm31 = bm.M31 / scale.Z;
+                double mm32 = bm.M32 / scale.Z;
+                double mm33 = bm.M33 / scale.Z;
 
 
                 //------------------------
-                float sqrt;
-                float half;
-                float trace = mm11 + mm22 + mm33;
+                double sqrt;
+                double half;
+                double trace = mm11 + mm22 + mm33;
                 BulletSharp.Math.Quaternion result = new BulletSharp.Math.Quaternion();
                 if (trace > 0.0f)
                 {
-                    sqrt = (float)UnityEngine.Mathf.Sqrt(trace + 1.0f);
+                    sqrt = Math.Sqrt(trace + 1.0);
                     result.W = sqrt * 0.5f;
                     sqrt = 0.5f / sqrt;
 
@@ -125,7 +125,7 @@ namespace BulletUnity {
                 }
                 else if ((mm11 >= mm22) && (mm11 >= mm33))
                 {
-                    sqrt = (float)UnityEngine.Mathf.Sqrt(1.0f + mm11 - mm22 - mm33);
+                    sqrt = Math.Sqrt(1.0 + mm11 - mm22 - mm33);
                     half = 0.5f / sqrt;
 
                     result.X = 0.5f * sqrt;
@@ -135,7 +135,7 @@ namespace BulletUnity {
                 }
                 else if (mm22 > mm33)
                 {
-                    sqrt = (float)UnityEngine.Mathf.Sqrt(1.0f + mm22 - mm11 - mm33);
+                    sqrt = Math.Sqrt(1.0 + mm22 - mm11 - mm33);
                     half = 0.5f / sqrt;
 
                     result.X = (mm21 + mm12) * half;
@@ -145,7 +145,7 @@ namespace BulletUnity {
                 }
                 else
                 {
-                    sqrt = (float)UnityEngine.Mathf.Sqrt(1.0f + mm33 - mm11 - mm22);
+                    sqrt = Math.Sqrt(1.0 + mm33 - mm11 - mm22);
                     half = 0.5f / sqrt;
 
                     result.X = (mm31 + mm13) * half;
@@ -162,26 +162,26 @@ namespace BulletUnity {
         public static void SetOrientation(this BulletSharp.Math.Matrix bm, BulletSharp.Math.Quaternion q)
         {
                 /*
-                float d = value.X * value.X + value.Y * value.Y + value.Z * value.Z + value.W * value.W;
+                double d = value.X * value.X + value.Y * value.Y + value.Z * value.Z + value.W * value.W;
                 UnityEngine.Debug.Assert(d != 0.0f);
-                float s = 2.0f / d;
-                float xs = value.X * s, ys = value.Y * s, zs = value.Z * s;
-                float wx = value.W * xs, wy = value.W * ys, wz = value.W * zs;
-                float xx = value.X * xs, xy = value.X * ys, xz = value.X * zs;
-                float yy = value.Y * ys, yz = value.Y * zs, zz = value.Z * zs;
+                double s = 2.0f / d;
+                double xs = value.X * s, ys = value.Y * s, zs = value.Z * s;
+                double wx = value.W * xs, wy = value.W * ys, wz = value.W * zs;
+                double xx = value.X * xs, xy = value.X * ys, xz = value.X * zs;
+                double yy = value.Y * ys, yz = value.Y * zs, zz = value.Z * zs;
                 M11 = 1.0f - (yy + zz); M12 = xy - wz; M13 = xz + wy;
                 M21 = xy + wz;   M22 = 1.0f - (xx + zz); M23 = yz - wx;
                 M31 = xz - wy;   M32 = yz + wx; M33 = 1.0f - (xx + yy);
                 */
-                float xx = q.X * q.X;
-                float yy = q.Y * q.Y;
-                float zz = q.Z * q.Z;
-                float xy = q.X * q.Y;
-                float zw = q.Z * q.W;
-                float zx = q.Z * q.X;
-                float yw = q.Y * q.W;
-                float yz = q.Y * q.Z;
-                float xw = q.X * q.W;
+                double xx = q.X * q.X;
+                double yy = q.Y * q.Y;
+                double zz = q.Z * q.Z;
+                double xy = q.X * q.Y;
+                double zw = q.Z * q.W;
+                double zx = q.Z * q.X;
+                double yw = q.Y * q.W;
+                double yz = q.Y * q.Z;
+                double xw = q.X * q.W;
 
                 bm.M11 = 1.0f - (2.0f * (yy + zz));
                 bm.M12 = 2.0f * (xy + zw);
@@ -247,9 +247,9 @@ namespace BulletUnity {
 
         public static Vector3 ExtractTranslationFromMatrix(ref BulletSharp.Math.Matrix matrix) {
             Vector3 translate;
-            translate.x = matrix.M41;
-            translate.y = matrix.M42;
-            translate.z = matrix.M43;
+            translate.x = (float)matrix.M41;
+            translate.y = (float)matrix.M42;
+            translate.z = (float)matrix.M43;
             return translate;
         }
 
@@ -277,14 +277,14 @@ namespace BulletUnity {
 
         public static Quaternion ExtractRotationFromMatrix(ref BulletSharp.Math.Matrix matrix) {
             Vector3 forward;
-            forward.x = matrix.M31;
-            forward.y = matrix.M32;
-            forward.z = matrix.M33;
+            forward.x = (float)matrix.M31;
+            forward.y = (float)matrix.M32;
+            forward.z = (float)matrix.M33;
 
             Vector3 upwards;
-            upwards.x = matrix.M21;
-            upwards.y = matrix.M22;
-            upwards.z = matrix.M23;
+            upwards.x = (float)matrix.M21;
+            upwards.y = (float)matrix.M22;
+            upwards.z = (float)matrix.M23;
 
             return Quaternion.LookRotation(forward, upwards);
         }
@@ -307,9 +307,9 @@ namespace BulletUnity {
 
         public static Vector3 ExtractScaleFromMatrix(ref BulletSharp.Math.Matrix matrix) {
             Vector3 scale;
-            scale.x = new Vector4(matrix.M11, matrix.M12, matrix.M13, matrix.M14).magnitude;
-            scale.y = new Vector4(matrix.M21, matrix.M22, matrix.M23, matrix.M24).magnitude;
-            scale.z = new Vector4(matrix.M31, matrix.M32, matrix.M33, matrix.M34).magnitude;
+            scale.x = new Vector4((float)matrix.M11, (float)matrix.M12, (float)matrix.M13, (float)matrix.M14).magnitude;
+            scale.y = new Vector4((float)matrix.M21, (float)matrix.M22, (float)matrix.M23, (float)matrix.M24).magnitude;
+            scale.z = new Vector4((float)matrix.M31, (float)matrix.M32, (float)matrix.M33, (float)matrix.M34).magnitude;
             return scale;
         }
 

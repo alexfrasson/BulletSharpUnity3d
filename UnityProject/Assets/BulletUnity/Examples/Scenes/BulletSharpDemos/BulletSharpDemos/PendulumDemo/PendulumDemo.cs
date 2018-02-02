@@ -13,7 +13,7 @@ namespace PendulumDemo
         Vector3 eye = new Vector3(-2, 0, 1);
         Vector3 target = new Vector3(0, -0.5f, 0);
 
-        const float radius = 0.05f;
+        const double radius = 0.05f;
 
         MultiBody multiBody;
 
@@ -52,7 +52,7 @@ namespace PendulumDemo
             //Vector3 baseHalfExtents = new Vector3(0.05f, 0.5f, 0.1f);
 
             Vector3 baseInertiaDiag = Vector3.Zero;
-            const float baseMass = 0;
+            const double baseMass = 0;
 
             multiBody = new MultiBody(numLinks, baseMass, baseInertiaDiag, !floating, canSleep);
             //multiBody.UseRK4Integration = true;
@@ -68,7 +68,7 @@ namespace PendulumDemo
 
             for(int i = 0; i < numLinks; i++)
 		    {
-                const float linkMass = 10;
+                const double linkMass = 10;
 			    Vector3 linkInertiaDiag = Vector3.Zero;
                 using (var shape = new SphereShape(radius))
                 {
@@ -102,7 +102,8 @@ namespace PendulumDemo
                 col.CollisionShape = shape;
                 //const bool isDynamic = true;
                 CollisionFilterGroups collisionFilterGroup = CollisionFilterGroups.DefaultFilter; // : CollisionFilterGroups.StaticFilter;
-                CollisionFilterGroups collisionFilterMask = CollisionFilterGroups.Everything; // : CollisionFilterGroups.AllFilter & ~CollisionFilterGroups.StaticFilter;
+                //CollisionFilterGroups collisionFilterMask = CollisionFilterGroups.Everything; // : CollisionFilterGroups.AllFilter & ~CollisionFilterGroups.StaticFilter;
+				CollisionFilterGroups collisionFilterMask = CollisionFilterGroups.AllFilter; // : CollisionFilterGroups.AllFilter & ~CollisionFilterGroups.StaticFilter;
                 World.AddCollisionObject(col, collisionFilterGroup, collisionFilterMask);
                 multiBody.GetLink(i).Collider = col;
             }

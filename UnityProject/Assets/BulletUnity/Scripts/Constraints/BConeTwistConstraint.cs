@@ -24,8 +24,8 @@ namespace BulletUnity {
 
         [Header("Limits")]
         [SerializeField]
-        protected float m_swingSpan1Radians = Mathf.PI;
-        public float swingSpan1Radians
+        protected double m_swingSpan1Radians = Mathf.PI;
+        public double swingSpan1Radians
         {
             get { return m_swingSpan1Radians; }
             set
@@ -39,8 +39,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_swingSpan2Radians = Mathf.PI;
-        public float swingSpan2Radians
+        protected double m_swingSpan2Radians = Mathf.PI;
+        public double swingSpan2Radians
         {
             get { return m_swingSpan2Radians; }
             set
@@ -54,8 +54,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_twistSpanRadians = Mathf.PI;
-        public float twistSpanRadians
+        protected double m_twistSpanRadians = Mathf.PI;
+        public double twistSpanRadians
         {
             get { return m_twistSpanRadians; }
             set
@@ -69,8 +69,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_softness = .5f;
-        public float softness
+        protected double m_softness = .5f;
+        public double softness
         {
             get { return m_softness; }
             set
@@ -84,8 +84,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_biasFactor = .3f;
-        public float biasFactor
+        protected double m_biasFactor = .3f;
+        public double biasFactor
         {
             get { return m_biasFactor; }
             set
@@ -99,8 +99,8 @@ namespace BulletUnity {
         }
 
         [SerializeField]
-        protected float m_relaxationFactor = 1f;
-        public float relaxationFactor
+        protected double m_relaxationFactor = 1f;
+        public double relaxationFactor
         {
             get { return m_relaxationFactor; }
             set

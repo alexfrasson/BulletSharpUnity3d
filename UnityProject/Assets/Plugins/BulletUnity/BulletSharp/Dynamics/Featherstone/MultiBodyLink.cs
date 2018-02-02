@@ -28,7 +28,7 @@ namespace BulletSharp
 			return value;
 		}
 
-		public void SetAxisBottom(int dof, float x, float y, float z)
+		public void SetAxisBottom(int dof, double x, double y, double z)
 		{
 			btMultibodyLink_setAxisBottom(_native, dof, x, y, z);
 		}
@@ -38,7 +38,7 @@ namespace BulletSharp
 			btMultibodyLink_setAxisBottom2(_native, dof, ref axis);
 		}
 
-		public void SetAxisTop(int dof, float x, float y, float z)
+		public void SetAxisTop(int dof, double x, double y, double z)
 		{
 			btMultibodyLink_setAxisTop(_native, dof, x, y, z);
 		}
@@ -53,7 +53,7 @@ namespace BulletSharp
 			btMultibodyLink_updateCacheMultiDof(_native);
 		}
 /*
-		public void UpdateCacheMultiDof(float pq)
+		public void UpdateCacheMultiDof(double pq)
 		{
 			btMultibodyLink_updateCacheMultiDof2(_native, pq._native);
 		}
@@ -249,7 +249,7 @@ namespace BulletSharp
 			set { btMultibodyLink_setLinkName(_native, value._native); }
 		}
         */
-		public float Mass
+		public double Mass
 		{
 			get { return btMultibodyLink_getMass(_native); }
 			set { btMultibodyLink_setMass(_native, value); }
@@ -331,7 +331,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern IntPtr btMultibodyLink_getLinkName(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern float btMultibodyLink_getMass(IntPtr obj);
+		static extern double btMultibodyLink_getMass(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern int btMultibodyLink_getParent(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -351,11 +351,11 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultibodyLink_setAppliedTorque(IntPtr obj, [In] ref Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern void btMultibodyLink_setAxisBottom(IntPtr obj, int dof, float x, float y, float z);
+        static extern void btMultibodyLink_setAxisBottom(IntPtr obj, int dof, double x, double y, double z);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern void btMultibodyLink_setAxisBottom2(IntPtr obj, int dof, [In] ref Vector3 axis);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-        static extern void btMultibodyLink_setAxisTop(IntPtr obj, int dof, float x, float y, float z);
+        static extern void btMultibodyLink_setAxisTop(IntPtr obj, int dof, double x, double y, double z);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
         static extern void btMultibodyLink_setAxisTop2(IntPtr obj, int dof, [In] ref Vector3 axis);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
@@ -389,7 +389,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultibodyLink_setLinkName(IntPtr obj, IntPtr value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
-		static extern void btMultibodyLink_setMass(IntPtr obj, float value);
+		static extern void btMultibodyLink_setMass(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
 		static extern void btMultibodyLink_setParent(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv), SuppressUnmanagedCodeSecurity]
